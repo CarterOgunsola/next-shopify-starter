@@ -1,0 +1,49 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838427771086",
+      "options": [
+        {
+          "name": "Size",
+          "optionValues": [
+            {
+              "name": "S"
+            },
+            {
+              "name": "L"
+            }
+          ]
+        }
+      ],
+      "encodedVariantExistence": "v1_0-1",
+      "encodedVariantAvailability": "v1_",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430965588174",
+        "title": "S",
+        "sku": "TST-SO-S",
+        "availableForSale": false,
+        "quantityAvailable": 0,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Size",
+            "value": "S"
+          }
+        ],
+        "price": {
+          "amount": "20.0",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "data": {
+    "product": {
+      "options": [
+        {
+          "name": "Title",
+          "optionValues": [
+            {
+              "name": "Special Selling Plans Ski Wax"
+            },
+            {
+              "name": "Sample Selling Plans Ski Wax"
+            },
+            {
+              "name": "Selling Plans Ski Wax"
+            }
+          ]
+        }
+      ],
+      "encodedVariantExistence": "v1_0-2",
+      "encodedVariantAvailability": "v1_0-2",
+      "variants": {
+        "nodes": [
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Selling Plans Ski Wax"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Special Selling Plans Ski Wax"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Sample Selling Plans Ski Wax"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

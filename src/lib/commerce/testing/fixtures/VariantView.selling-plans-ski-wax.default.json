@@ -1,0 +1,103 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838224183502",
+      "options": [
+        {
+          "name": "Title",
+          "optionValues": [
+            {
+              "name": "Special Selling Plans Ski Wax"
+            },
+            {
+              "name": "Sample Selling Plans Ski Wax"
+            },
+            {
+              "name": "Selling Plans Ski Wax"
+            }
+          ]
+        }
+      ],
+      "encodedVariantExistence": "v1_0-2",
+      "encodedVariantAvailability": "v1_0-2",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430713307342",
+        "title": "Selling Plans Ski Wax",
+        "sku": null,
+        "availableForSale": true,
+        "quantityAvailable": 10,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Title",
+            "value": "Selling Plans Ski Wax"
+          }
+        ],
+        "price": {
+          "amount": "24.95",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": [
+            {
+              "sellingPlan": {
+                "id": "gid://shopify/SellingPlan/3291644110"
+              },
+              "checkoutChargeAmount": {
+                "amount": "21.21",
+                "currencyCode": "USD"
+              },
+              "priceAdjustments": [
+                {
+                  "price": {
+                    "amount": "21.21",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "24.95",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "21.21",
+                    "currencyCode": "USD"
+                  }
+                }
+              ]
+            },
+            {
+              "sellingPlan": {
+                "id": "gid://shopify/SellingPlan/3291676878"
+              },
+              "checkoutChargeAmount": {
+                "amount": "239.52",
+                "currencyCode": "USD"
+              },
+              "priceAdjustments": [
+                {
+                  "price": {
+                    "amount": "239.52",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "299.4",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "19.96",
+                    "currencyCode": "USD"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

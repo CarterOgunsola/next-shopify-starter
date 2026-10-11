@@ -1,0 +1,157 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838426755278",
+      "options": [
+        {
+          "name": "Flavor",
+          "optionValues": [
+            {
+              "name": "Lemon"
+            },
+            {
+              "name": "Berry"
+            },
+            {
+              "name": "Unflavored"
+            }
+          ]
+        },
+        {
+          "name": "Size",
+          "optionValues": [
+            {
+              "name": "15 ct"
+            },
+            {
+              "name": "30 ct"
+            }
+          ]
+        }
+      ],
+      "encodedVariantExistence": "v1_0:0-1,1:0-1,2:0-1,",
+      "encodedVariantAvailability": "v1_0:0-1,1:0-1,2:0-1,",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430964211918",
+        "title": "Lemon / 15 ct",
+        "sku": "TST-ELX-LEM-15",
+        "availableForSale": true,
+        "quantityAvailable": 10,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Flavor",
+            "value": "Lemon"
+          },
+          {
+            "name": "Size",
+            "value": "15 ct"
+          }
+        ],
+        "price": {
+          "amount": "24.0",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": [
+            {
+              "sellingPlan": {
+                "id": "gid://shopify/SellingPlan/3291775182"
+              },
+              "checkoutChargeAmount": {
+                "amount": "21.6",
+                "currencyCode": "USD"
+              },
+              "priceAdjustments": [
+                {
+                  "price": {
+                    "amount": "21.6",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "24.0",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "21.6",
+                    "currencyCode": "USD"
+                  }
+                }
+              ]
+            },
+            {
+              "sellingPlan": {
+                "id": "gid://shopify/SellingPlan/3291807950"
+              },
+              "checkoutChargeAmount": {
+                "amount": "21.6",
+                "currencyCode": "USD"
+              },
+              "priceAdjustments": [
+                {
+                  "price": {
+                    "amount": "21.6",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "24.0",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "21.6",
+                    "currencyCode": "USD"
+                  }
+                }
+              ]
+            },
+            {
+              "sellingPlan": {
+                "id": "gid://shopify/SellingPlan/3294036174"
+              },
+              "checkoutChargeAmount": {
+                "amount": "12.0",
+                "currencyCode": "USD"
+              },
+              "priceAdjustments": [
+                {
+                  "price": {
+                    "amount": "12.0",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "24.0",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "12.0",
+                    "currencyCode": "USD"
+                  }
+                },
+                {
+                  "price": {
+                    "amount": "21.6",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "24.0",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "21.6",
+                    "currencyCode": "USD"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

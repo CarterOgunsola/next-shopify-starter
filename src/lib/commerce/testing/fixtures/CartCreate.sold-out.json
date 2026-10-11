@@ -1,0 +1,96 @@
+{
+  "data": {
+    "cartCreate": {
+      "cart": {
+        "id": "gid://shopify/Cart/syntheticCart288e21d5adb1?key=syntheticKeydc0d408d9371",
+        "updatedAt": "2026-10-10T01:41:52Z",
+        "checkoutUrl": "https://synthetic-store.myshopify.com/cart/c/syntheticCart288e21d5adb1?key=syntheticKeyb80b0057ff20&_s=syntheticS9e7764c758af&_y=syntheticY7d3657b935eb",
+        "totalQuantity": 0,
+        "note": "",
+        "attributes": [],
+        "cost": {
+          "subtotalAmount": {
+            "amount": "0.0",
+            "currencyCode": "USD"
+          },
+          "totalAmount": {
+            "amount": "0.0",
+            "currencyCode": "USD"
+          },
+          "checkoutChargeAmount": {
+            "amount": "0.0",
+            "currencyCode": "USD"
+          }
+        },
+        "discountCodes": [],
+        "appliedGiftCards": [],
+        "lines": {
+          "nodes": [
+            {
+              "id": "gid://shopify/CartLine/d4fcd302-9511-4f55-b7fe-07b4e4d4adca?cart=syntheticCart288e21d5adb1",
+              "quantity": 0,
+              "attributes": [],
+              "parentRelationship": null,
+              "merchandise": {
+                "__typename": "ProductVariant",
+                "id": "gid://shopify/ProductVariant/48430713143502",
+                "title": "Default Title",
+                "sku": null,
+                "quantityRule": {
+                  "minimum": 1,
+                  "maximum": null,
+                  "increment": 1
+                },
+                "image": {
+                  "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_f44a9605-cd62-464d-b095-d45cdaa0d0d7.jpg?v=1791402370",
+                  "altText": "Top and bottom view of a snowboard. The top view shows a toggle at the top in shades of blue and\n        yellow. The bottom view shows an abstract illustration of toggles in blues and yellows.",
+                  "width": 3908,
+                  "height": 3908
+                },
+                "selectedOptions": [
+                  {
+                    "name": "Title",
+                    "value": "Default Title"
+                  }
+                ],
+                "product": {
+                  "id": "gid://shopify/Product/8838224052430",
+                  "handle": "the-out-of-stock-snowboard",
+                  "title": "The Out of Stock Snowboard",
+                  "vendor": "synthetic-store",
+                  "productType": "snowboard",
+                  "requiresSellingPlan": false,
+                  "isGiftCard": false
+                },
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              "sellingPlanAllocation": null,
+              "discountAllocations": [],
+              "allDiscountAllocations": [],
+              "cost": {
+                "amountPerQuantity": {
+                  "amount": "885.95",
+                  "currencyCode": "USD"
+                },
+                "compareAtAmountPerQuantity": null,
+                "totalAmount": {
+                  "amount": "0.0",
+                  "currencyCode": "USD"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "userErrors": [],
+      "warnings": [
+        {
+          "code": "MERCHANDISE_OUT_OF_STOCK",
+          "message": "The product 'The Out of Stock Snowboard' is already sold out."
+        }
+      ]
+    }
+  }
+}

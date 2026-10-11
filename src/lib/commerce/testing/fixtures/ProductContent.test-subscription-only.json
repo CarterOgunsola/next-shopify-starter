@@ -1,0 +1,265 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838427803854",
+      "isGiftCard": false,
+      "handle": "test-subscription-only",
+      "title": "Test Creatine (subscription only)",
+      "vendor": "Test",
+      "productType": "Supplement",
+      "description": "Synthetic test product: Test Creatine (subscription only).",
+      "descriptionHtml": "<p>Synthetic test product: Test Creatine (subscription only).</p>",
+      "options": [
+        {
+          "name": "Title",
+          "optionValues": [
+            {
+              "name": "Default Title",
+              "swatch": null
+            }
+          ]
+        }
+      ],
+      "media": {
+        "nodes": [
+          {
+            "__typename": "MediaImage",
+            "alt": "Creatine",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/wax-special.jpg?v=1791402370",
+              "altText": "Creatine",
+              "width": 1600,
+              "height": 1600
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/wax-special.jpg?v=1791402370",
+              "altText": "Creatine",
+              "width": 1600,
+              "height": 1600
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "requiresSellingPlan": true,
+      "variants": {
+        "nodes": [
+          {
+            "id": "gid://shopify/ProductVariant/48430965653710",
+            "title": "Default Title",
+            "sku": "TST-CRE-1",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "35.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": [
+                {
+                  "priceAdjustments": [
+                    {
+                      "perDeliveryPrice": {
+                        "amount": "31.5",
+                        "currencyCode": "USD"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "priceAdjustments": [
+                    {
+                      "perDeliveryPrice": {
+                        "amount": "31.5",
+                        "currencyCode": "USD"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Default Title"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/wax-special.jpg?v=1791402370"
+            }
+          }
+        ]
+      },
+      "sellingPlanGroups": {
+        "nodes": [
+          {
+            "name": "Test Subscribe and Save",
+            "sellingPlans": {
+              "nodes": [
+                {
+                  "id": "gid://shopify/SellingPlan/3291775182",
+                  "name": "Every month",
+                  "description": null,
+                  "recurringDeliveries": true,
+                  "priceAdjustments": [
+                    {
+                      "orderCount": null
+                    }
+                  ]
+                },
+                {
+                  "id": "gid://shopify/SellingPlan/3291807950",
+                  "name": "Every 2 months",
+                  "description": null,
+                  "recurringDeliveries": true,
+                  "priceAdjustments": [
+                    {
+                      "orderCount": null
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "reviewRating": null,
+      "reviewCount": null,
+      "publishedAt": "2026-10-07T22:13:50Z",
+      "merchantBadges": null,
+      "supplement": [
+        {
+          "key": "serving_size",
+          "value": "1 scoop (5 g)",
+          "reference": null
+        },
+        {
+          "key": "servings_per_container",
+          "value": "30",
+          "reference": null
+        },
+        {
+          "key": "facts",
+          "value": "[{\"ingredient\":\"Creatine monohydrate\",\"amount\":\"5\",\"unit\":\"g\",\"daily_value\":null}]",
+          "reference": null
+        },
+        null,
+        {
+          "key": "allergens",
+          "value": "[\"Soybeans\"]",
+          "reference": null
+        },
+        {
+          "key": "directions",
+          "value": "Mix one scoop with water or a drink of your choice.",
+          "reference": null
+        },
+        {
+          "key": "warnings",
+          "value": "Consult your doctor before use if you are pregnant or nursing.",
+          "reference": null
+        },
+        {
+          "key": "structure_function_claims",
+          "value": "0",
+          "reference": null
+        },
+        {
+          "key": "prop65_warning",
+          "value": "true",
+          "reference": null
+        },
+        {
+          "key": "prop65_chemical",
+          "value": "lead",
+          "reference": null
+        },
+        null
+      ],
+      "encodedVariantExistence": "v1_0",
+      "encodedVariantAvailability": "v1_0",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430965653710",
+        "title": "Default Title",
+        "sku": "TST-CRE-1",
+        "availableForSale": true,
+        "quantityAvailable": 10,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Title",
+            "value": "Default Title"
+          }
+        ],
+        "price": {
+          "amount": "35.0",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": [
+            {
+              "sellingPlan": {
+                "id": "gid://shopify/SellingPlan/3291775182"
+              },
+              "checkoutChargeAmount": {
+                "amount": "31.5",
+                "currencyCode": "USD"
+              },
+              "priceAdjustments": [
+                {
+                  "price": {
+                    "amount": "31.5",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "35.0",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "31.5",
+                    "currencyCode": "USD"
+                  }
+                }
+              ]
+            },
+            {
+              "sellingPlan": {
+                "id": "gid://shopify/SellingPlan/3291807950"
+              },
+              "checkoutChargeAmount": {
+                "amount": "31.5",
+                "currencyCode": "USD"
+              },
+              "priceAdjustments": [
+                {
+                  "price": {
+                    "amount": "31.5",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "35.0",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "31.5",
+                    "currencyCode": "USD"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

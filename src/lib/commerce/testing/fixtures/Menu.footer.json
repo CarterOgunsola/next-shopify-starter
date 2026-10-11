@@ -1,0 +1,30 @@
+{
+  "data": {
+    "shop": {
+      "primaryDomain": {
+        "host": "synthetic-store.myshopify.com"
+      }
+    },
+    "menu": {
+      "items": [
+        {
+          "title": "Search",
+          "type": "SEARCH",
+          "url": "https://synthetic-store.myshopify.com/search",
+          "resource": null,
+          "items": []
+        },
+        {
+          "title": "Your Privacy Choices",
+          "type": "PAGE",
+          "url": "https://synthetic-store.myshopify.com/pages/data-sharing-opt-out",
+          "resource": {
+            "__typename": "Page",
+            "handle": "data-sharing-opt-out"
+          },
+          "items": []
+        }
+      ]
+    }
+  }
+}

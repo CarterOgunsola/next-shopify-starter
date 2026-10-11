@@ -1,0 +1,606 @@
+{
+  "data": {
+    "product": {
+      "options": [
+        {
+          "name": "Color",
+          "optionValues": [
+            {
+              "name": "Black"
+            },
+            {
+              "name": "Bone"
+            },
+            {
+              "name": "Forest"
+            },
+            {
+              "name": "Navy"
+            }
+          ]
+        },
+        {
+          "name": "Size",
+          "optionValues": [
+            {
+              "name": "XS"
+            },
+            {
+              "name": "S"
+            },
+            {
+              "name": "M"
+            },
+            {
+              "name": "L"
+            },
+            {
+              "name": "XL"
+            }
+          ]
+        },
+        {
+          "name": "Fit",
+          "optionValues": [
+            {
+              "name": "Regular"
+            },
+            {
+              "name": "Relaxed"
+            }
+          ]
+        }
+      ],
+      "encodedVariantExistence": "v1_0:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,1:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,2:0:0,1:0,2:0,3:0,4:0,,3:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,",
+      "encodedVariantAvailability": "v1_0:0:0,1:0-1,2:0-1,3:0-1,,1:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,2:0:0,1:0,2:0,3:0,4:0,,3:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,",
+      "variants": {
+        "nodes": [
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "XS"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": false,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": false,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "XS"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "XS"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "XS"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

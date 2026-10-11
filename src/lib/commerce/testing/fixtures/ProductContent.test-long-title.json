@@ -1,0 +1,127 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838427082958",
+      "isGiftCard": false,
+      "handle": "test-long-title",
+      "title": "Test Ünïcödé & “Quotes” / Slashes <b>not bold</b>: a very long product title that keeps going well past what any card or tab can show without wrapping or truncating",
+      "vendor": "Test",
+      "productType": "Test",
+      "description": "HeadingParagraph with bold, italic, a link and an emoji 🏔️. List one List two Col Val A 1 alert('should never run')Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence.",
+      "descriptionHtml": "<h2>Heading</h2><p>Paragraph with <strong>bold</strong>, <em>italic</em>, a <a href=\"https://example.com\">link</a> and an emoji 🏔️.</p><ul>\n<li>List one</li>\n<li>List two</li>\n</ul><table>\n<tr>\n<th>Col</th>\n<th>Val</th>\n</tr>\n<tr>\n<td>A</td>\n<td>1</td>\n</tr>\n</table><script>alert('should never run')</script><p>Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. Long description sentence. </p>",
+      "options": [
+        {
+          "name": "Title",
+          "optionValues": [
+            {
+              "name": "Default Title",
+              "swatch": null
+            }
+          ]
+        }
+      ],
+      "media": {
+        "nodes": [
+          {
+            "__typename": "MediaImage",
+            "alt": "Tee in Black",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370",
+              "altText": "Tee in Black",
+              "width": 1024,
+              "height": 1024
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370",
+              "altText": "Tee in Black",
+              "width": 1024,
+              "height": 1024
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "requiresSellingPlan": false,
+      "variants": {
+        "nodes": [
+          {
+            "id": "gid://shopify/ProductVariant/48430964768974",
+            "title": "Default Title",
+            "sku": "TST-LONG-1",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "19.99",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Default Title"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          }
+        ]
+      },
+      "sellingPlanGroups": {
+        "nodes": []
+      },
+      "reviewRating": null,
+      "reviewCount": null,
+      "publishedAt": "2026-10-07T22:13:50Z",
+      "merchantBadges": null,
+      "supplement": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "encodedVariantExistence": "v1_0",
+      "encodedVariantAvailability": "v1_0",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430964768974",
+        "title": "Default Title",
+        "sku": "TST-LONG-1",
+        "availableForSale": true,
+        "quantityAvailable": 10,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Title",
+            "value": "Default Title"
+          }
+        ],
+        "price": {
+          "amount": "19.99",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": []
+        }
+      }
+    }
+  }
+}

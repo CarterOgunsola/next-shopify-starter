@@ -1,0 +1,45 @@
+{
+  "data": {
+    "cartCreate": {
+      "cart": {
+        "id": "gid://shopify/Cart/syntheticCart34e28ecbaa39?key=syntheticKey4f6351079657",
+        "updatedAt": "2026-10-10T01:41:55Z",
+        "checkoutUrl": "https://synthetic-store.myshopify.com/cart/c/syntheticCart34e28ecbaa39?key=syntheticKeybe1a06fb6694&_s=syntheticSde76e4720688&_y=syntheticY0204ffbc99f5",
+        "totalQuantity": 0,
+        "note": "",
+        "attributes": [],
+        "cost": {
+          "subtotalAmount": {
+            "amount": "0.0",
+            "currencyCode": "USD"
+          },
+          "totalAmount": {
+            "amount": "0.0",
+            "currencyCode": "USD"
+          },
+          "checkoutChargeAmount": {
+            "amount": "0.0",
+            "currencyCode": "USD"
+          }
+        },
+        "discountCodes": [
+          {
+            "code": "TEST10",
+            "applicable": false
+          }
+        ],
+        "appliedGiftCards": [],
+        "lines": {
+          "nodes": []
+        }
+      },
+      "userErrors": [],
+      "warnings": [
+        {
+          "code": "DISCOUNT_CODE_NOT_HONOURED",
+          "message": "The TEST10 discount code is not honoured"
+        }
+      ]
+    }
+  }
+}

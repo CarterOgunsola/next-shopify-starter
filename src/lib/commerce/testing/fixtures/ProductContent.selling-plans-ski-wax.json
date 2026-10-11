@@ -1,0 +1,371 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838224183502",
+      "isGiftCard": false,
+      "handle": "selling-plans-ski-wax",
+      "title": "Selling Plans Ski Wax",
+      "vendor": "synthetic-store",
+      "productType": "accessories",
+      "description": "",
+      "descriptionHtml": "",
+      "options": [
+        {
+          "name": "Title",
+          "optionValues": [
+            {
+              "name": "Special Selling Plans Ski Wax",
+              "swatch": null
+            },
+            {
+              "name": "Sample Selling Plans Ski Wax",
+              "swatch": null
+            },
+            {
+              "name": "Selling Plans Ski Wax",
+              "swatch": null
+            }
+          ]
+        }
+      ],
+      "media": {
+        "nodes": [
+          {
+            "__typename": "MediaImage",
+            "alt": "Electrolytes",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/snowboard_wax.jpg?v=1791402370",
+              "altText": "Electrolytes",
+              "width": 1600,
+              "height": 1600
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/snowboard_wax.jpg?v=1791402370",
+              "altText": "Electrolytes",
+              "width": 1600,
+              "height": 1600
+            }
+          },
+          {
+            "__typename": "MediaImage",
+            "alt": "Creatine",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/wax-special.jpg?v=1791402370",
+              "altText": "Creatine",
+              "width": 1600,
+              "height": 1600
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/wax-special.jpg?v=1791402370",
+              "altText": "Creatine",
+              "width": 1600,
+              "height": 1600
+            }
+          },
+          {
+            "__typename": "MediaImage",
+            "alt": "Electrolytes back",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/sample-normal-wax.jpg?v=1791402370",
+              "altText": "Electrolytes back",
+              "width": 1600,
+              "height": 1600
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/sample-normal-wax.jpg?v=1791402370",
+              "altText": "Electrolytes back",
+              "width": 1600,
+              "height": 1600
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "requiresSellingPlan": false,
+      "variants": {
+        "nodes": [
+          {
+            "id": "gid://shopify/ProductVariant/48430713307342",
+            "title": "Selling Plans Ski Wax",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "24.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": [
+                {
+                  "priceAdjustments": [
+                    {
+                      "perDeliveryPrice": {
+                        "amount": "21.21",
+                        "currencyCode": "USD"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "priceAdjustments": [
+                    {
+                      "perDeliveryPrice": {
+                        "amount": "19.96",
+                        "currencyCode": "USD"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Selling Plans Ski Wax"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/snowboard_wax.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430713340110",
+            "title": "Special Selling Plans Ski Wax",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "49.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": [
+                {
+                  "priceAdjustments": [
+                    {
+                      "perDeliveryPrice": {
+                        "amount": "39.96",
+                        "currencyCode": "USD"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Special Selling Plans Ski Wax"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/snowboard_wax.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430713372878",
+            "title": "Sample Selling Plans Ski Wax",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "9.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": [
+                {
+                  "priceAdjustments": []
+                }
+              ]
+            },
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Sample Selling Plans Ski Wax"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/snowboard_wax.jpg?v=1791402370"
+            }
+          }
+        ]
+      },
+      "sellingPlanGroups": {
+        "nodes": [
+          {
+            "name": "Subscription",
+            "sellingPlans": {
+              "nodes": [
+                {
+                  "id": "gid://shopify/SellingPlan/3291644110",
+                  "name": "Ski wax subscription, billed and delivered weekly",
+                  "description": null,
+                  "recurringDeliveries": true,
+                  "priceAdjustments": [
+                    {
+                      "orderCount": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Prepaid",
+            "sellingPlans": {
+              "nodes": [
+                {
+                  "id": "gid://shopify/SellingPlan/3291676878",
+                  "name": "A year supply of prepaid ski wax, delivered monthly",
+                  "description": null,
+                  "recurringDeliveries": true,
+                  "priceAdjustments": [
+                    {
+                      "orderCount": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Preorder",
+            "sellingPlans": {
+              "nodes": [
+                {
+                  "id": "gid://shopify/SellingPlan/3291709646",
+                  "name": "Preorder ski wax, delivered in a month",
+                  "description": null,
+                  "recurringDeliveries": false,
+                  "priceAdjustments": [
+                    {
+                      "orderCount": null
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Try Before You Buy",
+            "sellingPlans": {
+              "nodes": [
+                {
+                  "id": "gid://shopify/SellingPlan/3291742414",
+                  "name": "Try our product risk-free for a week before needing to pay",
+                  "description": null,
+                  "recurringDeliveries": false,
+                  "priceAdjustments": []
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "reviewRating": null,
+      "reviewCount": null,
+      "publishedAt": "2026-10-07T19:50:02Z",
+      "merchantBadges": null,
+      "supplement": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "encodedVariantExistence": "v1_0-2",
+      "encodedVariantAvailability": "v1_0-2",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430713307342",
+        "title": "Selling Plans Ski Wax",
+        "sku": null,
+        "availableForSale": true,
+        "quantityAvailable": 10,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Title",
+            "value": "Selling Plans Ski Wax"
+          }
+        ],
+        "price": {
+          "amount": "24.95",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": [
+            {
+              "sellingPlan": {
+                "id": "gid://shopify/SellingPlan/3291644110"
+              },
+              "checkoutChargeAmount": {
+                "amount": "21.21",
+                "currencyCode": "USD"
+              },
+              "priceAdjustments": [
+                {
+                  "price": {
+                    "amount": "21.21",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "24.95",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "21.21",
+                    "currencyCode": "USD"
+                  }
+                }
+              ]
+            },
+            {
+              "sellingPlan": {
+                "id": "gid://shopify/SellingPlan/3291676878"
+              },
+              "checkoutChargeAmount": {
+                "amount": "239.52",
+                "currencyCode": "USD"
+              },
+              "priceAdjustments": [
+                {
+                  "price": {
+                    "amount": "239.52",
+                    "currencyCode": "USD"
+                  },
+                  "compareAtPrice": {
+                    "amount": "299.4",
+                    "currencyCode": "USD"
+                  },
+                  "perDeliveryPrice": {
+                    "amount": "19.96",
+                    "currencyCode": "USD"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

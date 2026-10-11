@@ -1,0 +1,79 @@
+{
+  "data": {
+    "product": {
+      "options": [
+        {
+          "name": "Color",
+          "optionValues": [
+            {
+              "name": "Dawn"
+            },
+            {
+              "name": "Powder"
+            },
+            {
+              "name": "Electric"
+            },
+            {
+              "name": "Sunset"
+            },
+            {
+              "name": "Ice"
+            }
+          ]
+        }
+      ],
+      "encodedVariantExistence": "v1_0-4",
+      "encodedVariantAvailability": "v1_0-4",
+      "variants": {
+        "nodes": [
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Ice"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Dawn"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Powder"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Electric"
+              }
+            ]
+          },
+          {
+            "availableForSale": true,
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Sunset"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

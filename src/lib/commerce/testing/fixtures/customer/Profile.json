@@ -1,0 +1,11 @@
+{
+  "data": {
+    "customer": {
+      "firstName": "Avery",
+      "lastName": "Example",
+      "emailAddress": {
+        "emailAddress": "avery@example.test"
+      }
+    }
+  }
+}

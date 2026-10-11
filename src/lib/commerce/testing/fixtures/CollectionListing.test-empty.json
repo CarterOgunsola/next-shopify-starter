@@ -1,0 +1,26 @@
+{
+  "data": {
+    "collection": {
+      "id": "gid://shopify/Collection/357749752014",
+      "handle": "test-empty",
+      "title": "Test Empty Collection",
+      "description": "",
+      "descriptionHtml": "",
+      "image": null,
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "products": {
+        "nodes": [],
+        "pageInfo": {
+          "hasNextPage": false,
+          "hasPreviousPage": false,
+          "startCursor": null,
+          "endCursor": null
+        },
+        "filters": []
+      }
+    }
+  }
+}

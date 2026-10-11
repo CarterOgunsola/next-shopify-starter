@@ -1,0 +1,1260 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838427967694",
+      "isGiftCard": false,
+      "handle": "test-tee-3-option",
+      "title": "Test Tee (3 options, sparse)",
+      "vendor": "Test",
+      "productType": "Apparel",
+      "description": "Synthetic test product: Test Tee (3 options, sparse).",
+      "descriptionHtml": "<p>Synthetic test product: Test Tee (3 options, sparse).</p>",
+      "options": [
+        {
+          "name": "Color",
+          "optionValues": [
+            {
+              "name": "Black",
+              "swatch": null
+            },
+            {
+              "name": "Bone",
+              "swatch": null
+            },
+            {
+              "name": "Forest",
+              "swatch": null
+            },
+            {
+              "name": "Navy",
+              "swatch": null
+            }
+          ]
+        },
+        {
+          "name": "Size",
+          "optionValues": [
+            {
+              "name": "XS",
+              "swatch": null
+            },
+            {
+              "name": "S",
+              "swatch": null
+            },
+            {
+              "name": "M",
+              "swatch": null
+            },
+            {
+              "name": "L",
+              "swatch": null
+            },
+            {
+              "name": "XL",
+              "swatch": null
+            }
+          ]
+        },
+        {
+          "name": "Fit",
+          "optionValues": [
+            {
+              "name": "Regular",
+              "swatch": null
+            },
+            {
+              "name": "Relaxed",
+              "swatch": null
+            }
+          ]
+        }
+      ],
+      "media": {
+        "nodes": [
+          {
+            "__typename": "MediaImage",
+            "alt": "Tee in Black",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370",
+              "altText": "Tee in Black",
+              "width": 1024,
+              "height": 1024
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370",
+              "altText": "Tee in Black",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          {
+            "__typename": "MediaImage",
+            "alt": "Tee in Bone",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370",
+              "altText": "Tee in Bone",
+              "width": 1600,
+              "height": 1600
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370",
+              "altText": "Tee in Bone",
+              "width": 1600,
+              "height": 1600
+            }
+          },
+          {
+            "__typename": "MediaImage",
+            "alt": "Tee in Forest",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1791402371",
+              "altText": "Tee in Forest",
+              "width": 1600,
+              "height": 1600
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1791402371",
+              "altText": "Tee in Forest",
+              "width": 1600,
+              "height": 1600
+            }
+          },
+          {
+            "__typename": "MediaImage",
+            "alt": "Tee in Navy",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370",
+              "altText": "Tee in Navy",
+              "width": 1600,
+              "height": 1600
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370",
+              "altText": "Tee in Navy",
+              "width": 1600,
+              "height": 1600
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Test Tee",
+        "description": "Synthetic three-option product with missing combinations."
+      },
+      "requiresSellingPlan": false,
+      "variants": {
+        "nodes": [
+          {
+            "id": "gid://shopify/ProductVariant/48430965817550",
+            "title": "Black / XS / Regular",
+            "sku": "TST-TEE-BL-XS-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "XS"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430965850318",
+            "title": "Black / S / Regular",
+            "sku": "TST-TEE-BL-S-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430965883086",
+            "title": "Black / S / Relaxed",
+            "sku": "TST-TEE-BL-S-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430965915854",
+            "title": "Black / M / Regular",
+            "sku": "TST-TEE-BL-M-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430965948622",
+            "title": "Black / M / Relaxed",
+            "sku": "TST-TEE-BL-M-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430965981390",
+            "title": "Black / L / Regular",
+            "sku": "TST-TEE-BL-L-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966014158",
+            "title": "Black / L / Relaxed",
+            "sku": "TST-TEE-BL-L-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966046926",
+            "title": "Black / XL / Regular",
+            "sku": "TST-TEE-BL-XL-REG",
+            "barcode": null,
+            "availableForSale": false,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966079694",
+            "title": "Black / XL / Relaxed",
+            "sku": "TST-TEE-BL-XL-REL",
+            "barcode": null,
+            "availableForSale": false,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Black"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966112462",
+            "title": "Bone / XS / Regular",
+            "sku": "TST-TEE-BO-XS-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "XS"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966145230",
+            "title": "Bone / S / Regular",
+            "sku": "TST-TEE-BO-S-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966177998",
+            "title": "Bone / S / Relaxed",
+            "sku": "TST-TEE-BO-S-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966210766",
+            "title": "Bone / M / Regular",
+            "sku": "TST-TEE-BO-M-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966243534",
+            "title": "Bone / M / Relaxed",
+            "sku": "TST-TEE-BO-M-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966276302",
+            "title": "Bone / L / Regular",
+            "sku": "TST-TEE-BO-L-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966309070",
+            "title": "Bone / L / Relaxed",
+            "sku": "TST-TEE-BO-L-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966341838",
+            "title": "Bone / XL / Regular",
+            "sku": "TST-TEE-BO-XL-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966374606",
+            "title": "Bone / XL / Relaxed",
+            "sku": "TST-TEE-BO-XL-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Bone"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a40b01b-5021-48c1-80d1-aa8ab4876d3d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966407374",
+            "title": "Forest / XS / Regular",
+            "sku": "TST-TEE-FO-XS-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "XS"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1791402371"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966440142",
+            "title": "Forest / S / Regular",
+            "sku": "TST-TEE-FO-S-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1791402371"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966472910",
+            "title": "Forest / M / Regular",
+            "sku": "TST-TEE-FO-M-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1791402371"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966505678",
+            "title": "Forest / L / Regular",
+            "sku": "TST-TEE-FO-L-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1791402371"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966538446",
+            "title": "Forest / XL / Regular",
+            "sku": "TST-TEE-FO-XL-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Forest"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_0a4e9096-021a-4c1e-8750-24b233166a12.jpg?v=1791402371"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966571214",
+            "title": "Navy / XS / Regular",
+            "sku": "TST-TEE-NA-XS-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": {
+              "amount": "48.0",
+              "currencyCode": "USD"
+            },
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "XS"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966603982",
+            "title": "Navy / S / Regular",
+            "sku": "TST-TEE-NA-S-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": {
+              "amount": "48.0",
+              "currencyCode": "USD"
+            },
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966636750",
+            "title": "Navy / S / Relaxed",
+            "sku": "TST-TEE-NA-S-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": {
+              "amount": "48.0",
+              "currencyCode": "USD"
+            },
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "S"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966669518",
+            "title": "Navy / M / Regular",
+            "sku": "TST-TEE-NA-M-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": {
+              "amount": "48.0",
+              "currencyCode": "USD"
+            },
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966702286",
+            "title": "Navy / M / Relaxed",
+            "sku": "TST-TEE-NA-M-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": {
+              "amount": "48.0",
+              "currencyCode": "USD"
+            },
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "M"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966735054",
+            "title": "Navy / L / Regular",
+            "sku": "TST-TEE-NA-L-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": {
+              "amount": "48.0",
+              "currencyCode": "USD"
+            },
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966767822",
+            "title": "Navy / L / Relaxed",
+            "sku": "TST-TEE-NA-L-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": {
+              "amount": "48.0",
+              "currencyCode": "USD"
+            },
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "L"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966800590",
+            "title": "Navy / XL / Regular",
+            "sku": "TST-TEE-NA-XL-REG",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": {
+              "amount": "48.0",
+              "currencyCode": "USD"
+            },
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Regular"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430966833358",
+            "title": "Navy / XL / Relaxed",
+            "sku": "TST-TEE-NA-XL-REL",
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": {
+              "amount": "48.0",
+              "currencyCode": "USD"
+            },
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Navy"
+              },
+              {
+                "name": "Size",
+                "value": "XL"
+              },
+              {
+                "name": "Fit",
+                "value": "Relaxed"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_5127218a-8f6c-498f-b489-09242c0fab0a.jpg?v=1791402370"
+            }
+          }
+        ]
+      },
+      "sellingPlanGroups": {
+        "nodes": []
+      },
+      "reviewRating": null,
+      "reviewCount": null,
+      "publishedAt": "2026-10-07T22:13:50Z",
+      "merchantBadges": null,
+      "supplement": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "encodedVariantExistence": "v1_0:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,1:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,2:0:0,1:0,2:0,3:0,4:0,,3:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,",
+      "encodedVariantAvailability": "v1_0:0:0,1:0-1,2:0-1,3:0-1,,1:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,2:0:0,1:0,2:0,3:0,4:0,,3:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430965817550",
+        "title": "Black / XS / Regular",
+        "sku": "TST-TEE-BL-XS-REG",
+        "availableForSale": true,
+        "quantityAvailable": 6,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Color",
+            "value": "Black"
+          },
+          {
+            "name": "Size",
+            "value": "XS"
+          },
+          {
+            "name": "Fit",
+            "value": "Regular"
+          }
+        ],
+        "price": {
+          "amount": "38.0",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": []
+        }
+      }
+    }
+  }
+}

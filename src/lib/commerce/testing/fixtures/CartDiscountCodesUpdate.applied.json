@@ -1,0 +1,112 @@
+{
+  "data": {
+    "cartDiscountCodesUpdate": {
+      "cart": {
+        "id": "gid://shopify/Cart/syntheticCarta1b6d5787c4a?key=syntheticKey702df5721375",
+        "updatedAt": "2026-10-10T01:41:54Z",
+        "checkoutUrl": "https://synthetic-store.myshopify.com/cart/c/syntheticCarta1b6d5787c4a?key=syntheticKey6f4cfe1833dc&_s=syntheticS92250af0f453&_y=syntheticY47e2a7bf9d57",
+        "totalQuantity": 1,
+        "note": "",
+        "attributes": [],
+        "cost": {
+          "subtotalAmount": {
+            "amount": "38.0",
+            "currencyCode": "USD"
+          },
+          "totalAmount": {
+            "amount": "34.2",
+            "currencyCode": "USD"
+          },
+          "checkoutChargeAmount": {
+            "amount": "38.0",
+            "currencyCode": "USD"
+          }
+        },
+        "discountCodes": [
+          {
+            "code": "TEST10",
+            "applicable": true
+          }
+        ],
+        "appliedGiftCards": [],
+        "lines": {
+          "nodes": [
+            {
+              "id": "gid://shopify/CartLine/4b0328a0-4338-4600-bd62-8e2f2ea33c6c?cart=syntheticCarta1b6d5787c4a",
+              "quantity": 1,
+              "attributes": [],
+              "parentRelationship": null,
+              "merchandise": {
+                "__typename": "ProductVariant",
+                "id": "gid://shopify/ProductVariant/48430965817550",
+                "title": "Black / XS / Regular",
+                "sku": "TST-TEE-BL-XS-REG",
+                "quantityRule": {
+                  "minimum": 1,
+                  "maximum": null,
+                  "increment": 1
+                },
+                "image": {
+                  "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370",
+                  "altText": "Tee in Black",
+                  "width": 1024,
+                  "height": 1024
+                },
+                "selectedOptions": [
+                  {
+                    "name": "Color",
+                    "value": "Black"
+                  },
+                  {
+                    "name": "Size",
+                    "value": "XS"
+                  },
+                  {
+                    "name": "Fit",
+                    "value": "Regular"
+                  }
+                ],
+                "product": {
+                  "id": "gid://shopify/Product/8838427967694",
+                  "handle": "test-tee-3-option",
+                  "title": "Test Tee (3 options, sparse)",
+                  "vendor": "Test",
+                  "productType": "Apparel",
+                  "requiresSellingPlan": false,
+                  "isGiftCard": false
+                },
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              "sellingPlanAllocation": null,
+              "discountAllocations": [],
+              "allDiscountAllocations": [
+                {
+                  "discountedAmount": {
+                    "amount": "3.8",
+                    "currencyCode": "USD"
+                  },
+                  "code": "TEST10"
+                }
+              ],
+              "cost": {
+                "amountPerQuantity": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtAmountPerQuantity": null,
+                "totalAmount": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "userErrors": [],
+      "warnings": []
+    }
+  }
+}

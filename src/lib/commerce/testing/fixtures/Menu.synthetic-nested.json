@@ -1,0 +1,90 @@
+{
+  "data": {
+    "shop": {
+      "primaryDomain": {
+        "host": "synthetic-store.myshopify.com"
+      }
+    },
+    "menu": {
+      "items": [
+        {
+          "title": "Shop",
+          "type": "CATALOG",
+          "url": "https://synthetic-store.myshopify.com/collections/all",
+          "resource": null,
+          "items": [
+            {
+              "title": "Apparel",
+              "type": "COLLECTION",
+              "url": "https://synthetic-store.myshopify.com/collections/test-apparel",
+              "resource": {
+                "__typename": "Collection",
+                "handle": "test-apparel"
+              },
+              "items": [
+                {
+                  "title": "Test Tee",
+                  "type": "PRODUCT",
+                  "url": "https://synthetic-store.myshopify.com/products/test-tee-3-option",
+                  "resource": {
+                    "__typename": "Product",
+                    "handle": "test-tee-3-option"
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Electrolytes",
+              "type": "PRODUCT",
+              "url": "https://synthetic-store.myshopify.com/products/test-electrolytes",
+              "resource": {
+                "__typename": "Product",
+                "handle": "test-electrolytes"
+              },
+              "items": []
+            }
+          ]
+        },
+        {
+          "title": "Help",
+          "type": "HTTP",
+          "url": "https://synthetic-store.myshopify.com/en-us/policies/refund-policy",
+          "resource": null,
+          "items": [
+            {
+              "title": "Refunds",
+              "type": "SHOP_POLICY",
+              "url": "https://synthetic-store.myshopify.com/policies/refund-policy",
+              "resource": {
+                "__typename": "ShopPolicy",
+                "handle": "refund-policy"
+              },
+              "items": []
+            },
+            {
+              "title": "Status",
+              "type": "HTTP",
+              "url": "https://status.example.com/",
+              "resource": null,
+              "items": []
+            },
+            {
+              "title": "Blog",
+              "type": "BLOG",
+              "url": "https://synthetic-store.myshopify.com/blogs/news",
+              "resource": null,
+              "items": []
+            }
+          ]
+        },
+        {
+          "title": "Search",
+          "type": "SEARCH",
+          "url": "https://synthetic-store.myshopify.com/search",
+          "resource": null,
+          "items": []
+        }
+      ]
+    }
+  }
+}

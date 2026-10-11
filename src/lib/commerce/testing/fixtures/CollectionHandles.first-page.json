@@ -1,0 +1,36 @@
+{
+  "data": {
+    "collections": {
+      "nodes": [
+        {
+          "handle": "frontpage"
+        },
+        {
+          "handle": "automated-collection"
+        },
+        {
+          "handle": "hydrogen"
+        },
+        {
+          "handle": "test-all"
+        },
+        {
+          "handle": "test-apparel"
+        },
+        {
+          "handle": "test-supplements"
+        },
+        {
+          "handle": "test-price-low-high"
+        },
+        {
+          "handle": "test-empty"
+        }
+      ],
+      "pageInfo": {
+        "hasNextPage": false,
+        "endCursor": "eyJsYXN0X2lkIjozNTc3NDk3NTIwMTQsImxhc3RfdmFsdWUiOjM1Nzc0OTc1MjAxNCwib2Zmc2V0Ijo3fQ=="
+      }
+    }
+  }
+}

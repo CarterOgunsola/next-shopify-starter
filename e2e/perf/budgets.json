@@ -1,0 +1,33 @@
+{
+  "$comment": "Per-page budgets for pnpm perf: a production build on a phone (Pixel 7), CPU slowed 4x, slow 4G. lcpMs and clsScore are Core Web Vitals' good thresholds (CLS tighter); tbtMs (total blocking time) stands in for INP; jsKb is the page's script, compressed, as first loaded. jsKb is set about 10% above what each page measured when the budget was set (home 198, listings 214, product and cart 218).",
+  "default": {
+    "lcpMs": 2500,
+    "cls": 0.05,
+    "tbtMs": 200,
+    "jsKb": 240
+  },
+  "pages": {
+    "home": {
+      "path": "/",
+      "jsKb": 220
+    },
+    "shop": {
+      "path": "/shop"
+    },
+    "collection": {
+      "path": "/collections/test-apparel"
+    },
+    "product (electrolytes)": {
+      "path": "/products/test-electrolytes"
+    },
+    "product (tee)": {
+      "path": "/products/test-tee-3-option"
+    },
+    "cart": {
+      "path": "/cart"
+    },
+    "search": {
+      "path": "/search?q=tee"
+    }
+  }
+}

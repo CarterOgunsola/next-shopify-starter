@@ -1,0 +1,211 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838223954126",
+      "isGiftCard": true,
+      "handle": "gift-card",
+      "title": "Gift Card",
+      "vendor": "Snowboard Vendor",
+      "productType": "giftcard",
+      "description": "This is a gift card for the store",
+      "descriptionHtml": "This is a gift card for the store",
+      "options": [
+        {
+          "name": "Denominations",
+          "optionValues": [
+            {
+              "name": "$25",
+              "swatch": null
+            },
+            {
+              "name": "$50",
+              "swatch": null
+            },
+            {
+              "name": "$100",
+              "swatch": null
+            },
+            {
+              "name": "$10",
+              "swatch": null
+            }
+          ]
+        }
+      ],
+      "media": {
+        "nodes": [
+          {
+            "__typename": "MediaImage",
+            "alt": "Gift card",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/gift_card.jpg?v=1791402370",
+              "altText": "Gift card",
+              "width": 1600,
+              "height": 1600
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/gift_card.jpg?v=1791402370",
+              "altText": "Gift card",
+              "width": 1600,
+              "height": 1600
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "requiresSellingPlan": false,
+      "variants": {
+        "nodes": [
+          {
+            "id": "gid://shopify/ProductVariant/48430713176270",
+            "title": "$10",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": false,
+            "price": {
+              "amount": "10.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Denominations",
+                "value": "$10"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/gift_card.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430713209038",
+            "title": "$25",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": false,
+            "price": {
+              "amount": "25.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Denominations",
+                "value": "$25"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/gift_card.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430713241806",
+            "title": "$50",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": false,
+            "price": {
+              "amount": "50.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Denominations",
+                "value": "$50"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/gift_card.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430713274574",
+            "title": "$100",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": false,
+            "price": {
+              "amount": "100.0",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Denominations",
+                "value": "$100"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/gift_card.jpg?v=1791402370"
+            }
+          }
+        ]
+      },
+      "sellingPlanGroups": {
+        "nodes": []
+      },
+      "reviewRating": null,
+      "reviewCount": null,
+      "publishedAt": "2026-10-07T19:50:00Z",
+      "merchantBadges": null,
+      "supplement": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "encodedVariantExistence": "v1_0-3",
+      "encodedVariantAvailability": "v1_",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430713176270",
+        "title": "$10",
+        "sku": null,
+        "availableForSale": false,
+        "quantityAvailable": 0,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Denominations",
+            "value": "$10"
+          }
+        ],
+        "price": {
+          "amount": "10.0",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": []
+        }
+      }
+    }
+  }
+}

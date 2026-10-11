@@ -1,0 +1,95 @@
+{
+  "current_page": 1,
+  "per_page": 5,
+  "reviews": [
+    {
+      "id": 9001,
+      "title": "Easy to drink",
+      "body": "<p>Mixes well and the lemon is <b>not</b> too sweet.</p>",
+      "rating": 5,
+      "product_external_id": 5550001,
+      "reviewer": {
+        "id": 1,
+        "name": "Avery Example",
+        "email": "avery@example.test",
+        "phone": null
+      },
+      "source": "web",
+      "curated": "ok",
+      "published": true,
+      "hidden": false,
+      "verified": "buyer",
+      "featured": false,
+      "created_at": "2026-09-30T14:00:00.000Z",
+      "updated_at": "2026-09-30T14:00:00.000Z",
+      "has_published_pictures": false,
+      "has_published_videos": false,
+      "pictures": [],
+      "ip_address": "198.51.100.23",
+      "incentivized": true
+    },
+    {
+      "id": 9002,
+      "title": null,
+      "body": "Good for long runs.\nWill buy again.",
+      "rating": 4,
+      "reviewer": {
+        "id": 2,
+        "name": "sam",
+        "email": "sam@example.test"
+      },
+      "published": true,
+      "hidden": false,
+      "verified": "nothing",
+      "created_at": "2026-09-28T09:00:00.000Z",
+      "ip_address": "198.51.100.24",
+      "curated": "ok"
+    },
+    {
+      "id": 9003,
+      "title": "Hidden by the store",
+      "body": "Should never be shown.",
+      "rating": 1,
+      "reviewer": {
+        "id": 3,
+        "name": "Hidden Person",
+        "email": "hidden@example.test"
+      },
+      "published": true,
+      "hidden": true,
+      "verified": "nothing",
+      "created_at": "2026-09-27T09:00:00.000Z"
+    },
+    {
+      "id": 9004,
+      "title": "Awaiting moderation",
+      "body": "Not published yet.",
+      "rating": 3,
+      "reviewer": {
+        "id": 4,
+        "name": "Pending Person",
+        "email": "pending@example.test"
+      },
+      "published": false,
+      "hidden": false,
+      "verified": "nothing",
+      "created_at": "2026-09-26T09:00:00.000Z"
+    },
+    {
+      "id": 9005,
+      "title": "Fine",
+      "body": "Does the job.",
+      "rating": 3,
+      "reviewer": {
+        "id": 5,
+        "name": "Jordan Q Sample",
+        "email": "jordan@example.test"
+      },
+      "published": true,
+      "hidden": false,
+      "verified": "email",
+      "created_at": "2026-09-25T09:00:00.000Z",
+      "curated": "spam"
+    }
+  ]
+}

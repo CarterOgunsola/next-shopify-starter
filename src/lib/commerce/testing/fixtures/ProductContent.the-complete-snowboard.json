@@ -1,0 +1,239 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838224117966",
+      "isGiftCard": false,
+      "handle": "the-complete-snowboard",
+      "title": "The Complete Snowboard",
+      "vendor": "Snowboard Vendor",
+      "productType": "snowboard",
+      "description": "This PREMIUM snowboard is so SUPERDUPER awesome!",
+      "descriptionHtml": "This <b>PREMIUM</b> <i>snowboard</i> is so <b>SUPER</b><i>DUPER</i> awesome!",
+      "options": [
+        {
+          "name": "Color",
+          "optionValues": [
+            {
+              "name": "Dawn",
+              "swatch": null
+            },
+            {
+              "name": "Powder",
+              "swatch": null
+            },
+            {
+              "name": "Electric",
+              "swatch": null
+            },
+            {
+              "name": "Sunset",
+              "swatch": null
+            },
+            {
+              "name": "Ice",
+              "swatch": null
+            }
+          ]
+        }
+      ],
+      "media": {
+        "nodes": [
+          {
+            "__typename": "MediaImage",
+            "alt": "Top and bottom view of a snowboard. The top view shows abstract circles and lines in shades of\n          teal. The bottom view shows abstract circles and lines in shades of purple and blue with the text “SHOPIFY”\n          in a sans serif typeface on top.",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1791402370",
+              "altText": "Top and bottom view of a snowboard. The top view shows abstract circles and lines in shades of\n          teal. The bottom view shows abstract circles and lines in shades of purple and blue with the text “SHOPIFY”\n          in a sans serif typeface on top.",
+              "width": 1600,
+              "height": 1600
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1791402370",
+              "altText": "Top and bottom view of a snowboard. The top view shows abstract circles and lines in shades of\n          teal. The bottom view shows abstract circles and lines in shades of purple and blue with the text “SHOPIFY”\n          in a sans serif typeface on top.",
+              "width": 1600,
+              "height": 1600
+            }
+          }
+        ]
+      },
+      "seo": {
+        "title": "Complete Snowboard",
+        "description": "snowboard winter sport snowboarding"
+      },
+      "requiresSellingPlan": false,
+      "variants": {
+        "nodes": [
+          {
+            "id": "gid://shopify/ProductVariant/48430713536718",
+            "title": "Ice",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "699.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Ice"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430713569486",
+            "title": "Dawn",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "699.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Dawn"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430713602254",
+            "title": "Powder",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "699.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Powder"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430713635022",
+            "title": "Electric",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "699.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Electric"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1791402370"
+            }
+          },
+          {
+            "id": "gid://shopify/ProductVariant/48430713667790",
+            "title": "Sunset",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "699.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Color",
+                "value": "Sunset"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main_589fc064-24a2-4236-9eaf-13b2bd35d21d.jpg?v=1791402370"
+            }
+          }
+        ]
+      },
+      "sellingPlanGroups": {
+        "nodes": []
+      },
+      "reviewRating": null,
+      "reviewCount": null,
+      "publishedAt": "2026-10-07T19:50:01Z",
+      "merchantBadges": null,
+      "supplement": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "encodedVariantExistence": "v1_0-4",
+      "encodedVariantAvailability": "v1_0-4",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430713536718",
+        "title": "Ice",
+        "sku": null,
+        "availableForSale": true,
+        "quantityAvailable": 10,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Color",
+            "value": "Ice"
+          }
+        ],
+        "price": {
+          "amount": "699.95",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": []
+        }
+      }
+    }
+  }
+}

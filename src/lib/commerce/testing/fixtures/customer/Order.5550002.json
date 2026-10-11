@@ -1,0 +1,160 @@
+{
+  "data": {
+    "order": {
+      "id": "gid://shopify/Order/5550002",
+      "name": "#1002",
+      "processedAt": "2026-09-20T12:00:00Z",
+      "financialStatus": "PAID",
+      "fulfillmentStatus": "FULFILLED",
+      "statusPageUrl": "https://shopify.com/7/account/orders/5550002?key=synthetic",
+      "totalPrice": {
+        "amount": "76.00",
+        "currencyCode": "USD"
+      },
+      "subtotal": {
+        "amount": "72.00",
+        "currencyCode": "USD"
+      },
+      "totalTax": {
+        "amount": "4.00",
+        "currencyCode": "USD"
+      },
+      "shippingLine": {
+        "title": "Standard",
+        "originalPrice": {
+          "amount": "0.00",
+          "currencyCode": "USD"
+        }
+      },
+      "totalShipping": {
+        "amount": "0.00",
+        "currencyCode": "USD"
+      },
+      "lineItems": {
+        "nodes": [
+          {
+            "id": "gid://shopify/LineItem/1",
+            "title": "Synthetic Tee",
+            "variantTitle": "Navy / M / Regular",
+            "quantity": 1,
+            "price": {
+              "amount": "38.00",
+              "currencyCode": "USD"
+            },
+            "totalPrice": {
+              "amount": "38.00",
+              "currencyCode": "USD"
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/synthetic/tee.jpg",
+              "altText": "Synthetic tee"
+            },
+            "discountAllocations": [
+              {
+                "allocatedAmount": {
+                  "amount": "5.00",
+                  "currencyCode": "USD"
+                },
+                "discountApplication": {
+                  "code": "TEST10"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gid://shopify/LineItem/2",
+            "title": "Synthetic Electrolytes",
+            "variantTitle": "Lemon",
+            "quantity": 1,
+            "price": {
+              "amount": "42.00",
+              "currencyCode": "USD"
+            },
+            "totalPrice": {
+              "amount": "42.00",
+              "currencyCode": "USD"
+            },
+            "image": null,
+            "discountAllocations": [
+              {
+                "allocatedAmount": {
+                  "amount": "3.00",
+                  "currencyCode": "USD"
+                },
+                "discountApplication": {
+                  "code": "TEST10"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "fulfillments": {
+        "nodes": [
+          {
+            "status": "SUCCESS",
+            "latestShipmentStatus": "DELIVERED",
+            "estimatedDeliveryAt": null,
+            "fulfillmentLineItems": {
+              "nodes": [
+                {
+                  "quantity": 1
+                }
+              ]
+            },
+            "trackingInformation": [
+              {
+                "company": "Synthetic Post",
+                "number": "SYN123",
+                "url": "https://tracking.example.test/SYN123"
+              }
+            ]
+          },
+          {
+            "status": "SUCCESS",
+            "latestShipmentStatus": "IN_TRANSIT",
+            "estimatedDeliveryAt": "2026-10-14T18:00:00Z",
+            "fulfillmentLineItems": {
+              "nodes": [
+                {
+                  "quantity": 2
+                }
+              ]
+            },
+            "trackingInformation": [
+              {
+                "company": "Synthetic Freight",
+                "number": "SYN456",
+                "url": null
+              }
+            ]
+          }
+        ]
+      },
+      "shippingAddress": {
+        "formatted": [
+          "Avery Example",
+          "100 Test Street",
+          "Springfield IL 62701",
+          "United States"
+        ]
+      },
+      "billingAddress": {
+        "formatted": [
+          "Avery Example",
+          "100 Test Street",
+          "Springfield IL 62701",
+          "United States"
+        ]
+      },
+      "itemQuantities": {
+        "nodes": [
+          {
+            "quantity": 2
+          }
+        ]
+      },
+      "shippingDiscountAllocations": []
+    }
+  }
+}

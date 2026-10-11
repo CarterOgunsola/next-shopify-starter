@@ -1,0 +1,138 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838224249038",
+      "isGiftCard": false,
+      "handle": "the-videographer-snowboard",
+      "title": "The Videographer Snowboard",
+      "vendor": "synthetic-store",
+      "productType": "snowboard",
+      "description": "",
+      "descriptionHtml": "",
+      "options": [
+        {
+          "name": "Title",
+          "optionValues": [
+            {
+              "name": "Default Title",
+              "swatch": null
+            }
+          ]
+        }
+      ],
+      "media": {
+        "nodes": [
+          {
+            "__typename": "MediaImage",
+            "alt": "Tee in Black",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370",
+              "altText": "Tee in Black",
+              "width": 1024,
+              "height": 1024
+            },
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370",
+              "altText": "Tee in Black",
+              "width": 1024,
+              "height": 1024
+            }
+          },
+          {
+            "__typename": "ExternalVideo",
+            "alt": "Video of the Snowboard.",
+            "previewImage": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/preview_images/hqdefault.jpg?v=1791402370",
+              "altText": "Video of the Snowboard.",
+              "width": 480,
+              "height": 360
+            },
+            "embedUrl": "https://www.youtube.com/embed/0jeoo7Ol3aI"
+          }
+        ]
+      },
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "requiresSellingPlan": false,
+      "variants": {
+        "nodes": [
+          {
+            "id": "gid://shopify/ProductVariant/48430713471182",
+            "title": "Default Title",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "885.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Default Title"
+              }
+            ],
+            "image": {
+              "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370"
+            }
+          }
+        ]
+      },
+      "sellingPlanGroups": {
+        "nodes": []
+      },
+      "reviewRating": null,
+      "reviewCount": null,
+      "publishedAt": "2026-10-07T19:50:02Z",
+      "merchantBadges": null,
+      "supplement": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "encodedVariantExistence": "v1_0",
+      "encodedVariantAvailability": "v1_0",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430713471182",
+        "title": "Default Title",
+        "sku": null,
+        "availableForSale": true,
+        "quantityAvailable": 50,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Title",
+            "value": "Default Title"
+          }
+        ],
+        "price": {
+          "amount": "885.95",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": []
+        }
+      }
+    }
+  }
+}

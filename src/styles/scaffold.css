@@ -1,0 +1,190 @@
+/*
+ * Scaffold styles: quiet, neutral defaults (shadcn-like simplicity) so the
+ * unstyled build is easy to use and review. Not the design.
+ *
+ * Remove: delete this file and its import line in src/app/layout.tsx.
+ * Nothing else references it.
+ *
+ * Element and ARIA selectors only, wrapped in :where() (zero specificity),
+ * in a layer after Tailwind's preflight and before components/utilities, so
+ * real design CSS always wins. Import before globals.css so this layer order
+ * is declared first.
+ */
+@layer theme, base, scaffold, components, utilities;
+
+@layer scaffold {
+  :where(:root) {
+    --sc-fg: #09090b;
+    --sc-muted: #71717a;
+    --sc-border: #e4e4e7;
+    --sc-subtle: #f4f4f5;
+    --sc-radius: 0.5rem;
+    /* Depth without hard lines: a 1px ring, a little lift, ambient shade. */
+    --sc-shadow-border: 0 0 0 1px oklch(0 0 0 / 0.06), 0 1px 2px -1px oklch(0 0 0 / 0.06), 0 2px 4px 0 oklch(0 0 0 / 0.04);
+    --sc-shadow-border-hover: 0 0 0 1px oklch(0 0 0 / 0.08), 0 1px 2px -1px oklch(0 0 0 / 0.08), 0 2px 4px 0 oklch(0 0 0 / 0.06);
+    --sc-shadow-overlay: 0 0 0 1px oklch(0 0 0 / 0.06), 0 4px 8px -2px oklch(0 0 0 / 0.08), 0 16px 32px -8px oklch(0 0 0 / 0.12);
+  }
+
+  /* Page */
+  :where(body) {
+    margin: 0; color: var(--sc-fg); background: #fff;
+    font: 14px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased; overflow-wrap: break-word;
+  }
+  :where(body > header, main, body > footer, body > section) { max-width: 64rem; margin-inline: auto; padding-inline: 1rem; box-sizing: border-box; }
+  :where(body > header) { border-bottom: 1px solid var(--sc-border); }
+  :where(main) { padding-block: 2rem 4rem; }
+  :where(body > footer) { padding-block: 2rem; border-top: 1px solid var(--sc-border); color: var(--sc-muted); }
+  :where(body > section) { padding-block: 1.5rem; border-top: 1px solid var(--sc-border); } /* consent banner */
+
+  /* Type */
+  :where(h1) { font-size: 1.875rem; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 1rem; }
+  :where(h2) { font-size: 1.125rem; line-height: 1.4; font-weight: 600; margin: 2rem 0 0.5rem; }
+  :where(h3) { font-size: 0.875rem; font-weight: 500; margin: 0.5rem 0 0.25rem; }
+  :where(h1, h2, h3) { text-wrap: balance; }
+  :where(p) { text-wrap: pretty; }
+  :where(p, ul, ol, dl, table) { margin: 0 0 1rem; }
+  :where(ul, ol) { padding-inline-start: 1.25rem; list-style: revert; }
+  :where(a) {
+    color: inherit; text-underline-offset: 3px;
+    text-decoration-color: oklch(0 0 0 / 0.25); transition: text-decoration-color 150ms ease-out;
+  }
+  :where(a:hover) { text-decoration-color: currentColor; }
+  /* A list of links: each at least 24px tall (WCAG 2.5.8 target size). */
+  :where(li > a:only-child) { display: inline-block; min-block-size: 1.5rem; }
+  :where(s) { color: var(--sc-muted); }
+  :where(dl) { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 1rem; max-width: 24rem; }
+  :where(dd) { margin: 0; text-align: end; font-variant-numeric: tabular-nums; }
+
+  /* Media: a hairline inside the edge so images sit on any background. */
+  :where(img, video) {
+    max-width: 100%; height: auto; border-radius: var(--sc-radius);
+    outline: 1px solid oklch(0 0 0 / 0.1); outline-offset: -1px;
+  }
+  :where(ul[aria-label], ol[aria-label]) { list-style: none; padding: 0; }
+  :where(ul[aria-label="Product media"]) { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  :where(ul[aria-label="Product media"] > li:first-child) { flex-basis: 100%; }
+  :where(ul[aria-label="Product media"] > li:first-child img) { width: min(100%, 28rem); }
+  :where(ul[aria-label="Product media"] > li:not(:first-child) img) { width: 5rem; height: 5rem; object-fit: cover; }
+
+  /* Nav */
+  :where(nav ul) { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; list-style: none; padding: 0.75rem 0; margin: 0; }
+  :where(nav li) { min-width: 0; max-width: 100%; }
+  /* Brand and Shop lead; search, Account and Cart sit together at the end. */
+  :where(nav ul > li:has(form[role="search"])) { margin-inline-start: auto; }
+  /* Menu disclosures: the open list floats under its button, one link a row. */
+  :where(nav li:has(> div > button[aria-expanded])) { position: relative; }
+  :where(nav button[aria-expanded] + ul) {
+    position: absolute; top: calc(100% + 0.375rem); inset-inline-start: 0; z-index: 10;
+    display: grid; gap: 0.25rem; padding: 0.5rem 0.75rem; min-width: 12rem;
+    max-width: calc(100vw - 2rem); box-sizing: border-box;
+    background: #fff; border-radius: var(--sc-radius); box-shadow: var(--sc-shadow-overlay);
+  }
+  :where(nav button[aria-expanded] + ul[hidden]) { display: none; }
+  :where(nav button[aria-expanded] + ul a, nav[aria-label="Footer"] a) { display: inline-block; min-block-size: 1.5rem; }
+  :where(nav button[aria-expanded] + ul ul) { display: grid; gap: 0.25rem; padding: 0 0 0 0.75rem; }
+  /* The footer menu: columns that wrap. */
+  :where(nav[aria-label="Footer"] > ul) { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; list-style: none; padding: 0; }
+  :where(nav[aria-label="Footer"] ul ul) { display: grid; gap: 0.25rem; padding: 0.25rem 0 0; }
+
+  /* Product lists: square images so rows line up. */
+  :where(ul[aria-label="Products"]) {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 1.5rem 1rem; list-style: none; padding: 0;
+  }
+  :where(ul[aria-label="Products"] img) { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  :where(ul[aria-label="Products"] p) { color: var(--sc-muted); font-variant-numeric: tabular-nums; margin: 0; }
+  /* A tile with no image keeps an empty square, so titles in a row line up. */
+  :where(ul[aria-label="Products"] article:not(:has(img)))::before {
+    content: ""; display: block; aspect-ratio: 1; background: var(--sc-subtle); border-radius: var(--sc-radius);
+  }
+
+  /* Controls */
+  :where(input:not([type="checkbox"], [type="radio"]), select, textarea) {
+    font: inherit; font-size: 16px; /* stops iOS zoom */
+    height: 2.25rem; padding: 0 0.75rem; box-sizing: border-box; max-width: 100%;
+    border: 1px solid var(--sc-border); border-radius: calc(var(--sc-radius) - 2px); background: #fff;
+    transition: border-color 150ms ease-out;
+  }
+  :where(input:not([type="checkbox"], [type="radio"]):hover, select:hover, textarea:hover) { border-color: #d4d4d8; }
+  :where(button) {
+    font: inherit; font-weight: 500; height: 2.25rem; padding: 0 1rem; cursor: pointer;
+    color: var(--sc-fg); border: 0; border-radius: calc(var(--sc-radius) - 2px);
+    background: #fff; box-shadow: var(--sc-shadow-border);
+    transition-property: box-shadow, background-color, scale;
+    transition-duration: 150ms; transition-timing-function: ease-out;
+  }
+  :where(button:hover) { box-shadow: var(--sc-shadow-border-hover); }
+  :where(button:active:not(:disabled, [aria-disabled="true"])) { scale: 0.96; }
+  :where(button[type="submit"], section[aria-label="Purchase"] > button:first-of-type) {
+    background: var(--sc-fg); color: #fff; box-shadow: none;
+  }
+  :where(button[type="submit"]:hover, section[aria-label="Purchase"] > button:first-of-type:hover) { background: #27272a; }
+  :where(button:disabled, button[aria-disabled="true"]) { opacity: 0.5; cursor: not-allowed; }
+  /* Checkout is a link (it works before hydration); it reads as the primary action. */
+  :where(a[href="/cart/checkout"]) {
+    display: inline-flex; align-items: center; height: 2.25rem; padding: 0 1rem; margin-block-end: 0.5rem;
+    color: #fff; background: var(--sc-fg); border-radius: calc(var(--sc-radius) - 2px);
+    font-weight: 500; text-decoration: none; transition-property: background-color, scale;
+    transition-duration: 150ms; transition-timing-function: ease-out;
+  }
+  :where(a[href="/cart/checkout"]:hover) { background: #27272a; }
+  :where(a[href="/cart/checkout"]:active:not([aria-disabled="true"])) { scale: 0.96; }
+  :where(a[href="/cart/checkout"][aria-disabled="true"]) { opacity: 0.5; cursor: not-allowed; }
+  :where(input[type="checkbox"], input[type="radio"]) { accent-color: var(--sc-fg); width: 1rem; height: 1rem; margin: 0; }
+  :where(fieldset) { border: 0; padding: 0; margin: 0 0 1rem; min-width: 0; }
+  :where(form[aria-label="Filter and sort"] > fieldset) { margin-block-start: 1.25rem; }
+  :where(input[type="number"]) { width: 7rem; }
+  :where(legend) { font-weight: 500; margin-block-end: 0.375rem; padding: 0; }
+  :where(fieldset > label) { display: inline-flex; align-items: center; gap: 0.375rem; margin-inline-end: 1rem; min-height: 1.75rem; }
+  :where(fieldset > label:has(> input[aria-disabled="true"])) { color: var(--sc-muted); }
+  :where(:focus-visible) { outline: 2px solid var(--sc-fg); outline-offset: 2px; }
+  :where(img:focus-visible) { outline-offset: 2px; }
+
+  /* Search: the input takes the room left, and suggestions float under it. */
+  :where(form[role="search"]) { position: relative; display: flex; align-items: center; gap: 0.5rem; max-width: 100%; }
+  :where(form[role="search"] > input) { flex: 1 1 10rem; min-width: 0; }
+  :where(form[role="search"] [role="listbox"]:not(:empty)) {
+    position: absolute; top: calc(100% + 0.375rem); inset-inline-start: 0; z-index: 10;
+    width: min(22rem, calc(100vw - 2rem)); padding: 0.25rem; box-sizing: border-box;
+    background: #fff; border-radius: var(--sc-radius); box-shadow: var(--sc-shadow-overlay);
+  }
+  /* 4px inside an 8px popover: radii stay concentric. */
+  :where([role="option"]) { padding: 0.375rem 0.5rem; border-radius: calc(var(--sc-radius) - 0.25rem); cursor: pointer; }
+  :where([role="option"][aria-selected="true"], [role="option"]:hover) { background: var(--sc-subtle); }
+
+  /* Dialog */
+  :where(dialog) {
+    margin: auto; /* preflight zeroes it; auto centers the modal */
+    width: min(28rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); box-sizing: border-box;
+    padding: 1.5rem; color: var(--sc-fg); border: 0; border-radius: 0.75rem;
+    box-shadow: var(--sc-shadow-overlay);
+  }
+  :where(dialog)::backdrop { background: oklch(0 0 0 / 0.4); } /* pseudo-elements can't go inside :where() */
+  :where(dialog h2) { margin-block-start: 0; }
+  :where(dialog p > a:only-child) { display: inline-block; min-block-size: 1.5rem; }
+
+  /* Cart lines: tight inside a line, clear gaps between lines and groups
+     (between groups at least twice the gap within one). */
+  :where(ul[aria-label="Items in your cart"]) { display: grid; gap: 1.5rem; margin-block-end: 1.5rem; }
+  :where(ul[aria-label="Items in your cart"] > li p) { margin-block: 0 0.25rem; }
+  :where(ul[aria-label="Items in your cart"] > li img) { margin-block-end: 0.5rem; }
+  :where(ul[aria-label="Items in your cart"] ~ dl, ul[aria-label="Items in your cart"] ~ section) { margin-block-start: 1.5rem; }
+  /* Quantity: label on its own row, then −, field, + together, Remove apart. */
+  :where([role="group"]:has(> input[type="number"])) { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-block: 0.5rem; }
+  :where([role="group"]:has(> input[type="number"]) > span:first-child) { flex-basis: 100%; color: var(--sc-muted); }
+  :where([role="group"]:has(> input[type="number"]) > input) { width: 4.5rem; text-align: center; }
+  :where([role="group"]:has(> input[type="number"]) > button:last-child) { margin-inline-start: 0.75rem; }
+
+  /* States */
+  :where([aria-busy="true"]) { opacity: 0.5; transition: opacity 150ms ease-out; }
+  :where([role="alert"]:not(:empty)) { font-weight: 500; }
+  :where(progress) { width: 100%; max-width: 24rem; accent-color: var(--sc-fg); }
+  :where(table) { border-collapse: collapse; }
+  :where(th, td) { border-bottom: 1px solid var(--sc-border); padding: 0.375rem 0.5rem; text-align: start; }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(*) { transition-duration: 0s; }
+    :where(button:active) { scale: 1; }
+  }
+}

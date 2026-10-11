@@ -1,0 +1,46 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838224052430",
+      "options": [
+        {
+          "name": "Title",
+          "optionValues": [
+            {
+              "name": "Default Title"
+            }
+          ]
+        }
+      ],
+      "encodedVariantExistence": "v1_0",
+      "encodedVariantAvailability": "v1_",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430713143502",
+        "title": "Default Title",
+        "sku": null,
+        "availableForSale": false,
+        "quantityAvailable": 0,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Title",
+            "value": "Default Title"
+          }
+        ],
+        "price": {
+          "amount": "885.95",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": []
+        }
+      }
+    }
+  }
+}

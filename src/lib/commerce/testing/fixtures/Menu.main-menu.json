@@ -1,0 +1,37 @@
+{
+  "data": {
+    "shop": {
+      "primaryDomain": {
+        "host": "synthetic-store.myshopify.com"
+      }
+    },
+    "menu": {
+      "items": [
+        {
+          "title": "Home",
+          "type": "FRONTPAGE",
+          "url": "https://synthetic-store.myshopify.com/",
+          "resource": null,
+          "items": []
+        },
+        {
+          "title": "Catalog",
+          "type": "CATALOG",
+          "url": "https://synthetic-store.myshopify.com/collections/all",
+          "resource": null,
+          "items": []
+        },
+        {
+          "title": "Contact",
+          "type": "PAGE",
+          "url": "https://synthetic-store.myshopify.com/pages/contact",
+          "resource": {
+            "__typename": "Page",
+            "handle": "contact"
+          },
+          "items": []
+        }
+      ]
+    }
+  }
+}

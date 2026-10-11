@@ -1,0 +1,32 @@
+{
+  "data": {
+    "shop": {
+      "privacyPolicy": {
+        "handle": "privacy-policy",
+        "title": "Privacy Policy",
+        "body": "<p>Synthetic privacy policy text.</p>"
+      },
+      "refundPolicy": {
+        "handle": "refund-policy",
+        "title": "Refund Policy",
+        "body": "<p>Synthetic refund policy text.</p>"
+      },
+      "shippingPolicy": {
+        "handle": "shipping-policy",
+        "title": "Shipping Policy",
+        "body": "<p>Synthetic shipping policy text.</p>"
+      },
+      "termsOfService": {
+        "handle": "terms-of-service",
+        "title": "Terms of Service",
+        "body": "<p>Synthetic terms of service text.</p>"
+      },
+      "termsOfSale": null,
+      "subscriptionPolicy": {
+        "handle": "subscription-policy",
+        "title": "Subscription Policy",
+        "body": "<p>Synthetic subscription policy text.</p>"
+      }
+    }
+  }
+}

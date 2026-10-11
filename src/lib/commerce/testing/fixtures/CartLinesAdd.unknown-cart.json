@@ -1,0 +1,144 @@
+{
+  "data": {
+    "cartLinesAdd": {
+      "cart": {
+        "id": "gid://shopify/Cart/syntheticCart0776aeb13e5f?key=syntheticKey47344757f0f1",
+        "updatedAt": "2026-10-10T01:41:53Z",
+        "checkoutUrl": "https://synthetic-store.myshopify.com/cart/c/syntheticCart0776aeb13e5f?key=syntheticKey47d7cb631007&_s=syntheticS356fdcc6d9f5&_y=syntheticYe61425be76fd",
+        "totalQuantity": 1,
+        "note": "",
+        "attributes": [],
+        "cost": {
+          "subtotalAmount": {
+            "amount": "24.95",
+            "currencyCode": "USD"
+          },
+          "totalAmount": {
+            "amount": "24.95",
+            "currencyCode": "USD"
+          },
+          "checkoutChargeAmount": {
+            "amount": "24.95",
+            "currencyCode": "USD"
+          }
+        },
+        "discountCodes": [],
+        "appliedGiftCards": [],
+        "lines": {
+          "nodes": [
+            {
+              "id": "gid://shopify/CartLine/187c4cda-6b14-45f7-9fed-af42e8569911?cart=syntheticCart0776aeb13e5f",
+              "quantity": 1,
+              "attributes": [],
+              "parentRelationship": null,
+              "merchandise": {
+                "__typename": "ProductVariant",
+                "id": "gid://shopify/ProductVariant/48430713307342",
+                "title": "Selling Plans Ski Wax",
+                "sku": null,
+                "quantityRule": {
+                  "minimum": 1,
+                  "maximum": null,
+                  "increment": 1
+                },
+                "image": {
+                  "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/snowboard_wax.jpg?v=1791402370",
+                  "altText": "Electrolytes",
+                  "width": 1600,
+                  "height": 1600
+                },
+                "selectedOptions": [
+                  {
+                    "name": "Title",
+                    "value": "Selling Plans Ski Wax"
+                  }
+                ],
+                "product": {
+                  "id": "gid://shopify/Product/8838224183502",
+                  "handle": "selling-plans-ski-wax",
+                  "title": "Selling Plans Ski Wax",
+                  "vendor": "synthetic-store",
+                  "productType": "accessories",
+                  "requiresSellingPlan": false,
+                  "isGiftCard": false
+                },
+                "sellingPlanAllocations": {
+                  "nodes": [
+                    {
+                      "sellingPlan": {
+                        "id": "gid://shopify/SellingPlan/3291644110",
+                        "name": "Ski wax subscription, billed and delivered weekly",
+                        "recurringDeliveries": true
+                      },
+                      "priceAdjustments": [
+                        {
+                          "price": {
+                            "amount": "21.21",
+                            "currencyCode": "USD"
+                          },
+                          "compareAtPrice": {
+                            "amount": "24.95",
+                            "currencyCode": "USD"
+                          },
+                          "perDeliveryPrice": {
+                            "amount": "21.21",
+                            "currencyCode": "USD"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "sellingPlan": {
+                        "id": "gid://shopify/SellingPlan/3291676878",
+                        "name": "A year supply of prepaid ski wax, delivered monthly",
+                        "recurringDeliveries": true
+                      },
+                      "priceAdjustments": [
+                        {
+                          "price": {
+                            "amount": "239.52",
+                            "currencyCode": "USD"
+                          },
+                          "compareAtPrice": {
+                            "amount": "299.4",
+                            "currencyCode": "USD"
+                          },
+                          "perDeliveryPrice": {
+                            "amount": "19.96",
+                            "currencyCode": "USD"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "sellingPlanAllocation": null,
+              "discountAllocations": [],
+              "allDiscountAllocations": [],
+              "cost": {
+                "amountPerQuantity": {
+                  "amount": "24.95",
+                  "currencyCode": "USD"
+                },
+                "compareAtAmountPerQuantity": null,
+                "totalAmount": {
+                  "amount": "24.95",
+                  "currencyCode": "USD"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "userErrors": [
+        {
+          "code": "INVALID",
+          "field": ["cartId"],
+          "message": "The specified cart does not exist."
+        }
+      ],
+      "warnings": []
+    }
+  }
+}

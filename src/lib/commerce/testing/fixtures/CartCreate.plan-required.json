@@ -1,0 +1,15 @@
+{
+  "data": {
+    "cartCreate": {
+      "cart": null,
+      "userErrors": [
+        {
+          "code": "VARIANT_REQUIRES_SELLING_PLAN",
+          "field": ["input", "lines", "0"],
+          "message": "Variant can only be purchased with a selling plan."
+        }
+      ],
+      "warnings": []
+    }
+  }
+}

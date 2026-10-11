@@ -1,0 +1,58 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838224117966",
+      "options": [
+        {
+          "name": "Color",
+          "optionValues": [
+            {
+              "name": "Dawn"
+            },
+            {
+              "name": "Powder"
+            },
+            {
+              "name": "Electric"
+            },
+            {
+              "name": "Sunset"
+            },
+            {
+              "name": "Ice"
+            }
+          ]
+        }
+      ],
+      "encodedVariantExistence": "v1_0-4",
+      "encodedVariantAvailability": "v1_0-4",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430713536718",
+        "title": "Ice",
+        "sku": null,
+        "availableForSale": true,
+        "quantityAvailable": 10,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Color",
+            "value": "Ice"
+          }
+        ],
+        "price": {
+          "amount": "699.95",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": []
+        }
+      }
+    }
+  }
+}

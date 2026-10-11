@@ -1,0 +1,274 @@
+{
+  "data": {
+    "search": {
+      "totalCount": 1,
+      "nodes": [
+        {
+          "id": "gid://shopify/Product/8838427967694",
+          "handle": "test-tee-3-option",
+          "title": "Test Tee (3 options, sparse)",
+          "availableForSale": true,
+          "trackingParameters": "_pos=1&_sid=82aa85bb2&_ss=r",
+          "featuredImage": {
+            "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370",
+            "altText": "Tee in Black",
+            "width": 1024,
+            "height": 1024
+          },
+          "priceRange": {
+            "minVariantPrice": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            },
+            "maxVariantPrice": {
+              "amount": "38.0",
+              "currencyCode": "USD"
+            }
+          },
+          "reviewRating": null,
+          "reviewCount": null,
+          "publishedAt": "2026-10-07T22:13:50Z",
+          "merchantBadges": null,
+          "requiresSellingPlan": false,
+          "isGiftCard": false,
+          "prop65": [null, null],
+          "variants": {
+            "pageInfo": {
+              "hasNextPage": true
+            },
+            "nodes": [
+              {
+                "id": "gid://shopify/ProductVariant/48430965817550",
+                "availableForSale": true,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              {
+                "id": "gid://shopify/ProductVariant/48430965850318",
+                "availableForSale": true,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              {
+                "id": "gid://shopify/ProductVariant/48430965883086",
+                "availableForSale": true,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              {
+                "id": "gid://shopify/ProductVariant/48430965915854",
+                "availableForSale": true,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              {
+                "id": "gid://shopify/ProductVariant/48430965948622",
+                "availableForSale": true,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              {
+                "id": "gid://shopify/ProductVariant/48430965981390",
+                "availableForSale": true,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              {
+                "id": "gid://shopify/ProductVariant/48430966014158",
+                "availableForSale": true,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              {
+                "id": "gid://shopify/ProductVariant/48430966046926",
+                "availableForSale": false,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              {
+                "id": "gid://shopify/ProductVariant/48430966079694",
+                "availableForSale": false,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              },
+              {
+                "id": "gid://shopify/ProductVariant/48430966112462",
+                "availableForSale": true,
+                "price": {
+                  "amount": "38.0",
+                  "currencyCode": "USD"
+                },
+                "compareAtPrice": null,
+                "sellingPlanAllocations": {
+                  "nodes": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "pageInfo": {
+        "hasNextPage": false,
+        "hasPreviousPage": false,
+        "startCursor": "eyJwYWdlIjoxLCJsYXN0X2lkIjo4ODM4NDI3OTY3Njk0LCJyZXZlcnNlIjp0cnVlLCJvZmZzZXQiOjB9",
+        "endCursor": "eyJwYWdlIjoxLCJsYXN0X2lkIjo4ODM4NDI3OTY3Njk0LCJyZXZlcnNlIjp0cnVlLCJvZmZzZXQiOjB9"
+      },
+      "productFilters": [
+        {
+          "id": "filter.v.availability",
+          "label": "Availability",
+          "type": "LIST",
+          "values": [
+            {
+              "id": "filter.v.availability.1",
+              "label": "In stock",
+              "count": 1,
+              "input": "{\"available\":true}"
+            },
+            {
+              "id": "filter.v.availability.0",
+              "label": "Out of stock",
+              "count": 1,
+              "input": "{\"available\":false}"
+            }
+          ]
+        },
+        {
+          "id": "filter.v.price",
+          "label": "Price",
+          "type": "PRICE_RANGE",
+          "values": [
+            {
+              "id": "filter.v.price",
+              "label": "Price",
+              "count": 0,
+              "input": "{\"price\":{\"min\":0,\"max\":38.0}}"
+            }
+          ]
+        },
+        {
+          "id": "filter.v.option.color",
+          "label": "Color",
+          "type": "LIST",
+          "values": [
+            {
+              "id": "filter.v.option.color.black",
+              "label": "Black",
+              "count": 1,
+              "input": "{\"variantOption\":{\"name\":\"color\",\"value\":\"Black\"}}"
+            },
+            {
+              "id": "filter.v.option.color.bone",
+              "label": "Bone",
+              "count": 1,
+              "input": "{\"variantOption\":{\"name\":\"color\",\"value\":\"Bone\"}}"
+            },
+            {
+              "id": "filter.v.option.color.forest",
+              "label": "Forest",
+              "count": 1,
+              "input": "{\"variantOption\":{\"name\":\"color\",\"value\":\"Forest\"}}"
+            },
+            {
+              "id": "filter.v.option.color.navy",
+              "label": "Navy",
+              "count": 1,
+              "input": "{\"variantOption\":{\"name\":\"color\",\"value\":\"Navy\"}}"
+            }
+          ]
+        },
+        {
+          "id": "filter.v.option.size",
+          "label": "Size",
+          "type": "LIST",
+          "values": [
+            {
+              "id": "filter.v.option.size.xs",
+              "label": "XS",
+              "count": 1,
+              "input": "{\"variantOption\":{\"name\":\"size\",\"value\":\"XS\"}}"
+            },
+            {
+              "id": "filter.v.option.size.s",
+              "label": "S",
+              "count": 1,
+              "input": "{\"variantOption\":{\"name\":\"size\",\"value\":\"S\"}}"
+            },
+            {
+              "id": "filter.v.option.size.m",
+              "label": "M",
+              "count": 1,
+              "input": "{\"variantOption\":{\"name\":\"size\",\"value\":\"M\"}}"
+            },
+            {
+              "id": "filter.v.option.size.l",
+              "label": "L",
+              "count": 1,
+              "input": "{\"variantOption\":{\"name\":\"size\",\"value\":\"L\"}}"
+            },
+            {
+              "id": "filter.v.option.size.xl",
+              "label": "XL",
+              "count": 1,
+              "input": "{\"variantOption\":{\"name\":\"size\",\"value\":\"XL\"}}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

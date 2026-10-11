@@ -1,0 +1,51 @@
+{
+  "data": {
+    "customer": {
+      "defaultAddress": {
+        "id": "gid://shopify/CustomerAddress/702"
+      },
+      "addresses": {
+        "nodes": [
+          {
+            "id": "gid://shopify/CustomerAddress/701",
+            "firstName": "Avery",
+            "lastName": "Example",
+            "company": null,
+            "address1": "200 Sample Road",
+            "address2": null,
+            "city": "Springfield",
+            "zoneCode": "MA",
+            "countryCode": "US",
+            "zip": "01101",
+            "phoneNumber": null,
+            "formatted": [
+              "Avery Example",
+              "200 Sample Road",
+              "Springfield MA 01101",
+              "United States"
+            ]
+          },
+          {
+            "id": "gid://shopify/CustomerAddress/702",
+            "firstName": "Avery",
+            "lastName": "Example",
+            "company": null,
+            "address1": "100 Test Street",
+            "address2": null,
+            "city": "Springfield",
+            "zoneCode": "IL",
+            "countryCode": "US",
+            "zip": "62701",
+            "phoneNumber": null,
+            "formatted": [
+              "Avery Example",
+              "100 Test Street",
+              "Springfield IL 62701",
+              "United States"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

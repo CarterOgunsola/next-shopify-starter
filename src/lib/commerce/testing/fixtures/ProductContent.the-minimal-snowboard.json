@@ -1,0 +1,108 @@
+{
+  "data": {
+    "product": {
+      "id": "gid://shopify/Product/8838224019662",
+      "isGiftCard": false,
+      "handle": "the-minimal-snowboard",
+      "title": "The Minimal Snowboard",
+      "vendor": "synthetic-store",
+      "productType": "",
+      "description": "",
+      "descriptionHtml": "",
+      "options": [
+        {
+          "name": "Title",
+          "optionValues": [
+            {
+              "name": "Default Title",
+              "swatch": null
+            }
+          ]
+        }
+      ],
+      "media": {
+        "nodes": []
+      },
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "requiresSellingPlan": false,
+      "variants": {
+        "nodes": [
+          {
+            "id": "gid://shopify/ProductVariant/48430713110734",
+            "title": "Default Title",
+            "sku": null,
+            "barcode": null,
+            "availableForSale": true,
+            "price": {
+              "amount": "885.95",
+              "currencyCode": "USD"
+            },
+            "compareAtPrice": null,
+            "sellingPlanAllocations": {
+              "nodes": []
+            },
+            "selectedOptions": [
+              {
+                "name": "Title",
+                "value": "Default Title"
+              }
+            ],
+            "image": null
+          }
+        ]
+      },
+      "sellingPlanGroups": {
+        "nodes": []
+      },
+      "reviewRating": null,
+      "reviewCount": null,
+      "publishedAt": "2026-10-07T19:50:01Z",
+      "merchantBadges": null,
+      "supplement": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "encodedVariantExistence": "v1_0",
+      "encodedVariantAvailability": "v1_0",
+      "selectedOrFirstAvailableVariant": {
+        "id": "gid://shopify/ProductVariant/48430713110734",
+        "title": "Default Title",
+        "sku": null,
+        "availableForSale": true,
+        "quantityAvailable": 50,
+        "currentlyNotInStock": false,
+        "selectedOptions": [
+          {
+            "name": "Title",
+            "value": "Default Title"
+          }
+        ],
+        "price": {
+          "amount": "885.95",
+          "currencyCode": "USD"
+        },
+        "compareAtPrice": null,
+        "quantityRule": {
+          "minimum": 1,
+          "maximum": null,
+          "increment": 1
+        },
+        "sellingPlanAllocations": {
+          "nodes": []
+        }
+      }
+    }
+  }
+}

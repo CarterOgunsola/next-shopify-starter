@@ -1,0 +1,15 @@
+{
+  "data": {
+    "localization": {
+      "country": {
+        "isoCode": "US",
+        "currency": {
+          "isoCode": "USD"
+        }
+      },
+      "language": {
+        "isoCode": "EN"
+      }
+    }
+  }
+}

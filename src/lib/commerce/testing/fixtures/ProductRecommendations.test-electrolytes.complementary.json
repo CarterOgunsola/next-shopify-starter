@@ -1,0 +1,286 @@
+{
+  "data": {
+    "productRecommendations": [
+      {
+        "id": "gid://shopify/Product/8838427803854",
+        "handle": "test-subscription-only",
+        "title": "Test Creatine (subscription only)",
+        "availableForSale": true,
+        "trackingParameters": null,
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/wax-special.jpg?v=1791402370",
+          "altText": "Creatine",
+          "width": 1600,
+          "height": 1600
+        },
+        "priceRange": {
+          "minVariantPrice": {
+            "amount": "35.0",
+            "currencyCode": "USD"
+          },
+          "maxVariantPrice": {
+            "amount": "35.0",
+            "currencyCode": "USD"
+          }
+        },
+        "reviewRating": null,
+        "reviewCount": null,
+        "publishedAt": "2026-10-07T22:13:50Z",
+        "merchantBadges": null,
+        "requiresSellingPlan": true,
+        "isGiftCard": false,
+        "prop65": [
+          {
+            "key": "prop65_warning",
+            "value": "true"
+          },
+          {
+            "key": "prop65_chemical",
+            "value": "lead"
+          }
+        ],
+        "variants": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/48430965653710",
+              "availableForSale": true,
+              "price": {
+                "amount": "35.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": [
+                  {
+                    "priceAdjustments": [
+                      {
+                        "perDeliveryPrice": {
+                          "amount": "31.5",
+                          "currencyCode": "USD"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "priceAdjustments": [
+                      {
+                        "perDeliveryPrice": {
+                          "amount": "31.5",
+                          "currencyCode": "USD"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8838224019662",
+        "handle": "the-minimal-snowboard",
+        "title": "The Minimal Snowboard",
+        "availableForSale": true,
+        "trackingParameters": null,
+        "featuredImage": null,
+        "priceRange": {
+          "minVariantPrice": {
+            "amount": "885.95",
+            "currencyCode": "USD"
+          },
+          "maxVariantPrice": {
+            "amount": "885.95",
+            "currencyCode": "USD"
+          }
+        },
+        "reviewRating": null,
+        "reviewCount": null,
+        "publishedAt": "2026-10-07T19:50:01Z",
+        "merchantBadges": null,
+        "requiresSellingPlan": false,
+        "isGiftCard": false,
+        "prop65": [null, null],
+        "variants": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/48430713110734",
+              "availableForSale": true,
+              "price": {
+                "amount": "885.95",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8838427967694",
+        "handle": "test-tee-3-option",
+        "title": "Test Tee (3 options, sparse)",
+        "availableForSale": true,
+        "trackingParameters": null,
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0000/0000/0001/files/Main.jpg?v=1791402370",
+          "altText": "Tee in Black",
+          "width": 1024,
+          "height": 1024
+        },
+        "priceRange": {
+          "minVariantPrice": {
+            "amount": "38.0",
+            "currencyCode": "USD"
+          },
+          "maxVariantPrice": {
+            "amount": "38.0",
+            "currencyCode": "USD"
+          }
+        },
+        "reviewRating": null,
+        "reviewCount": null,
+        "publishedAt": "2026-10-07T22:13:50Z",
+        "merchantBadges": null,
+        "requiresSellingPlan": false,
+        "isGiftCard": false,
+        "prop65": [null, null],
+        "variants": {
+          "pageInfo": {
+            "hasNextPage": true
+          },
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/48430965817550",
+              "availableForSale": true,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            },
+            {
+              "id": "gid://shopify/ProductVariant/48430965850318",
+              "availableForSale": true,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            },
+            {
+              "id": "gid://shopify/ProductVariant/48430965883086",
+              "availableForSale": true,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            },
+            {
+              "id": "gid://shopify/ProductVariant/48430965915854",
+              "availableForSale": true,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            },
+            {
+              "id": "gid://shopify/ProductVariant/48430965948622",
+              "availableForSale": true,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            },
+            {
+              "id": "gid://shopify/ProductVariant/48430965981390",
+              "availableForSale": true,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            },
+            {
+              "id": "gid://shopify/ProductVariant/48430966014158",
+              "availableForSale": true,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            },
+            {
+              "id": "gid://shopify/ProductVariant/48430966046926",
+              "availableForSale": false,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            },
+            {
+              "id": "gid://shopify/ProductVariant/48430966079694",
+              "availableForSale": false,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            },
+            {
+              "id": "gid://shopify/ProductVariant/48430966112462",
+              "availableForSale": true,
+              "price": {
+                "amount": "38.0",
+                "currencyCode": "USD"
+              },
+              "compareAtPrice": null,
+              "sellingPlanAllocations": {
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
