@@ -3,6 +3,12 @@ import { expect, test } from "./support/test";
 
 const PRODUCT = "The Minimal Snowboard";
 
+// The cart page's discount field. Visible only: while the cart streams in,
+// the server-rendered form can sit in a hidden boundary next to the one on
+// screen.
+const codeField = (page: Page) =>
+  page.getByLabel("Discount code or gift card code").filter({ visible: true });
+
 async function cartWithOne(page: Page) {
   await page.goto("/products/the-minimal-snowboard");
   const purchase = page.getByRole("region", { name: "Purchase" });
@@ -27,7 +33,7 @@ test("applies a discount code and explains one that isn't valid", async ({
   page,
 }) => {
   await cartWithOne(page);
-  const code = page.getByLabel("Discount code or gift card code");
+  const code = codeField(page);
   await code.fill("NOPE123");
   await page.getByRole("button", { name: "Apply" }).click();
   await expect(page.getByRole("main").getByRole("alert")).toHaveText(
@@ -69,9 +75,7 @@ test("checks out on the store's checkout", async ({ page }) => {
 
 test("applies a gift card to what's left to pay", async ({ page }) => {
   await cartWithOne(page);
-  await page
-    .getByLabel("Discount code or gift card code")
-    .fill("SYNTHETICGIFT0000");
+  await codeField(page).fill("SYNTHETICGIFT0000");
   await page.getByRole("button", { name: "Apply" }).click();
   const cards = page.getByRole("list", { name: "Gift cards on your cart" });
   // The recorded card's $50 balance, all of it on this $885.95 order.

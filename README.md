@@ -1,5 +1,7 @@
 # Next.js Shopify starter
 
+[![CI](https://github.com/CarterOgunsola/next-shopify-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/CarterOgunsola/next-shopify-starter/actions/workflows/ci.yml)
+
 A Shopify Plus ready, headless storefront starter: Next.js 16 (App Router, Cache Components and Partial Prerendering, React Compiler), React 19, TypeScript and Tailwind 4, on Shopify's Storefront API and Customer Account API through `@shopify/hydrogen` (framework-agnostic). It ships with a consent layer, security headers, optional marketing and review vendors, and unit, integration and end-to-end tests that never touch the network.
 
 It is brand-free: the store's name, the cookie prefix and the consent policy are configuration, and pages carry neutral placeholder copy until you replace it.
@@ -66,6 +68,7 @@ The Content Security Policy is **report-only** by default; `CSP_ENFORCE=1` (read
 - **Fixture checks** (`fixtures.test.ts`). Fixtures may hold only the synthetic store's domain, tokens and ids, emails at example domains and documentation IPs.
 - **End to end** (`pnpm test:e2e`, Playwright). A production build served against a synthetic store built from the same fixtures, with axe accessibility checks on desktop and phone sizes. Nothing reaches the network. See [`e2e/README.md`](e2e/README.md).
 - **Performance** (`pnpm perf`). Core Web Vitals and script size per page against `e2e/perf/budgets.json`, on a throttled phone.
+- **CI** (`.github/workflows/ci.yml`). Every push to `main` and every pull request runs `pnpm gate` and the build, and the end-to-end suite with the CSP in report-only and enforced modes. None of it needs Shopify secrets. `pnpm perf` stays local, since shared runners make its timings noisy.
 - **Live** (`pnpm test:live`, `pnpm fixtures:record`). Cart contract tests and the fixture recorder run against your dev store with `.env.local`.
 
 ## Setup

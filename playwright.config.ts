@@ -11,7 +11,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   // A flaky test is a bug to fix, not to retry.
   retries: 0,
-  reporter: process.env.CI ? "github" : "list",
+  // On CI: annotations in the run, plus an HTML report kept when it fails.
+  reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : "list",
   use: {
     baseURL: `http://127.0.0.1:${port}`,
     trace: "retain-on-failure",
