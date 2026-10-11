@@ -30,7 +30,13 @@ const env = {
   ),
   E2E: "1",
   NEXT_TELEMETRY_DISABLED: "1",
-  NODE_OPTIONS: `--import ${pathToFileURL(join(import.meta.dirname, "preload.mjs")).href}`,
+  // Keeps the caller's Node options (CI raises the heap limit).
+  NODE_OPTIONS: [
+    process.env.NODE_OPTIONS,
+    `--import ${pathToFileURL(join(import.meta.dirname, "preload.mjs")).href}`,
+  ]
+    .filter(Boolean)
+    .join(" "),
   SHOP_ENABLED: "true",
   NEXT_PUBLIC_SITE_URL: `http://127.0.0.1:${port}`,
   SHOPIFY_STORE_DOMAIN: "synthetic-store.myshopify.com",

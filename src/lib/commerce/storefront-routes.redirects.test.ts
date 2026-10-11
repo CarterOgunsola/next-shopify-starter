@@ -14,8 +14,11 @@ vi.mock("next/headers", () => ({
 }));
 
 const { shopifyRoute } = await import("./storefront-routes.server");
-const { findShopifyRedirect, findShopifyRedirectByPath } =
-  await import("./shopify/redirects.server");
+const {
+  findShopifyRedirect,
+  findShopifyRedirectByPath,
+  REDIRECT_LOOKUP_TIMEOUT_MS,
+} = await import("./shopify/redirects.server");
 
 const get = (path: string) =>
   new Request(`https://local.test${path}`, {
@@ -241,7 +244,27 @@ describe("redirect lookups under load", () => {
   });
 
   it("leave no timer behind once a lookup is answered", async () => {
-    vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] });
+    // Track only the lookup's own timeout timer: other timers (the HTTP
+    // client's, the mock server's) come and go under load and aren't ours.
+    const started: unknown[] = [];
+    const cleared = new Set<unknown>();
+    const realSet = globalThis.setTimeout;
+    const realClear = globalThis.clearTimeout;
+    const setSpy = vi.spyOn(globalThis, "setTimeout").mockImplementation(((
+      fn: () => void,
+      ms?: number,
+      ...rest: unknown[]
+    ) => {
+      const id = realSet(fn, ms, ...rest);
+      if (ms === REDIRECT_LOOKUP_TIMEOUT_MS) started.push(id);
+      return id;
+    }) as typeof setTimeout);
+    const clearSpy = vi.spyOn(globalThis, "clearTimeout").mockImplementation(((
+      id?: Parameters<typeof clearTimeout>[0],
+    ) => {
+      cleared.add(id);
+      realClear(id);
+    }) as typeof clearTimeout);
     try {
       server.use(
         shopify.query("redirects", () =>
@@ -252,9 +275,11 @@ describe("redirect lookups under load", () => {
         "https://local.test/pages/quick",
         "203.0.113.7",
       );
-      expect(vi.getTimerCount()).toBe(0);
+      expect(started.length).toBeGreaterThan(0);
+      expect(started.filter((id) => !cleared.has(id))).toEqual([]);
     } finally {
-      vi.useRealTimers();
+      setSpy.mockRestore();
+      clearSpy.mockRestore();
     }
   });
 
