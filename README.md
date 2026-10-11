@@ -197,3 +197,7 @@ The recorder replaces your store's domain, tokens and visitor ids with synthetic
 - [ ] WAF rate-limit rules (Vercel WAF or your host's) for the newsletter server action, `/api/commerce/predictive-search`, `/api/commerce/browse`, `/api/mcp`, `/api/ucp/mcp` and `/discount/*`.
 - [ ] The Customer Account API callback, JavaScript origin and logout URI registered for the production domain.
 - [ ] Order notification emails link to `https://<site>/account/orders/{{ order.id }}` if order pages should be here (Shopify admin, Settings > Notifications).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
