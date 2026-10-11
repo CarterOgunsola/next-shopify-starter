@@ -1,3 +1,11 @@
 ignoredBuiltDependencies:
+  - esbuild
   - sharp
   - unrs-resolver
+  - workerd
+
+# Cloudflare build only: lets Next.js 16.4 boot on Workers by inlining
+# .next/server/preview-props.json. Same change as the open upstream fix
+# (opennextjs/opennextjs-cloudflare#1356); drop it once a release has it.
+patchedDependencies:
+  "@opennextjs/cloudflare@1.20.10": patches/@opennextjs__cloudflare@1.20.10.patch

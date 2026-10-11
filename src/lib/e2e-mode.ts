@@ -2,12 +2,18 @@
 // its own with Next's test proxy on, which lets a request's headers route
 // the server's outgoing fetches. That must never run with a real store's
 // private token or on a deployment, so it refuses unless the store is the
-// tests' synthetic one and the build isn't on Vercel.
+// tests' synthetic one and the build isn't on Vercel or Cloudflare
+// (HOSTING=cloudflare, or Workers Builds' WORKERS_CI).
 export const E2E_STORE_DOMAIN = "synthetic-store.myshopify.com";
 
 export function e2eMode(env: Record<string, string | undefined>): boolean {
   if (env.E2E !== "1") return false;
-  if (env.VERCEL || env.VERCEL_ENV) {
+  if (
+    env.VERCEL ||
+    env.VERCEL_ENV ||
+    env.WORKERS_CI ||
+    env.HOSTING?.trim().toLowerCase() === "cloudflare"
+  ) {
     throw new Error("E2E=1 is for local and CI test runs, never a deployment.");
   }
   if (env.SHOPIFY_STORE_DOMAIN !== E2E_STORE_DOMAIN) {

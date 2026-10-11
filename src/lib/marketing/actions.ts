@@ -1,7 +1,7 @@
 "use server";
 
 import { headers } from "next/headers";
-import { clientIp } from "@/lib/client-ip";
+import { clientIp } from "@/lib/host/client-ip";
 import { serverEnv } from "@/lib/env";
 import { createRateLimiter } from "@/lib/rate-limit";
 import { handleBackInStock } from "./back-in-stock";

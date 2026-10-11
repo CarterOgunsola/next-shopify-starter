@@ -1,4 +1,4 @@
-import { clientIp } from "@/lib/client-ip";
+import { clientIp } from "@/lib/host/client-ip";
 import { createRateLimiter } from "@/lib/rate-limit";
 
 // Receives CSP violation reports (report-uri and Reporting API formats).

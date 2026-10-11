@@ -1,7 +1,8 @@
 import { COOKIE_NAMES } from "@/lib/cookie-names";
 
-// src/proxy.ts copies the visitor's country (from Vercel's geo header) into
-// this cookie so static pages can pick the consent model on the client.
+// src/proxy.ts copies the visitor's country (from the host's geo header,
+// src/lib/host/request-geo.ts) into this cookie so static pages can pick the
+// consent model on the client.
 export const COUNTRY_COOKIE = COOKIE_NAMES.country;
 
 export function readCountryCookie(cookie: string): string | null {

@@ -1,7 +1,7 @@
 import "server-only";
 import { headers } from "next/headers";
 import { cache } from "react";
-import { clientIp } from "@/lib/client-ip";
+import { clientIp } from "@/lib/host/client-ip";
 import { MissingBuyerIpError } from "./errors";
 import type { BuyerContext } from "./types";
 
@@ -19,9 +19,10 @@ export const getBuyerContext = cache(async (): Promise<BuyerContext> => ({
 // The visitor's IP, sent to Shopify for per-buyer rate limits and bot
 // checks. In production a buyer call without one is refused: falling back
 // to the shared client would put every such visitor in one rate-limit
-// bucket and hide the problem. Vercel always sets the header, so this only
-// fires on a misconfigured host; endpoints answer it as a temporary
-// failure (503), and it's logged once per instance rather than per request.
+// bucket and hide the problem. Vercel and Cloudflare always set the header,
+// so this only fires on a misconfigured host (or HOSTING naming the wrong
+// one); endpoints answer it as a temporary failure (503), and it's logged
+// once per instance rather than per request.
 // Locally it can be undefined (shared client).
 let warned = false;
 

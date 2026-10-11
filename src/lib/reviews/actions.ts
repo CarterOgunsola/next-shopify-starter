@@ -1,7 +1,7 @@
 "use server";
 
 import { headers } from "next/headers";
-import { clientIp } from "@/lib/client-ip";
+import { clientIp } from "@/lib/host/client-ip";
 import { publicContext } from "@/lib/commerce/audience";
 import { getProductAtRequest } from "@/lib/commerce/catalog.server";
 import { isShopEnabled } from "@/lib/flags";

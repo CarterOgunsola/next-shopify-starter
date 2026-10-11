@@ -19,7 +19,7 @@ import {
 } from "./customer-session.server";
 import { forwardableRequest } from "../forwarded-request";
 import { routeTemplates } from "./route-templates";
-import { clientIp } from "@/lib/client-ip";
+import { clientIp } from "@/lib/host/client-ip";
 import { requestOrigin } from "../request-origin";
 
 // Hydrogen's Shopify routes, run from src/proxy.ts before Next routing:

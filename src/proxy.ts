@@ -3,6 +3,7 @@ import { wantsMarkdown } from "@/lib/commerce/agent-text.server";
 import { shopifyRoute } from "@/lib/commerce/storefront-routes.server";
 import { isShopIndexed } from "@/lib/flags";
 import { COUNTRY_COOKIE } from "@/lib/consent/region";
+import { requestCountry } from "@/lib/host/request-geo";
 
 export async function proxy(request: NextRequest) {
   // Shopify-owned paths (Storefront API proxy for analytics and consent,
@@ -33,11 +34,12 @@ function markdownPath(request: NextRequest): string | null {
   return match ? `/md/${match[1]}/${match[2]}` : null;
 }
 
-// Copies Vercel's geo header into a cookie the consent layer can read, so
-// pages stay static. Locally there is no header and the cookie is skipped;
-// the consent layer then falls back to the opt-in model.
+// Copies the host's geo header (src/lib/host/request-geo.ts) into a cookie
+// the consent layer can read, so pages stay static. Locally there is no
+// header and the cookie is skipped; the consent layer then falls back to the
+// opt-in model.
 function setCountry(request: NextRequest, response: NextResponse) {
-  const country = request.headers.get("x-vercel-ip-country");
+  const country = requestCountry(request.headers);
   if (country && request.cookies.get(COUNTRY_COOKIE)?.value !== country) {
     response.cookies.set(COUNTRY_COOKIE, country, {
       path: "/",

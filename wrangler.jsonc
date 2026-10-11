@@ -1,0 +1,54 @@
+// Cloudflare Workers config for pnpm cf:build, cf:preview and cf:deploy
+// (OpenNext). Vercel ignores it. Names are placeholders: rename the worker,
+// the bucket and the database before deploying, and keep the service
+// binding's "service" equal to "name". Secrets are never set here; use
+// `wrangler secret put` (see the README).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "next-shopify-starter",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-10-01",
+  // nodejs_compat: Next's server needs Node.js APIs. global_fetch_strictly_public:
+  // fetches to this zone's own hostnames go out to the internet rather than
+  // straight to the origin.
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "observability": { "enabled": true },
+  "vars": {
+    // Trust Cloudflare's headers for the visitor's IP and country
+    // (src/lib/host).
+    "HOSTING": "cloudflare",
+  },
+  // The revalidation queue calls the worker itself.
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "next-shopify-starter",
+    },
+  ],
+  // Incremental cache: prerendered pages and "use cache" entries.
+  "r2_buckets": [
+    {
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "next-shopify-starter-cache",
+    },
+  ],
+  // Tag cache for revalidateTag. Add "database_id" from
+  // `wrangler d1 create next-shopify-starter-tags`.
+  "d1_databases": [
+    {
+      "binding": "NEXT_TAG_CACHE_D1",
+      "database_name": "next-shopify-starter-tags",
+    },
+  ],
+  // Revalidation queue.
+  "durable_objects": {
+    "bindings": [
+      { "name": "NEXT_CACHE_DO_QUEUE", "class_name": "DOQueueHandler" },
+    ],
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["DOQueueHandler"] }],
+}

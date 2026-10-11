@@ -16,6 +16,10 @@ describe("e2eMode", () => {
 
   it("refuses a deployment and a real store", () => {
     expect(() => e2eMode({ E2E: "1", VERCEL: "1", ...STORE })).toThrow();
+    expect(() => e2eMode({ E2E: "1", WORKERS_CI: "1", ...STORE })).toThrow();
+    expect(() =>
+      e2eMode({ E2E: "1", HOSTING: "cloudflare", ...STORE }),
+    ).toThrow();
     expect(() =>
       e2eMode({ E2E: "1", VERCEL_ENV: "preview", ...STORE }),
     ).toThrow();

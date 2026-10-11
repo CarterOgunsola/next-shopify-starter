@@ -1,7 +1,8 @@
 import { ShopifyTransientError } from "./shopify/errors";
 
 // A buyer call in production with no trusted client IP header (see
-// getBuyerIp). Vercel always sets one, so it means a misconfigured host.
+// getBuyerIp). Vercel and Cloudflare always set one, so it means a
+// misconfigured host.
 export class MissingBuyerIpError extends Error {
   constructor() {
     super("No trusted client IP header on a buyer request");

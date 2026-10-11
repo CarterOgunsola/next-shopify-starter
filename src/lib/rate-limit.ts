@@ -1,6 +1,7 @@
 // Fixed-window limiter held in memory. Per server instance only, so it slows
 // down a single noisy client but is not a global limit. Pair it with a
-// Vercel WAF rate-limit rule on the routes that need a hard cap.
+// rate-limit rule in the host's WAF (Vercel WAF, or Cloudflare's rate
+// limiting rules) on the routes that need a hard cap.
 
 type Window = { count: number; resetAt: number };
 

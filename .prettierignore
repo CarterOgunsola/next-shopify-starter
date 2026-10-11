@@ -3,6 +3,8 @@ pnpm-lock.yaml
 .next-e2e
 test-results
 playwright-report
+.open-next
+.wrangler
 next-env.d.ts
 # Copied in as written; removable in one step.
 src/styles/scaffold.css

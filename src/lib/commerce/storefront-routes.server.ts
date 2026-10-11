@@ -1,7 +1,7 @@
 import "server-only";
 import { isShopEnabled } from "@/lib/flags";
 import { CLEAR_CART_COOKIE } from "./cart.server";
-import { clientIp } from "@/lib/client-ip";
+import { clientIp } from "@/lib/host/client-ip";
 import { createRateLimiter } from "@/lib/rate-limit";
 import { isAppRoute } from "./app-routes";
 import { requestOrigin } from "./request-origin";

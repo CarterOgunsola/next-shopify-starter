@@ -23,7 +23,10 @@
     "tunnel": "node scripts/tunnel.mjs",
     "launch:check": "LAUNCH_CHECK=1 vitest run src/lib/commerce/compliance.test.ts; wording=$?; LAUNCH_CHECK=1 VITEST_LIVE=1 vitest run --config vitest.record.config.mts src/lib/commerce/testing/supplement-labels.live.test.ts; labels=$?; exit $((wording || labels))",
     "test:live": "VITEST_LIVE=1 vitest run --config vitest.record.config.mts",
-    "dev:https": "next dev --experimental-https --hostname local.tryhydrogen.dev -p 4747"
+    "dev:https": "next dev --experimental-https --hostname local.tryhydrogen.dev -p 4747",
+    "cf:build": "HOSTING=cloudflare opennextjs-cloudflare build && node scripts/cloudflare-assets.mjs",
+    "cf:preview": "pnpm cf:build && opennextjs-cloudflare preview",
+    "cf:deploy": "pnpm cf:build && opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@c15t/nextjs": "2.2.1",
@@ -37,6 +40,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
+    "@opennextjs/cloudflare": "1.20.10",
     "@playwright/test": "1.63.0",
     "@tailwindcss/turbopack": "^4",
     "@testing-library/dom": "10.4.2",
@@ -55,7 +59,8 @@
     "prettier": "^3.9.9",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "5.0.1"
+    "vitest": "5.0.1",
+    "wrangler": "4.149.0"
   },
   "packageManager": "pnpm@10.28.2"
 }

@@ -15,6 +15,7 @@ const NOT_SETTINGS = new Set([
   "CI",
   "VERCEL",
   "VERCEL_ENV",
+  "WORKERS_CI",
   "E2E",
   "E2E_PORT",
   "E2E_SKIP_BUILD",

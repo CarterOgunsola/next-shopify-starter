@@ -38,6 +38,24 @@ jobs:
       - name: Build and client secret scan
         run: pnpm build
 
+  cloudflare:
+    name: Cloudflare build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # Build only (OpenNext into .open-next/): no Cloudflare account,
+      # nothing is deployed.
+      - run: pnpm cf:build
+        env:
+          WRANGLER_SEND_METRICS: "false"
+
   e2e:
     name: End to end (${{ matrix.script }})
     runs-on: ubuntu-latest

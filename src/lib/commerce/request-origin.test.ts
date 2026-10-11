@@ -41,3 +41,21 @@ describe("requestOrigin", () => {
     );
   });
 });
+
+describe("requestOrigin on Cloudflare", () => {
+  it("uses the request URL and ignores forwarded headers", () => {
+    const request = new Request("https://shop.example.com/account/login", {
+      headers: {
+        "x-forwarded-host": "other.example",
+        "x-forwarded-proto": "http",
+      },
+    });
+    expect(requestOrigin(request, false, "cloudflare")).toBe(
+      "https://shop.example.com",
+    );
+    // Vercel still prefers its forwarded headers.
+    expect(requestOrigin(request, false, "vercel")).toBe(
+      "http://other.example",
+    );
+  });
+});
