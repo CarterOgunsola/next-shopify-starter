@@ -14,6 +14,9 @@ concurrency:
 
 env:
   NEXT_TELEMETRY_DISABLED: "1"
+  # The type check and the build need more than Node's default heap on the
+  # hosted runners.
+  NODE_OPTIONS: --max-old-space-size=6144
 
 # Every suite here is hermetic: no Shopify store, tokens or vendor keys. The
 # build runs with the shop off (SHOP_ENABLED unset), and the end-to-end
