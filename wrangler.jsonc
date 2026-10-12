@@ -2,7 +2,7 @@
 // (OpenNext). Vercel ignores it. Names are placeholders: rename the worker,
 // the bucket and the database before deploying, and keep the service
 // binding's "service" equal to "name". Secrets are never set here; use
-// `wrangler secret put` (see the README).
+// `wrangler secret put` (see docs/deploy-cloudflare.md).
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "next-shopify-starter",

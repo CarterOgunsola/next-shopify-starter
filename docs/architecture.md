@@ -1,0 +1,23 @@
+# Architecture
+
+## Module boundaries
+
+- `src/lib/commerce/` is the only code that talks to Shopify. Pages and components import domain types from `@/lib/commerce` and server functions from its `*.server` modules. `@shopify/*` imports are allowed only inside `src/lib/commerce/shopify/`, which is private to `src/lib/commerce`. See [`src/lib/commerce/README.md`](../src/lib/commerce/README.md).
+- `src/lib/content/` is the extension point for a CMS, and the only code allowed to import a CMS SDK (the `cms` group in `eslint.config.mjs`). Nothing is connected yet: it returns no pages. To add a CMS, implement `content` in `src/lib/content/index.ts`, extend its types, add routes that call it, and list those routes in `src/lib/commerce/app-routes.ts`.
+- `src/lib/consent/` gates every non-essential script. Only it imports the consent vendor.
+- `src/lib/brand.ts` holds the store's names and `src/lib/cookie-names.ts` names every first-party cookie. Nothing else hard-codes either; `src/lib/brand.test.ts` fails if a configured store name appears anywhere else in the repo.
+
+ESLint enforces the boundaries, plus two server/client rules: `*.server` modules must import `server-only`, and `"use client"` files can't import them.
+
+## Caching rules
+
+- Every function in `src/lib/commerce/catalog.server.ts` that calls Shopify has `"use cache"` (or `"use cache: remote"`) and cache tags, and every export takes a `PublicContext`, so a signed-in buyer can never reach a shared cache. `caching.test.ts` and the type checker enforce this.
+- Nothing buyer-specific is cached: variant price and stock (`pricing.server.ts`), the cart, search, accounts and the `/api/commerce` endpoints read per request. A few endpoints that hold no buyer data are shared-cached for minutes.
+- Shopify operations (`src/lib/commerce/shopify/operations`) never cache. ESLint refuses `"use cache"` and `next/cache` there.
+- Webhooks (`/api/webhooks/shopify`) expire the tags for products, collections, metaobjects and the shop. Menus and policies have no webhook and refresh hourly; `POST /api/revalidate/menus` refreshes menus at once.
+
+## Supplement module (optional)
+
+For stores that sell dietary supplements. Products with `supplement.*` metafields get a Supplement Facts panel, other ingredients, allergens, directions and warnings, the DSHEA disclaimer when the page makes structure/function claims, and a California Prop 65 warning. Products without those metafields show none of it, so other stores can ignore the module. The metafields and rules are in [`src/lib/commerce/README.md`](../src/lib/commerce/README.md#supplement-facts-dshea-and-prop-65-optional).
+
+All regulatory wording lives in `src/lib/commerce/compliance.ts` and ships as placeholders (`approved: false`): pages show it with a visible `[Placeholder, pending legal review]` marker until counsel approves each entry. The same goes for the marketing opt-in, subscription terms and review incentive disclosure, which any store shows.

@@ -5,7 +5,7 @@ import doQueue from "@opennextjs/cloudflare/overrides/queue/do-queue";
 import d1NextTagCache from "@opennextjs/cloudflare/overrides/tag-cache/d1-next-tag-cache";
 
 // Cloudflare Workers build (pnpm cf:build). Vercel ignores this file.
-// See "Deploying to Cloudflare" in the README for the bindings each override
+// See docs/deploy-cloudflare.md for the bindings each override
 // needs (wrangler.jsonc).
 export default defineCloudflareConfig({
   // Prerendered pages and "use cache" entries, in R2, with a per-location
