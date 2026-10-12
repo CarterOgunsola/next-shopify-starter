@@ -22,4 +22,4 @@ Each vendor is an adapter that does nothing until its env vars are set, and ever
 - **Attentive** (`NEXT_PUBLIC_ATTENTIVE_BRAND`). Loads the Attentive tag (`dtag.js`) with marketing consent. Only the tag: confirm with Attentive how it handles client-side navigation and consent before building more.
 - **Judge.me** (`JUDGEME_PRIVATE_TOKEN`). Review lists and a review form, all server side; reviewers' emails and IPs are dropped. Set Judge.me to require approval for reviews of every rating. Ratings on cards and product pages come from Shopify's standard `reviews.rating` metafields, so they work with any review app.
 
-The app's own rate limits are in memory and per instance, so they're best effort; see the launch checklist for WAF rules.
+The app's own rate limits are in memory and per instance, so they're best effort; see the [launch checklist](launch-checklist.md) for WAF rules.

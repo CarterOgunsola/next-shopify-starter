@@ -61,7 +61,7 @@ The adapter also copies the project's `.env` files (`.env`, `.env.production`, `
 
 - The gaps under [Support status](#support-status-october-2026).
 - Static files skip the worker, so `next.config.ts` `headers()` doesn't reach them. `scripts/cloudflare-assets.mjs` writes `.open-next/assets/_headers` after each build: immutable caching for `_next/static`, plus `nosniff` and HSTS. Pages and API routes get the full set as on Vercel.
-- The rate limits and the Shopify redirect memo are per isolate, as they are per instance on Vercel. Use Cloudflare's rate limiting rules for hard caps (see the launch checklist).
+- The rate limits and the Shopify redirect memo are per isolate, as they are per instance on Vercel. Use Cloudflare's rate limiting rules for hard caps (see the [launch checklist](launch-checklist.md)).
 - `after()` runs through the Worker's `waitUntil`. The app doesn't use it today.
 - There is no Vercel WAF, preview protection or skew protection. OpenNext has an experimental skew protection option.
 
@@ -84,4 +84,4 @@ The platform's edge sets and overwrites these headers, so they're only trustwort
 pnpm cf:deploy
 ```
 
-Register the webhook and Customer Account API URLs for the Workers domain as in the launch checklist.
+Register the webhook and Customer Account API URLs for the Workers domain as in the [launch checklist](launch-checklist.md).
