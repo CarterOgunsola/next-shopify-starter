@@ -221,7 +221,6 @@ describe("AggregateRating in JSON-LD", () => {
   const product = {
     ...productContent("electrolytes"),
     reviews: summary,
-    supplement: null,
   };
 
   it("is there only with reviews the page shows", () => {

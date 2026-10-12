@@ -131,55 +131,6 @@
       "reviewCount": null,
       "publishedAt": "2026-10-07T22:13:50Z",
       "merchantBadges": null,
-      "supplement": [
-        {
-          "key": "serving_size",
-          "value": "1 scoop (5 g)",
-          "reference": null
-        },
-        {
-          "key": "servings_per_container",
-          "value": "30",
-          "reference": null
-        },
-        {
-          "key": "facts",
-          "value": "[{\"ingredient\":\"Creatine monohydrate\",\"amount\":\"5\",\"unit\":\"g\",\"daily_value\":null}]",
-          "reference": null
-        },
-        null,
-        {
-          "key": "allergens",
-          "value": "[\"Soybeans\"]",
-          "reference": null
-        },
-        {
-          "key": "directions",
-          "value": "Mix one scoop with water or a drink of your choice.",
-          "reference": null
-        },
-        {
-          "key": "warnings",
-          "value": "Consult your doctor before use if you are pregnant or nursing.",
-          "reference": null
-        },
-        {
-          "key": "structure_function_claims",
-          "value": "0",
-          "reference": null
-        },
-        {
-          "key": "prop65_warning",
-          "value": "true",
-          "reference": null
-        },
-        {
-          "key": "prop65_chemical",
-          "value": "lead",
-          "reference": null
-        },
-        null
-      ],
       "encodedVariantExistence": "v1_0",
       "encodedVariantAvailability": "v1_0",
       "selectedOrFirstAvailableVariant": {

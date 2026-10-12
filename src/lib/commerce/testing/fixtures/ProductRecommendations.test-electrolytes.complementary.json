@@ -29,16 +29,6 @@
         "merchantBadges": null,
         "requiresSellingPlan": true,
         "isGiftCard": false,
-        "prop65": [
-          {
-            "key": "prop65_warning",
-            "value": "true"
-          },
-          {
-            "key": "prop65_chemical",
-            "value": "lead"
-          }
-        ],
         "variants": {
           "pageInfo": {
             "hasNextPage": false
@@ -103,7 +93,6 @@
         "merchantBadges": null,
         "requiresSellingPlan": false,
         "isGiftCard": false,
-        "prop65": [null, null],
         "variants": {
           "pageInfo": {
             "hasNextPage": false
@@ -152,7 +141,6 @@
         "merchantBadges": null,
         "requiresSellingPlan": false,
         "isGiftCard": false,
-        "prop65": [null, null],
         "variants": {
           "pageInfo": {
             "hasNextPage": true

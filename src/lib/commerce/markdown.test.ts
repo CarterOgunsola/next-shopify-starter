@@ -57,12 +57,5 @@ describe("collectionMarkdown", () => {
       .find((l) => l.includes("/products/test-subscription-only"));
     expect(line).toContain("$31.50");
     expect(line).not.toContain("$35.00");
-    // Recorded with a Prop 65 warning.
-    expect(line).toContain(
-      "(California Prop 65 warning: see the product page)",
-    );
-    expect(
-      md.split("\n").find((l) => l.includes("/products/test-backorder")),
-    ).not.toContain("Prop 65");
   });
 });

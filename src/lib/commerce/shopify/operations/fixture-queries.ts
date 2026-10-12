@@ -75,21 +75,3 @@ export const DiscountFixtureIdsQuery = gql(`
     }
   }
 `);
-
-// Every product's allergens, for the launch check (pnpm launch:check).
-export const SupplementAllergensQuery = gql(`
-  query SupplementAllergens($after: String) {
-    products(first: 250, after: $after) {
-      nodes {
-        handle
-        allergens: metafield(namespace: "supplement", key: "allergens") {
-          value
-        }
-      }
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-    }
-  }
-`);

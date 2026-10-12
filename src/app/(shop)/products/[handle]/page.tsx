@@ -23,7 +23,6 @@ import {
   getProductContent,
   listProductHandles,
 } from "@/lib/commerce/catalog.server";
-import { shareableDescription } from "@/lib/commerce/compliance";
 import { isValidHandle } from "@/lib/commerce/handles";
 import { firstPaintView } from "@/lib/commerce/variant-selection";
 import { redirectOrNotFound } from "@/lib/commerce/missing-page.server";
@@ -73,18 +72,18 @@ export async function generateMetadata({
     : undefined;
   return {
     title: product.seo.title,
-    description: shareableDescription(product),
+    description: product.seo.description,
     alternates: { canonical: `/products/${product.handle}` },
     openGraph: {
       title: product.seo.title,
-      description: shareableDescription(product),
+      description: product.seo.description,
       url: `/products/${product.handle}`,
       images,
     },
     twitter: {
       card: image ? "summary_large_image" : "summary",
       title: product.seo.title,
-      description: shareableDescription(product),
+      description: product.seo.description,
       images: images?.map((i) => i.url),
     },
   };

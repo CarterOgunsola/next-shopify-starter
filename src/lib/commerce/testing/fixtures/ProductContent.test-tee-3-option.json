@@ -1205,19 +1205,6 @@
       "reviewCount": null,
       "publishedAt": "2026-10-07T22:13:50Z",
       "merchantBadges": null,
-      "supplement": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
       "encodedVariantExistence": "v1_0:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,1:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,2:0:0,1:0,2:0,3:0,4:0,,3:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,",
       "encodedVariantAvailability": "v1_0:0:0,1:0-1,2:0-1,3:0-1,,1:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,2:0:0,1:0,2:0,3:0,4:0,,3:0:0,1:0-1,2:0-1,3:0-1,4:0-1,,",
       "selectedOrFirstAvailableVariant": {

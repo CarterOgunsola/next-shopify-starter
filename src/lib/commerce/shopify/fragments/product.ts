@@ -128,36 +128,6 @@ export const ProductContentFragment = gql(
       # The review app's rating, in Shopify's standard review metafields.
       ...ReviewSummary
       ...ProductBadges
-      # Supplement content (supplement.*, see supplement.ts). Absent on
-      # products that aren't supplements.
-      supplement: metafields(
-        identifiers: [
-          { namespace: "supplement", key: "serving_size" }
-          { namespace: "supplement", key: "servings_per_container" }
-          { namespace: "supplement", key: "facts" }
-          { namespace: "supplement", key: "other_ingredients" }
-          { namespace: "supplement", key: "allergens" }
-          { namespace: "supplement", key: "directions" }
-          { namespace: "supplement", key: "warnings" }
-          { namespace: "supplement", key: "structure_function_claims" }
-          { namespace: "supplement", key: "prop65_warning" }
-          { namespace: "supplement", key: "prop65_chemical" }
-          { namespace: "supplement", key: "label_image" }
-        ]
-      ) {
-        key
-        value
-        reference {
-          ... on MediaImage {
-            image {
-              url
-              altText
-              width
-              height
-            }
-          }
-        }
-      }
     }
   `,
   [MediaFragment, ReviewSummaryFragment, ProductBadgesFragment],
@@ -190,17 +160,6 @@ export const ProductCardFragment = gql(
       # its first 10 variants for a "From" price.
       requiresSellingPlan
       isGiftCard
-      # A Prop 65 product can't be added without its warning: no quick add
-      # from a card (see toProp65).
-      prop65: metafields(
-        identifiers: [
-          { namespace: "supplement", key: "prop65_warning" }
-          { namespace: "supplement", key: "prop65_chemical" }
-        ]
-      ) {
-        key
-        value
-      }
       # Shopify's compareAtPriceRange skips variants without a compare-at
       # price, so a sale is read off the variants themselves.
       variants(first: 10) {

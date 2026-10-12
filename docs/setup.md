@@ -13,7 +13,7 @@ Install Shopify's **Headless** sales channel, create a storefront, and publish y
 - `NEXT_PUBLIC_SHOPIFY_PUBLIC_ACCESS_TOKEN`: the public token, for Shopify's browser analytics and consent scripts.
 - `SHOPIFY_STOREFRONT_ID`: the storefront id, for analytics attribution.
 
-Turn on the Storefront API permissions the site reads (products, collections and tags, inventory for "Only N left", selling plans, metaobjects, menus, checkouts), then set `SHOP_ENABLED=true` and restart. Metafields read on the storefront (reviews, badges, supplement data) need storefront access set to `PUBLIC_READ` in their definitions.
+Turn on the Storefront API permissions the site reads (products, collections and tags, inventory for "Only N left", selling plans, metaobjects, menus, checkouts), then set `SHOP_ENABLED=true` and restart. Metafields read on the storefront (reviews, badges) need storefront access set to `PUBLIC_READ` in their definitions.
 
 ## 3. Customer Account API
 

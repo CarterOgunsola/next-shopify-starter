@@ -38,7 +38,6 @@ export async function handleQuickAddRequest(
       sellingPlanGroups: content.sellingPlanGroups,
       requiresSellingPlan: content.requiresSellingPlan,
       isGiftCard: content.isGiftCard,
-      prop65: content.prop65,
       initialView: firstPaintView(defaultView),
       backInStock: backInStockEnabled(),
       marketingOptIn: backInStockMarketing(),

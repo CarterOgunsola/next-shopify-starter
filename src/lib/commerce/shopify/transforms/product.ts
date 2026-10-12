@@ -8,7 +8,6 @@ import type {
 import { sanitizeRichText } from "./html";
 import { toImage, toMedia } from "./media";
 import { toReviewSummary } from "./reviews";
-import { toProp65, toSupplementInfo } from "./supplement";
 
 const SEO_DESCRIPTION_LENGTH = 160;
 
@@ -74,8 +73,6 @@ export function toProductContent(
       })),
     })),
     requiresSellingPlan: product.requiresSellingPlan,
-    supplement: toSupplementInfo(product.supplement),
-    prop65: toProp65(product.supplement),
     isGiftCard: product.isGiftCard,
     reviews: toReviewSummary(product.reviewRating, product.reviewCount),
     // Price and stock on the product page are live (the purchase panel),
@@ -131,19 +128,13 @@ export function isPlaceholderOption(option: {
 
 // The variant a card can add straight to the cart: the only one, in stock,
 // and needing nothing chosen (no plan, no gift card recipient).
-// Not for a product with a Prop 65 warning: it's added where the warning
-// shows (the quick add dialog or the product page).
-function quickAddVariant(
-  product: ProductCardData,
-  prop65: { chemical: string | null } | null,
-): string | null {
+function quickAddVariant(product: ProductCardData): string | null {
   const [only, ...more] = product.variants.nodes;
   return only &&
     more.length === 0 &&
     only.availableForSale &&
     !product.requiresSellingPlan &&
-    !product.isGiftCard &&
-    !prop65
+    !product.isGiftCard
     ? only.id
     : null;
 }
@@ -204,7 +195,6 @@ export function toProductCard(
       : planPrices.reduce((high, next) =>
           Number(next.amount) > Number(high.amount) ? next : high,
         );
-  const prop65 = toProp65(product.prop65);
   const compareAt = saleCompareAt(product);
   const badges = productBadges(
     {
@@ -242,8 +232,7 @@ export function toProductCard(
     trackingParameters: product.trackingParameters ?? null,
     reviews: toReviewSummary(product.reviewRating, product.reviewCount),
     isGiftCard: product.isGiftCard,
-    quickAddVariantId: quickAddVariant(product, prop65),
-    prop65,
+    quickAddVariantId: quickAddVariant(product),
     badges,
   };
 }

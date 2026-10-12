@@ -30,38 +30,6 @@ describe("ProductDetails", () => {
     expect(html).not.toContain("<iframe");
   });
 
-  it("puts the DSHEA disclaimer right after the claims, both marked", () => {
-    // Recorded: electrolytes makes one structure/function claim.
-    const html = render("electrolytes");
-    const section = html.match(
-      /<section aria-labelledby="description"[^>]*>([\s\S]*?)<\/section>/,
-    );
-    expect(section?.[0]).toContain('aria-describedby="dshea-disclaimer"');
-    expect(section?.[1]).toMatch(
-      /<h2 id="description">Description<span aria-hidden="true">\*<\/span><\/h2><div>[\s\S]*<\/div><p id="dshea-disclaimer"><span aria-hidden="true">\* <\/span>/,
-    );
-    // Before the Supplement Facts, not after them.
-    expect(html.indexOf("dshea-disclaimer")).toBeLessThan(
-      html.indexOf("Supplement Facts"),
-    );
-  });
-
-  it("shows the Prop 65 warning before the purchase controls", () => {
-    // Recorded: the creatine carries a Prop 65 warning (lead).
-    const html = renderToStaticMarkup(
-      <ProductDetails product={productContent("creatine")}>
-        <button type="button">Add to cart</button>
-      </ProductDetails>,
-    );
-    const warning = html.indexOf(
-      'aria-label="California Proposition 65 warning"',
-    );
-    expect(warning).toBeGreaterThan(-1);
-    expect(warning).toBeLessThan(html.indexOf("Add to cart"));
-    // Once on the page.
-    expect(html.split("California Proposition 65 warning")).toHaveLength(2);
-  });
-
   it("renders a product with no media", () => {
     expect(render("minimal")).not.toContain("Product media");
   });

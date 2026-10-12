@@ -1,7 +1,6 @@
 import { HttpResponse } from "msw";
 import { describe, expect, it, vi } from "vitest";
 import electrolytes from "./testing/fixtures/ProductContent.test-electrolytes.json";
-import creatine from "./testing/fixtures/ProductContent.test-subscription-only.json";
 import { published, replay, server, shopify } from "./testing/msw";
 import { handleQuickAddRequest } from "./quick-add-endpoint.server";
 import type { QuickAddProduct } from "./types";
@@ -38,17 +37,6 @@ describe("GET /api/commerce/quick-add", () => {
     expect(product.initialView?.variant).not.toHaveProperty("available");
     expect(product.initialView?.variant).not.toHaveProperty("lowStock");
     expect(product.image?.url).toMatch(/^https:\/\/cdn\.shopify\.com\//);
-  });
-
-  it("carries a product's Prop 65 warning", async () => {
-    server.use(
-      ...published({ products: ["test-subscription-only"] }),
-      replay("ProductContent", creatine),
-    );
-    const { product }: { product: QuickAddProduct } = await (
-      await get("handle=test-subscription-only")
-    ).json();
-    expect(product.prop65).toEqual({ chemical: "lead" });
   });
 
   it("404s a product that isn't published, without reading it", async () => {

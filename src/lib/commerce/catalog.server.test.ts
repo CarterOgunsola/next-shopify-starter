@@ -152,7 +152,6 @@ describe("getProductRecommendations", () => {
     },
     publishedAt: "2020-01-01T00:00:00Z",
     merchantBadges: null,
-    prop65: [null, null],
     requiresSellingPlan: false,
     reviewRating: null,
     reviewCount: null,

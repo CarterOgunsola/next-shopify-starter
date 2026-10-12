@@ -62,7 +62,6 @@ const product: QuickAddProduct = {
   sellingPlanGroups: [],
   requiresSellingPlan: false,
   isGiftCard: false,
-  prop65: null,
   initialView: view("Ice"),
   backInStock: false,
   marketingOptIn: false,
@@ -174,29 +173,6 @@ describe("QuickAdd", () => {
     ]);
     expect(dialog).toHaveProperty("open", false);
     expect(screen.queryByRole("button", { name: "Add to cart" })).toBeNull();
-  });
-
-  it("shows a Prop 65 warning before the purchase panel", async () => {
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () =>
-        Response.json({
-          product: { ...product, prop65: { chemical: "lead" } },
-        }),
-      ),
-    );
-    render(<QuickAdd product={tile({ handle: "synthetic-tee-prop65" })} />);
-    await userEvent.click(
-      screen.getByRole("button", { name: "Quick add Synthetic Tee" }),
-    );
-    const warning = await screen.findByRole("region", {
-      name: "California Proposition 65 warning",
-    });
-    expect(warning.textContent).toContain("including lead");
-    const panel = screen.getByRole("region", { name: "Purchase" });
-    expect(
-      warning.compareDocumentPosition(panel) & Node.DOCUMENT_POSITION_FOLLOWING,
-    ).toBeTruthy();
   });
 
   it("says so when the options can't load, and asks again next time", async () => {

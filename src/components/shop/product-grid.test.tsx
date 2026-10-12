@@ -45,7 +45,6 @@ describe("product tiles from the browse endpoint", () => {
         "id",
         "isGiftCard",
         "price",
-        "prop65",
         "quickAddVariantId",
         "reviews",
         "title",

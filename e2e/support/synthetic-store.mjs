@@ -84,9 +84,6 @@ function cardFromContent(product) {
     isGiftCard: product.isGiftCard,
     publishedAt: product.publishedAt,
     merchantBadges: product.merchantBadges,
-    prop65: ["prop65_warning", "prop65_chemical"].map(
-      (key) => product.supplement?.find((field) => field?.key === key) ?? null,
-    ),
     variants: {
       pageInfo: { hasNextPage: product.variants.nodes.length > 10 },
       nodes: variants.map((v) => ({

@@ -538,47 +538,6 @@
       },
       "publishedAt": "2026-10-07T22:13:50Z",
       "merchantBadges": null,
-      "supplement": [
-        {
-          "key": "serving_size",
-          "value": "1 stick pack (6 g)",
-          "reference": null
-        },
-        {
-          "key": "servings_per_container",
-          "value": "30",
-          "reference": null
-        },
-        {
-          "key": "facts",
-          "value": "[{\"ingredient\":\"Sodium\",\"amount\":\"500\",\"unit\":\"mg\",\"daily_value\":22,\"source\":\"sodium citrate\"},{\"ingredient\":\"Potassium\",\"amount\":\"200\",\"unit\":\"mg\",\"daily_value\":4,\"source\":\"potassium citrate\"},{\"ingredient\":\"Magnesium\",\"amount\":\"60\",\"unit\":\"mg\",\"daily_value\":14,\"source\":\"magnesium glycinate\"},{\"ingredient\":\"Taurine\",\"amount\":\"250\",\"unit\":\"mg\",\"daily_value\":null,\"blend\":\"Test hydration blend\"},{\"ingredient\":\"Coconut water powder\",\"amount\":\"100\",\"unit\":\"mg\",\"daily_value\":null,\"blend\":\"Test hydration blend\"}]",
-          "reference": null
-        },
-        {
-          "key": "other_ingredients",
-          "value": "[\"Citric acid\",\"Natural lemon flavor\",\"Stevia leaf extract\"]",
-          "reference": null
-        },
-        null,
-        {
-          "key": "directions",
-          "value": "Mix one stick pack with 16 oz of water.\nUse once or twice a day.",
-          "reference": null
-        },
-        {
-          "key": "warnings",
-          "value": "Keep out of reach of children.\nDo not use if the seal is broken.",
-          "reference": null
-        },
-        {
-          "key": "structure_function_claims",
-          "value": "1",
-          "reference": null
-        },
-        null,
-        null,
-        null
-      ],
       "encodedVariantExistence": "v1_0:0-1,1:0-1,2:0-1,",
       "encodedVariantAvailability": "v1_0:0-1,1:0-1,2:0-1,",
       "selectedOrFirstAvailableVariant": {

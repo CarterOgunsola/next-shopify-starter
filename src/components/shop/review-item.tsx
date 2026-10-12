@@ -1,5 +1,5 @@
 import { REVIEW_INCENTIVE_DISCLOSURE } from "@/lib/commerce/compliance";
-import { ComplianceNotice } from "./supplement-facts";
+import { ComplianceNotice } from "./compliance-notice";
 import type { Review } from "@/lib/reviews/types";
 
 const date = (iso: string) =>

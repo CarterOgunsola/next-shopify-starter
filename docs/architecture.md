@@ -16,8 +16,6 @@ ESLint enforces the boundaries, plus two server/client rules: `*.server` modules
 - Shopify operations (`src/lib/commerce/shopify/operations`) never cache. ESLint refuses `"use cache"` and `next/cache` there.
 - Webhooks (`/api/webhooks/shopify`) expire the tags for products, collections, metaobjects and the shop. Menus and policies have no webhook and refresh hourly; `POST /api/revalidate/menus` refreshes menus at once.
 
-## Supplement module (optional)
+## Regulatory wording
 
-For stores that sell dietary supplements. Products with `supplement.*` metafields get a Supplement Facts panel, other ingredients, allergens, directions and warnings, the DSHEA disclaimer when the page makes structure/function claims, and a California Prop 65 warning. Products without those metafields show none of it, so other stores can ignore the module. The metafields and rules are in [`src/lib/commerce/README.md`](../src/lib/commerce/README.md#supplement-facts-dshea-and-prop-65-optional).
-
-All regulatory wording lives in `src/lib/commerce/compliance.ts` and ships as placeholders (`approved: false`): pages show it with a visible `[Placeholder, pending legal review]` marker until counsel approves each entry. The same goes for the marketing opt-in, subscription terms and review incentive disclosure, which any store shows.
+All regulatory wording lives in `src/lib/commerce/compliance.ts` (the marketing opt-in, subscription terms and review incentive disclosure) and ships as placeholders (`approved: false`): pages show it with a visible `[Placeholder, pending legal review]` marker until counsel approves each entry, and `pnpm launch:check` fails until then.

@@ -12,7 +12,6 @@ const loadPurchase = () =>
   import("./product-purchase").then((m) => m.ProductPurchase);
 const ProductPurchase = dynamic(loadPurchase, { ssr: false });
 import { ChunkBoundary } from "../chunk-boundary";
-import { Prop65Notice } from "./supplement-facts";
 
 // Quick add on a product tile. A product whose only variant needs no
 // choices is added straight away. Others open a dialog with the product
@@ -147,8 +146,6 @@ function QuickAddDialog({ product }: { product: ProductCard }) {
         {open && data === null && (
           <p role="alert">This product&apos;s options couldn&apos;t load.</p>
         )}
-        {/* The warning comes before the add, as on the product page. */}
-        {open && <Prop65Notice prop65={data?.prop65} />}
         {open && data && (
           <ChunkBoundary>
             <ProductPurchase

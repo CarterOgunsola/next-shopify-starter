@@ -92,34 +92,6 @@ export type SellingPlanPrice = {
 // A product's review rating from the review app, on a 5-point scale.
 export type ReviewSummary = { rating: number; count: number };
 
-// A supplement's label content, from its supplement.* metafields.
-export type SupplementInfo = {
-  servingSize: string | null;
-  servingsPerContainer: number | null;
-  facts: {
-    ingredient: string;
-    amount: string;
-    unit: string;
-    // Percent of Daily Value; null where none is established.
-    dailyValue: number | null;
-    source: string | null;
-    // The proprietary blend the row belongs to, and the blend's total
-    // amount (21 CFR 101.36(c)(2)).
-    blend: string | null;
-    blendTotal: string | null;
-  }[];
-  otherIngredients: string[];
-  // Of the nine major food allergens, as the label states them: the kind
-  // for tree nuts, fish and shellfish ("Almonds"), otherwise the name.
-  allergens: string[];
-  directions: string | null;
-  warnings: string | null;
-  // How many structure/function claims the product's page makes: with any,
-  // the DSHEA disclaimer shows (singular for one, plural for more).
-  structureFunctionClaims: number | null;
-  labelImage: Image | null;
-};
-
 export type ProductContent = {
   id: string;
   // Badges that don't depend on price or stock (see badges.ts).
@@ -140,12 +112,6 @@ export type ProductContent = {
   // Which image goes with which option values, so the gallery can follow
   // the selection without a request.
   variantImages: { options: Record<string, string>; url: string }[];
-  // Supplement facts and label content; null for products that aren't
-  // supplements.
-  supplement: SupplementInfo | null;
-  // Carries a California Prop 65 warning (supplement.prop65_warning), shown
-  // before the purchase controls; supplement or not.
-  prop65: { chemical: string | null } | null;
   // null until the product has a review.
   reviews: ReviewSummary | null;
   // A gift card: sold with optional recipient details, never on a plan.
@@ -207,11 +173,8 @@ export type ProductCard = {
   // The review rating, when the product has reviews.
   reviews?: ReviewSummary | null;
   isGiftCard?: boolean;
-  // Its only variant, when it can be added without choosing anything (or
-  // seeing a warning).
+  // Its only variant, when it can be added without choosing anything.
   quickAddVariantId?: string | null;
-  // Carries a California Prop 65 warning (see SupplementInfo).
-  prop65?: { chemical: string | null } | null;
   badges?: Badge[];
 };
 
@@ -558,8 +521,6 @@ export type QuickAddProduct = {
   sellingPlanGroups: SellingPlanGroup[];
   requiresSellingPlan: boolean;
   isGiftCard: boolean;
-  // Shown in the dialog before adding.
-  prop65: { chemical: string | null } | null;
   // The cached default variant, until the live view answers.
   initialView: VariantView | null;
   backInStock: boolean;

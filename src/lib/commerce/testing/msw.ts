@@ -73,7 +73,6 @@ export function published({
               },
               publishedAt: "2020-01-01T00:00:00Z",
               merchantBadges: null,
-              prop65: [null, null],
             })),
             pageInfo: EMPTY_PAGE,
           },

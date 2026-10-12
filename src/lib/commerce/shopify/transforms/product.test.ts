@@ -172,7 +172,6 @@ describe("toProductCard", () => {
     isGiftCard: false,
     publishedAt: "2020-01-01T00:00:00Z",
     merchantBadges: null,
-    prop65: [null, null],
     variants: variants([variant()]),
   };
   const onSale = { ...card, availableForSale: true };
@@ -193,7 +192,6 @@ describe("toProductCard", () => {
       reviews: null,
       isGiftCard: false,
       quickAddVariantId: "gid://shopify/ProductVariant/1",
-      prop65: null,
       badges: [{ kind: "soldOut", label: "Sold out" }],
     });
   });
@@ -316,17 +314,6 @@ describe("toProductCard", () => {
     expect(one()).toBe("gid://shopify/ProductVariant/9");
     expect(one({ requiresSellingPlan: true })).toBeNull();
     expect(one({ isGiftCard: true })).toBeNull();
-    // A Prop 65 product is added where its warning shows.
-    const prop65 = toProductCard({
-      ...card,
-      variants: variants([lone]),
-      prop65: [
-        { key: "prop65_warning", value: "true" },
-        { key: "prop65_chemical", value: "lead" },
-      ],
-    });
-    expect(prop65.quickAddVariantId).toBeNull();
-    expect(prop65.prop65).toEqual({ chemical: "lead" });
     expect(
       one({ variants: variants([{ ...lone, availableForSale: false }]) }),
     ).toBeNull();

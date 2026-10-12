@@ -1,4 +1,3 @@
-import { shareableDescription } from "./compliance";
 import { purchasePrice } from "./money";
 import { legacyId } from "./shopify/ids";
 import type {
@@ -41,24 +40,6 @@ function offer(url: string, price: VariantState["price"], available: boolean) {
     priceCurrency: price.currencyCode,
     availability: available ? IN_STOCK : OUT_OF_STOCK,
   };
-}
-
-// Label facts only (serving size and count), never claims or ingredients'
-// effects.
-function supplementProperties(supplement: ProductContent["supplement"]) {
-  const properties = [
-    supplement?.servingSize && {
-      "@type": "PropertyValue",
-      name: "Serving size",
-      value: supplement.servingSize,
-    },
-    supplement?.servingsPerContainer && {
-      "@type": "PropertyValue",
-      name: "Servings per container",
-      value: supplement.servingsPerContainer,
-    },
-  ].filter(Boolean);
-  return properties.length ? { additionalProperty: properties } : {};
 }
 
 // Reviews shown on the page. AggregateRating goes in only with reviews the
@@ -109,19 +90,15 @@ export function productJsonLd(
   offers: VariantOffer[] | null = null,
   visibleReviews: VisibleReviews | null = null,
 ) {
-  const supplement = product.supplement;
   const base = {
     "@context": "https://schema.org",
     name: product.title,
-    // A description with structure/function claims needs the DSHEA
-    // disclaimer next to it, which structured data can't carry: left out.
-    ...(shareableDescription(product)
-      ? { description: shareableDescription(product) }
+    ...(product.seo.description
+      ? { description: product.seo.description }
       : {}),
     url,
     image: images(product),
     ...brand(product),
-    ...supplementProperties(supplement),
     ...reviewProperties(visibleReviews),
   };
   if (!offers || offers.length < 2 || product.options.length === 0) {

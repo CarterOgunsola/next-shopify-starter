@@ -15,7 +15,6 @@ It is brand-free: the store's name, the cookie prefix and the consent policy are
 - **SEO and agents.** JSON-LD, Open Graph, sitemaps from Shopify's sitemap API, `robots.txt`, Markdown versions of product pages and `/llms.txt` after launch, and Shopify's Storefront MCP and UCP endpoints.
 - **Consent.** c15t in headless mode with a region model (opt-out in the US, opt-in elsewhere by default), Global Privacy Control, Google Consent Mode v2 and Shopify's Customer Privacy API.
 - **Optional vendors.** Google Tag Manager and GA4, Klaviyo (sign-up form, back in stock, onsite forms), Attentive, Judge.me reviews. Each is off until its env vars are set.
-- **Optional supplement module.** Supplement Facts panel, DSHEA disclaimer and Prop 65 warning, driven by product metafields and shown only for products that have them.
 - **Security.** HSTS, a strict Content Security Policy (report-only until you enforce it), HttpOnly cart and session cookies, webhook HMAC checks, and a build step that fails if a server secret reaches client output.
 - **Tests.** Vitest with MSW and recorded synthetic fixtures, Playwright end to end against a hermetic synthetic store, axe accessibility checks, and a Core Web Vitals budget.
 
@@ -49,7 +48,7 @@ See [Setup](docs/setup.md) for the Shopify dev store, the Headless channel token
 | `pnpm cf:build`        | The Cloudflare Workers build (OpenNext) into `.open-next/`. See [Deploying to Cloudflare](docs/deploy-cloudflare.md).    |
 | `pnpm cf:preview`      | `pnpm cf:build`, then serves it locally on workerd (`wrangler dev`) at http://localhost:8787.                            |
 | `pnpm cf:deploy`       | `pnpm cf:build`, then deploys to Cloudflare. Needs a Cloudflare account and the resources below.                         |
-| `pnpm launch:check`    | Fails while any compliance wording is unapproved or any product's allergens don't read cleanly. Needs `.env.local`.      |
+| `pnpm launch:check`    | Fails while any compliance wording is unapproved.                                                                        |
 | `pnpm fixtures:record` | Re-records the Storefront API fixtures from the dev store in `.env.local`.                                               |
 | `pnpm test:live`       | Cart contract tests against the dev store in `.env.local`.                                                               |
 
@@ -57,7 +56,7 @@ See [Setup](docs/setup.md) for the Shopify dev store, the Headless channel token
 
 - [Setup](docs/setup.md): the Shopify dev store, Headless channel tokens and the Customer Account API.
 - [Environment](docs/environment.md): every variable, its scope and default.
-- [Architecture](docs/architecture.md): module boundaries, caching rules and the supplement module.
+- [Architecture](docs/architecture.md): module boundaries, caching rules and regulatory wording.
 - [Consent and vendors](docs/consent-and-vendors.md): the consent policy, GTM and GA4, Klaviyo, Attentive, Judge.me.
 - [Security](docs/security.md): security headers, the CSP and the client secret scan.
 - [Testing](docs/testing.md): test layers, fixtures and seeding a dev store.

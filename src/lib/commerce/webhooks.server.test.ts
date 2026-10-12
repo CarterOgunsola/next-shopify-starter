@@ -95,8 +95,8 @@ describe("tagsForWebhook", () => {
       tagsForWebhook("collections/update", { id: 7, handle: "test-all" }),
     ).toEqual(["collection-id-7", "collection-test-all", "collections-index"]);
     expect(
-      tagsForWebhook("metaobjects/update", { type: "supplement_facts" }),
-    ).toEqual(["metaobject-supplement_facts"]);
+      tagsForWebhook("metaobjects/update", { type: "size_chart" }),
+    ).toEqual(["metaobject-size_chart"]);
   });
 
   it("ignores unknown topics and malformed payloads", () => {

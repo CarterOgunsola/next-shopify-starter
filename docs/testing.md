@@ -16,7 +16,6 @@ The recorded fixtures come from a dev store holding Shopify's generated sample p
 1. Generate Shopify's sample data in the dev store.
 2. Create the `test-` products and collections that `src/lib/commerce/testing/fixtures.record.ts` reads: a tee with three options, a product with an optional subscription, a subscription-only product, a sold-out product, one with 150 variants, and so on. The existing fixtures show each one's options and settings. Use made-up data only.
 3. Create the discount codes `TEST10` (10% off) and `TEST5OFF` ($5 off a subtotal of $50 or more).
-4. For the supplement module, add `supplement.*` metafields to `test-electrolytes` and `test-subscription-only`.
-5. Publish everything to the Headless channel, then run `pnpm fixtures:record` and review the diff.
+4. Publish everything to the Headless channel, then run `pnpm fixtures:record` and review the diff.
 
 The recorder replaces your store's domain, tokens and visitor ids with synthetic stand-ins and refuses anything that looks like an email address or phone number. Never commit real customer or order data.

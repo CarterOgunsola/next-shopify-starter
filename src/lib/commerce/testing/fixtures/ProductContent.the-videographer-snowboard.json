@@ -91,19 +91,6 @@
       "reviewCount": null,
       "publishedAt": "2026-10-07T19:50:02Z",
       "merchantBadges": null,
-      "supplement": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
       "encodedVariantExistence": "v1_0",
       "encodedVariantAvailability": "v1_0",
       "selectedOrFirstAvailableVariant": {
