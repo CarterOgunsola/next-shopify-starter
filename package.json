@@ -31,12 +31,12 @@
   "dependencies": {
     "@c15t/nextjs": "2.2.1",
     "@shopify/hydrogen": "2026.10.0",
-    "next": "16.4.0",
+    "next": "16.4.3",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "sanitize-html": "2.17.7",
+    "sanitize-html": "2.18.1",
     "server-only": "^0.0.1",
-    "zod": "^4.6.5"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
@@ -52,7 +52,7 @@
     "@types/sanitize-html": "2.16.1",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.4.0",
+    "eslint-config-next": "16.4.3",
     "graphql": "17.0.2",
     "jsdom": "30.1.1",
     "msw": "3.0.1",
