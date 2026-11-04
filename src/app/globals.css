@@ -20,5 +20,29 @@
       "Segoe UI",
       sans-serif;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Phones: no double-tap wait on controls, and a held button doesn't
+     select its label. Tailwind's preflight already turns off the grey tap
+     highlight. */
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  label,
+  summary {
+    touch-action: manipulation;
+  }
+  button {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* An open full-screen overlay marked data-lock-scroll="on" holds the
+     page still behind it. */
+  html:has([data-lock-scroll="on"]) {
+    overflow: hidden;
   }
 }
