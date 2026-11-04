@@ -4,6 +4,7 @@ import {
   handleBrowseRequest,
   handlePredictiveRequest,
 } from "./browse-endpoint.server";
+import predictive from "./testing/fixtures/PredictiveSearch.test.json";
 import search from "./testing/fixtures/Search.tee.json";
 import { published, replay, server, shopify } from "./testing/msw";
 
@@ -27,6 +28,57 @@ describe("browse endpoint", () => {
     expect((await response.json()).totalCount).toBe(
       search.data.search.totalCount,
     );
+  });
+
+  it("shows predictive search's typo-forgiving matches when search finds nothing", async () => {
+    const none = structuredClone(search);
+    none.data.search.nodes = [];
+    none.data.search.totalCount = 0;
+    let predicted = 0;
+    server.use(
+      replay("Search", none),
+      shopify.query("PredictiveSearch", ({ variables }) => {
+        predicted++;
+        expect(variables.query).toBe("tea");
+        return HttpResponse.json(predictive);
+      }),
+    );
+    const typo = await (
+      await handleBrowseRequest(get("/api/commerce/browse?q=tea"), on)
+    ).json();
+    const handles = predictive.data.predictiveSearch.products.map(
+      (product) => product.handle,
+    );
+    expect(
+      typo.products.items.map((item: { handle: string }) => item.handle),
+    ).toEqual(handles);
+    expect(typo.totalCount).toBe(handles.length);
+
+    // Not when filters narrowed a search to nothing: that empty is real.
+    const filtered = await (
+      await handleBrowseRequest(
+        get("/api/commerce/browse?q=tea&filter.v.availability=1"),
+        on,
+      )
+    ).json();
+    expect(filtered.totalCount).toBe(0);
+    expect(predicted).toBe(1);
+  });
+
+  it("keeps an empty search's result when close matches can't load", async () => {
+    const none = structuredClone(search);
+    none.data.search.nodes = [];
+    none.data.search.totalCount = 0;
+    server.use(
+      replay("Search", none),
+      shopify.query("PredictiveSearch", () => HttpResponse.error()),
+    );
+    const response = await handleBrowseRequest(
+      get("/api/commerce/browse?q=tea"),
+      on,
+    );
+    expect(response.status).toBe(200);
+    expect((await response.json()).totalCount).toBe(0);
   });
 
   it("404s for a collection that isn't published", async () => {

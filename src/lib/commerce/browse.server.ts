@@ -24,7 +24,15 @@ export async function browse(
 ): Promise<Listing | null> {
   const params = parseBrowseParams(new URLSearchParams(search));
   const buyerIp = await getBuyerIp();
-  if ("query" in source) return fetchSearch(source.query, params, buyerIp);
+  if ("query" in source) {
+    const found = await fetchSearch(source.query, params, buyerIp);
+    const unfiltered =
+      !params.filters.length && !params.after && !params.before;
+    // Close matches are extra: if they fail, the empty result stands.
+    return found.totalCount === 0 && unfiltered
+      ? ((await closeMatches(source.query, buyerIp).catch(() => null)) ?? found)
+      : found;
+  }
   const found = await fetchCollectionListing(
     source.collection,
     params,
@@ -32,6 +40,25 @@ export async function browse(
   );
   if (found) return found.listing;
   return source.collection === "all" ? fetchAllProducts(params, buyerIp) : null;
+}
+
+// Shopify's full search matches whole words (the last also as a prefix),
+// so a typo like "jaket" finds nothing; its predictive search forgives
+// typos. So a search that finds nothing shows what predictive search makes
+// of the term, up to its limit of 10.
+const CLOSE_MATCHES = 10;
+
+async function closeMatches(
+  query: string,
+  buyerIp: string | undefined,
+): Promise<Listing | null> {
+  const { products } = await fetchPredictive(query, CLOSE_MATCHES, buyerIp);
+  if (!products.length) return null;
+  return {
+    products: { items: products, nextCursor: null, previousCursor: null },
+    facets: [],
+    totalCount: products.length,
+  };
 }
 
 export const PREDICTIVE_LIMIT = 6;
