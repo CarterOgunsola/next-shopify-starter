@@ -43,6 +43,8 @@ export function e2eServerEnv({ env, envExample, port, preload }) {
     JUDGEME_PRIVATE_TOKEN: "synthetic-judgeme-token",
     KLAVIYO_PRIVATE_API_KEY: "pk_synthetic",
     KLAVIYO_LIST_ID: "synthetic",
+    // A host that isn't the site's, redirected to it with a 308.
+    REDIRECT_HOSTS: "old-host.example",
   };
 }
 

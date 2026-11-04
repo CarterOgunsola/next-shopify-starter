@@ -6,7 +6,7 @@ The site can launch first, as a content site with the shop off, and the shop lat
 
 - [ ] Replace the placeholder pages and copy: the home page, `/privacy`, `/terms`, `/cookies`, `/privacy-choices` and the consent banner.
 - [ ] Counsel confirms the consent policy (`src/lib/consent/policy.ts`: which regions get the opt-out or opt-in model, and what Global Privacy Control turns off).
-- [ ] The production domain is added to the project on your host (a domain on the Vercel project, or a custom domain on the Worker).
+- [ ] The production domain is added to the project on your host (a domain on the Vercel project, or a custom domain on the Worker), and `REDIRECT_HOSTS` is the host's own hostname (the project's vercel.app or the Worker's workers.dev one), so that host redirects permanently to the production domain, keeping the path and query. Check with `curl -I` on a nested path with a query on both hosts: the old host answers 308 with a `Location` on the production domain with the same path and query, and the production domain serves the page. Preview deployment URLs still load.
 - [ ] `NEXT_PUBLIC_SITE_URL` is the production domain (`https://`, no trailing slash). Metadata, canonical URLs, `robots.txt` and the sitemaps are built from it.
 - [ ] `SITE_INDEXED=true` once the site should be indexed. Until then every response says `noindex, nofollow` and the sitemaps 404. After it, `https://<domain>/robots.txt` lists the sitemap, and pages no longer send `X-Robots-Tag`.
 - [ ] `SHOP_ENABLED` matches what's launching. With it off, the shop pages 404.

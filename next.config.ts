@@ -3,6 +3,7 @@ import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 import { DEV_TUNNEL_HOSTS } from "./src/lib/dev-tunnel";
 import { e2eMode } from "./src/lib/e2e-mode";
 import { robotsHeaders } from "./src/lib/indexing";
+import { hostRedirects } from "./src/lib/redirect-hosts";
 import { securityHeaders } from "./src/lib/security/headers";
 
 const e2e = e2eMode(process.env);
@@ -45,6 +46,11 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
+  },
+  // REDIRECT_HOSTS: other hostnames (such as the host's own vercel.app or
+  // workers.dev one) send every path to the site with a 308.
+  async redirects() {
+    return hostRedirects(process.env);
   },
   turbopack: {
     rules: {
