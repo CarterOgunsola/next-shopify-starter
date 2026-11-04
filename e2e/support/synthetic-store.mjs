@@ -7,8 +7,12 @@
 // The catalog is the products with a recorded ProductContent fixture. Any
 // option selection resolves against their variants. Carts live in memory:
 // one per store instance (each test has its own).
+//
+// `pnpm dev:synthetic` serves a dataset's catalog instead (serveDataset,
+// from preload.mjs); the tests never do.
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { buildDataset, readDataset } from "./dataset.mjs";
 
 export const STORE_DOMAIN = "synthetic-store.myshopify.com";
 // From the repository root, where the tests and the server run (this
@@ -36,15 +40,43 @@ const named = (prefix) =>
   [...fixtures.keys()].filter((name) => name.startsWith(`${prefix}.`));
 
 // Products: handle -> ProductContent product.
-const contents = new Map(
-  named("ProductContent").map((name) => {
-    const product = fixtures.get(name).product;
-    return [product.handle, product];
-  }),
-);
-
+const contents = new Map();
 // Card-shaped product nodes recorded anywhere, by handle.
 const cards = new Map();
+// Product handles, by title.
+const catalog = [];
+// Collections with a default-view listing.
+const listingHandles = [];
+// The dataset in use (serveDataset), if any: its cards, each variant's units
+// and search's filters.
+let dataset = null;
+
+// Fills the indexes above from the fixtures.
+function index() {
+  contents.clear();
+  for (const name of named("ProductContent")) {
+    const product = fixtures.get(name).product;
+    contents.set(product.handle, product);
+  }
+  cards.clear();
+  for (const [handle, card] of dataset?.cards ?? []) cards.set(handle, card);
+  for (const data of fixtures.values()) collectCards(data);
+  catalog.splice(
+    0,
+    catalog.length,
+    ...[...contents.keys()].sort((a, b) =>
+      contents.get(a).title.localeCompare(contents.get(b).title, "en"),
+    ),
+  );
+  listingHandles.splice(
+    0,
+    listingHandles.length,
+    ...named("CollectionListing")
+      .filter((name) => name.split(".").length === 2)
+      .map((name) => name.split(".")[1]),
+  );
+}
+
 function collectCards(value) {
   if (Array.isArray(value)) return value.forEach(collectCards);
   if (!value || typeof value !== "object") return;
@@ -58,7 +90,28 @@ function collectCards(value) {
   }
   Object.values(value).forEach(collectCards);
 }
-for (const data of fixtures.values()) collectCards(data);
+index();
+
+// Serves a dataset (e2e/support/datasets/<name>.json, built by dataset.mjs)
+// in place of the recorded catalog: the test products, listings,
+// recommendations, menus and policies go, and the dataset's, built on the
+// recorded shapes, take their place. imagesUrl: where its images are
+// served.
+export function serveDataset(name, { imagesUrl } = {}) {
+  const built = buildDataset(readDataset(name), fixture, { imagesUrl });
+  for (const key of [...fixtures.keys()]) {
+    if (
+      /^(ProductContent|CollectionListing|ProductRecommendations|Menu)\./.test(
+        key,
+      )
+    ) {
+      fixtures.delete(key);
+    }
+  }
+  for (const [key, data] of built.fixtures) fixtures.set(key, data);
+  dataset = built;
+  index();
+}
 
 const imageOf = (product) =>
   product.media.nodes.find((media) => media.image)?.image ?? null;
@@ -97,15 +150,8 @@ function cardFromContent(product) {
   };
 }
 
-const catalog = [...contents.keys()].sort((a, b) =>
-  contents.get(a).title.localeCompare(contents.get(b).title, "en"),
-);
 const card = (handle) =>
   structuredClone(cards.get(handle) ?? cardFromContent(contents.get(handle)));
-// Collections with a default-view listing recorded.
-const listingHandles = named("CollectionListing")
-  .filter((name) => name.split(".").length === 2)
-  .map((name) => name.split(".")[1]);
 
 const NO_PAGE = {
   hasNextPage: false,
@@ -122,6 +168,33 @@ const hex = () =>
     Math.floor(Math.random() * 16).toString(16),
   ).join("");
 const lower = (text) => String(text).toLowerCase();
+
+// Does every word of the query start a word of the text? The last word is
+// a prefix, as the site asks (prefix: LAST), and so are the others, a
+// little looser than Shopify; a plural finds the singular ("mugs" finds
+// Mug).
+function matches(query, text) {
+  const words = lower(query ?? "").match(/[\p{L}\p{N}]+/gu) ?? [];
+  if (words.length === 0) return false;
+  return words.every((word) => {
+    const stems = [...new Set([word, word.replace(/e?s$/, "")])].filter(
+      Boolean,
+    );
+    return new RegExp(`(?:^|[^\\p{L}\\p{N}])(?:${stems.join("|")})`, "u").test(
+      lower(text),
+    );
+  });
+}
+
+// A dataset's search: by title, type and description.
+const matching = (query) =>
+  catalog.filter((handle) => {
+    const product = contents.get(handle);
+    return matches(
+      query,
+      `${product.title} ${product.productType} ${product.description}`,
+    );
+  });
 
 // The variant a selection resolves to: the one matching most of the
 // selected options, preferring available ones (Shopify falls back the same
@@ -191,6 +264,7 @@ function findVariant(id) {
 // untracked one: no limit), none for a sold-out one.
 function stockOf(product, variant) {
   if (!variant.availableForSale) return 0;
+  if (dataset?.stock.has(variant.id)) return dataset.stock.get(variant.id);
   const recorded = product.selectedOrFirstAvailableVariant.quantityAvailable;
   return recorded > 0 ? recorded : Infinity;
 }
@@ -487,13 +561,35 @@ export function createStore() {
         : { collection: null },
     Search: ({ query }) => {
       const data = fixture("Search.tee");
-      if (!lower(query).includes("tee")) {
+      if (dataset) {
+        const found = matching(query);
+        data.search.nodes = found.map(card);
+        data.search.totalCount = found.length;
+        data.search.productFilters = dataset.filters(found);
+      } else if (!lower(query).includes("tee")) {
         data.search.nodes = [];
         data.search.totalCount = 0;
       }
       return data;
     },
-    PredictiveSearch: () => fixture("PredictiveSearch.test"),
+    PredictiveSearch: ({ query, limit = 10 }) => {
+      const data = fixture("PredictiveSearch.test");
+      if (!dataset) return data;
+      data.predictiveSearch.products = matching(query)
+        .slice(0, limit)
+        .map(card);
+      data.predictiveSearch.collections = listingHandles
+        .map((handle) => fixtures.get(`CollectionListing.${handle}`).collection)
+        .filter((collection) => matches(query, collection.title))
+        .slice(0, limit)
+        .map(({ handle, title }) => ({
+          handle,
+          title,
+          trackingParameters: null,
+        }));
+      data.predictiveSearch.queries = [];
+      return data;
+    },
     ProductContent: ({ handle }) => ({
       product: structuredClone(contents.get(handle) ?? null),
     }),
@@ -514,13 +610,15 @@ export function createStore() {
         ? fixture(`ProductRecommendations.${handle}.${lower(intent)}`)
         : { productRecommendations: [] },
     // The header menu nests (hand-written: the dev store's menus are
-    // flat); the footer is as recorded.
+    // flat); the footer is as recorded. A dataset has its own menus.
     Menu: ({ handle }) => {
       const name =
-        handle === "main-menu" ? "Menu.synthetic-nested" : `Menu.${handle}`;
+        handle === "main-menu" && !dataset
+          ? "Menu.synthetic-nested"
+          : `Menu.${handle}`;
       return fixtures.has(name)
         ? fixture(name)
-        : { ...fixture("Menu.footer"), menu: null };
+        : { shop: { primaryDomain: { host: STORE_DOMAIN } }, menu: null };
     },
     ShopId: () => fixture("ShopId"),
     ShopLocalization: () => fixture("ShopLocalization"),

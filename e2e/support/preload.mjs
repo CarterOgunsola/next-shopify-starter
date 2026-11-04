@@ -1,14 +1,16 @@
-// Loaded into `next build` and `next start` for the end-to-end tests
-// (node --import). Storefront API requests to the synthetic store are
-// answered from the recorded fixtures; any other outside host is refused,
-// so the tests never reach the network. With the test proxy on, a test's
-// own handlers (test.ts) answer that test's requests before this does.
+// Loaded into `next build` and `next start` for the end-to-end tests, and
+// into `next dev` for `pnpm dev:synthetic` (node --import). Storefront API
+// requests to the synthetic store are answered from the recorded fixtures
+// (or a dataset's); any other outside host is refused, so the tests never
+// reach the network. With the test proxy on, a test's own handlers
+// (test.ts) answer that test's requests before this does.
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import {
   createStore,
   isStorefrontRequest,
   STORE_DOMAIN,
+  serveDataset,
 } from "./synthetic-store.mjs";
 
 // Judge.me answers from the hand-written review fixture.
@@ -28,6 +30,13 @@ function judgeme(request) {
   return new Response(null, { status: 404 });
 }
 
+// pnpm dev:synthetic: a dataset's catalog in place of the test products
+// (server-env.mjs leaves SYNTHETIC_DATASET empty for the tests).
+if (process.env.SYNTHETIC_DATASET) {
+  serveDataset(process.env.SYNTHETIC_DATASET, {
+    imagesUrl: process.env.SYNTHETIC_IMAGES_URL,
+  });
+}
 const store = createStore();
 const original = globalThis.fetch;
 const LOCAL = new Set(["localhost", "127.0.0.1", "[::1]"]);

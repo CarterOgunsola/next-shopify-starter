@@ -134,4 +134,13 @@ describe("securityHeaders", () => {
     expect(script).toContain("'unsafe-inline'");
     expect(script.some((s) => /^'(sha\d+|nonce)-/.test(s))).toBe(false);
   });
+
+  it("allows localhost images in development only (the synthetic store's)", () => {
+    expect(
+      directive(contentSecurityPolicy({ dev: true }), "img-src"),
+    ).toContain("http://localhost:*");
+    expect(
+      directive(contentSecurityPolicy({ dev: false }), "img-src"),
+    ).not.toContain("http://localhost:*");
+  });
 });

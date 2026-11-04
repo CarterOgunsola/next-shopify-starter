@@ -18,6 +18,8 @@
 # end-to-end tests (e2e/)
 /test-results/
 /playwright-report/
+# a dataset's own photos (pnpm dev:synthetic)
+/e2e/support/datasets/*/images/
 /out/
 
 # production

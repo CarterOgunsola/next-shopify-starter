@@ -13,6 +13,8 @@ const importPreload = `--import ${pathToFileURL(preload).href}`;
 
 const serverEnv = (env: Record<string, string | undefined>) =>
   e2eServerEnv({ env, envExample, port: "3100", preload });
+const devEnv = (env: Record<string, string | undefined>) =>
+  e2eServerEnv({ env, envExample, port: "4748", preload, dev: true });
 
 describe("the end-to-end server's environment", () => {
   it("keeps the caller's Node options and adds the preload once", () => {
@@ -71,20 +73,37 @@ describe("the end-to-end server's environment", () => {
 
   it("serves the tests on 127.0.0.1 and pnpm dev:synthetic on localhost", () => {
     expect(serverEnv({}).NEXT_PUBLIC_SITE_URL).toBe("http://127.0.0.1:3100");
-    const dev = e2eServerEnv({
-      env: { SHOPIFY_STORE_DOMAIN: "real-store.myshopify.com" },
-      envExample,
-      port: "4748",
-      preload,
-      dev: true,
-    });
+    const dev = devEnv({ SHOPIFY_STORE_DOMAIN: "real-store.myshopify.com" });
     // next dev only serves its scripts to localhost.
     expect(dev.NEXT_PUBLIC_SITE_URL).toBe("http://localhost:4748");
-    // Otherwise the same synthetic store as the tests.
-    expect({ ...dev, NEXT_PUBLIC_SITE_URL: "" }).toEqual({
-      ...e2eServerEnv({ env: {}, envExample, port: "4748", preload }),
+    // Otherwise the same synthetic store as the tests, with a dataset.
+    const DEV_ONLY = {
       NEXT_PUBLIC_SITE_URL: "",
+      SYNTHETIC_DATASET: "",
+      SYNTHETIC_IMAGES_URL: "",
+    };
+    expect({ ...dev, ...DEV_ONLY }).toEqual({
+      ...e2eServerEnv({ env: {}, envExample, port: "4748", preload }),
+      ...DEV_ONLY,
     });
     expect(e2eMode(dev)).toBe(true);
+  });
+
+  it("shows the sample dataset in dev, and the test products in the tests", () => {
+    expect(devEnv({})).toMatchObject({
+      SYNTHETIC_DATASET: "sample",
+      SYNTHETIC_IMAGES_URL: "http://localhost:4749",
+    });
+    expect(devEnv({ SYNTHETIC_DATASET: "mine" }).SYNTHETIC_DATASET).toBe(
+      "mine",
+    );
+    expect(devEnv({ SYNTHETIC_DATASET: "" }).SYNTHETIC_DATASET).toBe("");
+    // Whatever the caller set.
+    const tests = serverEnv({
+      SYNTHETIC_DATASET: "sample",
+      SYNTHETIC_IMAGES_URL: "http://localhost:9999",
+    });
+    expect(tests.SYNTHETIC_DATASET).toBe("");
+    expect(tests.SYNTHETIC_IMAGES_URL).toBe("");
   });
 });

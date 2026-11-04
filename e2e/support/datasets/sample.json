@@ -1,0 +1,191 @@
+{
+  "$comment": "Neutral sample data for pnpm dev:synthetic and the dev store seeder: plain products with no brand, and solid-colour placeholder images. It covers the states a design needs: several photos and different aspect ratios, sizes with one running low (Cotton Tee M) and one sold out (Linen Shirt XS), a sold-out product (Rain Jacket), sales (Wool Sweater, Knit Beanie), new products, a product without options running low (Leather Wallet), a longer title, a collection with a description and image, nested menus, both kinds of recommendation and the shipping and refund policies. Format: e2e/README.md.",
+  "currency": "USD",
+  "sizes": ["XS", "S", "M", "L", "XL"],
+  "products": [
+    {
+      "handle": "cotton-tee",
+      "title": "Cotton Tee",
+      "type": "Tops",
+      "price": "28.00",
+      "description": "A plain crew-neck tee in midweight cotton.",
+      "details": ["100% cotton", "Regular fit", "Machine wash cold"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": { "M": 3 },
+      "new": true,
+      "images": [
+        { "color": "#d9d4cc", "width": 1200, "height": 1500 },
+        { "color": "#c7c0b4", "width": 1200, "height": 1500 }
+      ]
+    },
+    {
+      "handle": "linen-shirt",
+      "title": "Linen Shirt",
+      "type": "Tops",
+      "price": "64.00",
+      "description": "A button-up shirt in washed linen, cut straight.",
+      "details": ["100% linen", "Relaxed fit", "Mother-of-pearl buttons"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "stock": { "XS": 0 },
+      "images": [
+        { "color": "#e3e0d8", "width": 1200, "height": 1500 },
+        { "color": "#d2cec4", "width": 1200, "height": 1500 },
+        { "color": "#bdb8ad", "width": 1200, "height": 1500 },
+        { "color": "#a9a59b", "width": 1200, "height": 1500 }
+      ]
+    },
+    {
+      "handle": "wool-sweater",
+      "title": "Wool Sweater",
+      "type": "Knitwear",
+      "price": "96.00",
+      "compareAtPrice": "120.00",
+      "description": "A crew-neck sweater in soft lambswool.",
+      "details": ["100% lambswool", "Hand wash"],
+      "sizes": ["S", "M", "L"],
+      "images": [
+        { "color": "#b8b2a7", "width": 1200, "height": 1500 },
+        { "color": "#9f998e", "width": 1200, "height": 1500 }
+      ]
+    },
+    {
+      "handle": "rain-jacket",
+      "title": "Rain Jacket",
+      "type": "Outerwear",
+      "price": "140.00",
+      "description": "A light, hooded jacket with taped seams.",
+      "sizes": ["S", "M", "L", "XL"],
+      "soldOut": true,
+      "images": [{ "color": "#8e938d", "width": 1200, "height": 1500 }]
+    },
+    {
+      "handle": "canvas-tote",
+      "title": "Canvas Tote",
+      "type": "Bags",
+      "price": "24.00",
+      "description": "A sturdy tote with long handles and an inside pocket.",
+      "images": [
+        { "color": "#d6cfc2", "width": 1200, "height": 1200 },
+        { "color": "#c4bcae", "width": 1200, "height": 1200 }
+      ]
+    },
+    {
+      "handle": "leather-wallet",
+      "title": "Leather Wallet",
+      "type": "Accessories",
+      "price": "45.00",
+      "description": "A slim card wallet in vegetable-tanned leather.",
+      "stock": 2,
+      "images": [{ "color": "#a3917e", "width": 1200, "height": 1200 }]
+    },
+    {
+      "handle": "knit-beanie",
+      "title": "Knit Beanie",
+      "type": "Accessories",
+      "price": "22.00",
+      "compareAtPrice": "28.00",
+      "description": "A ribbed beanie in a wool blend.",
+      "new": true,
+      "images": [{ "color": "#9ca3a6", "width": 1200, "height": 1200 }]
+    },
+    {
+      "handle": "ceramic-mug",
+      "title": "Ceramic Mug",
+      "type": "Home",
+      "price": "18.00",
+      "description": "A stoneware mug that holds 350 ml.",
+      "details": ["Dishwasher safe", "Microwave safe"],
+      "images": [{ "color": "#e6e2da", "width": 1200, "height": 1200 }]
+    },
+    {
+      "handle": "glass-carafe",
+      "title": "Glass Carafe",
+      "type": "Home",
+      "price": "32.00",
+      "description": "A one-litre carafe in mouth-blown glass.",
+      "images": [{ "color": "#c9d1d0", "width": 1600, "height": 1200 }]
+    },
+    {
+      "handle": "linen-napkins",
+      "title": "Linen Napkins, Set of Four",
+      "type": "Home",
+      "price": "38.00",
+      "description": "Four napkins in stonewashed linen.",
+      "details": ["100% linen", "45 x 45 cm"],
+      "images": [{ "color": "#cfc9bf", "width": 1200, "height": 1500 }]
+    }
+  ],
+  "collections": [
+    {
+      "handle": "new-arrivals",
+      "title": "New arrivals",
+      "description": "The latest additions to the shop.",
+      "image": { "color": "#cdc6ba", "width": 1600, "height": 900 },
+      "products": ["cotton-tee", "knit-beanie", "linen-shirt", "ceramic-mug"]
+    },
+    {
+      "handle": "apparel",
+      "title": "Apparel",
+      "products": ["cotton-tee", "linen-shirt", "wool-sweater", "rain-jacket"]
+    },
+    {
+      "handle": "accessories",
+      "title": "Accessories",
+      "products": ["canvas-tote", "leather-wallet", "knit-beanie"]
+    },
+    {
+      "handle": "home",
+      "title": "Home",
+      "products": ["ceramic-mug", "glass-carafe", "linen-napkins"]
+    }
+  ],
+  "menus": {
+    "main-menu": [
+      {
+        "title": "Shop",
+        "items": [
+          { "title": "All products", "url": "/collections/all" },
+          { "title": "Apparel", "url": "/collections/apparel" },
+          { "title": "Accessories", "url": "/collections/accessories" },
+          { "title": "Home", "url": "/collections/home" }
+        ]
+      },
+      { "title": "New arrivals", "url": "/collections/new-arrivals" }
+    ],
+    "footer": [
+      {
+        "title": "Shop",
+        "items": [
+          { "title": "Apparel", "url": "/collections/apparel" },
+          { "title": "Accessories", "url": "/collections/accessories" },
+          { "title": "Home", "url": "/collections/home" }
+        ]
+      },
+      {
+        "title": "Help",
+        "items": [
+          { "title": "Shipping", "url": "/policies/shipping-policy" },
+          { "title": "Returns", "url": "/policies/refund-policy" },
+          { "title": "Search", "url": "/search" }
+        ]
+      }
+    ]
+  },
+  "recommendations": {
+    "cotton-tee": {
+      "related": ["linen-shirt", "wool-sweater", "knit-beanie"],
+      "complementary": ["canvas-tote"]
+    },
+    "linen-shirt": {
+      "related": ["cotton-tee", "wool-sweater", "rain-jacket"]
+    },
+    "ceramic-mug": {
+      "related": ["glass-carafe", "linen-napkins"],
+      "complementary": ["linen-napkins"]
+    }
+  },
+  "policies": {
+    "shipping": "Orders ship within two working days.\nStandard shipping takes three to five working days.",
+    "refund": "Return unused items within 30 days for a full refund.\nStart a return from your account."
+  }
+}

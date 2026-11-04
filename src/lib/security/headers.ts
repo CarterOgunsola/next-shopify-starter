@@ -112,7 +112,15 @@ export function contentSecurityPolicy({
       ...sources("script"),
     ],
     "style-src": ["'self'", "'unsafe-inline'", ...sources("style")],
-    "img-src": ["'self'", "data:", "blob:", ...sources("img")],
+    "img-src": [
+      "'self'",
+      "data:",
+      "blob:",
+      // Development only: the synthetic store's images (pnpm dev:synthetic
+      // serves them on another port).
+      ...(dev ? ["http://localhost:*"] : []),
+      ...sources("img"),
+    ],
     "font-src": ["'self'", ...sources("font")],
     "media-src": ["'self'", ...sources("media")],
     "connect-src": ["'self'", ...sources("connect")],

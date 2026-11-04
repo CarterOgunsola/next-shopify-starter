@@ -27,6 +27,12 @@ export function e2eServerEnv({ env, envExample, port, preload, dev = false }) {
     // Keeps the caller's Node options (CI raises the heap limit).
     NODE_OPTIONS: withPreload(env.NODE_OPTIONS, pathToFileURL(preload).href),
     SHOP_ENABLED: "true",
+    // pnpm dev:synthetic shows a dataset (e2e/support/datasets): sample,
+    // unless SYNTHETIC_DATASET names another (empty: the test products),
+    // with its images served on the port after the site's (serve.mjs). The
+    // tests always use the test products.
+    SYNTHETIC_DATASET: dev ? (env.SYNTHETIC_DATASET ?? "sample") : "",
+    SYNTHETIC_IMAGES_URL: dev ? `http://localhost:${Number(port) + 1}` : "",
     // next dev only serves its own scripts to localhost, so in dev the site
     // is localhost: on 127.0.0.1 its pages would load without hydrating.
     NEXT_PUBLIC_SITE_URL: `http://${dev ? "localhost" : "127.0.0.1"}:${port}`,

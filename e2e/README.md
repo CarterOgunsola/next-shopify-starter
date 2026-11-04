@@ -8,7 +8,8 @@ Chromium, and the accessibility tests again on a phone-sized screen. Install the
 `pnpm dev:synthetic` runs `next dev` against the same synthetic store, on
 port 4748 (`E2E_PORT` changes it), for working on the site without a
 Shopify store: the same environment as the tests' server (below), with the
-site on `localhost`, since `next dev` serves its scripts only there.
+site on `localhost`, since `next dev` serves its scripts only there. It
+shows a [dataset](#datasets) rather than the test products.
 
 ## Nothing reaches the network
 
@@ -33,6 +34,47 @@ site on `localhost`, since `next dev` serves its scripts only there.
   server-side requests go to the test's own synthetic store
   (`support/test.ts`), so carts don't leak between tests. In the browser,
   requests to any other host are blocked.
+
+## Datasets
+
+A dataset is a catalog in `support/datasets/<name>.json` that
+`pnpm dev:synthetic` serves in place of the test products, so a design can
+be built before a store exists. `support/dataset.mjs` checks it and turns it
+into Shopify-shaped responses at startup, each taking its shape from a
+recorded fixture, so the site reads it exactly as it reads Shopify: sizes and
+stock, filters with counts, search, menus, recommendations and the cart all
+work. Edit the file and restart to see a change.
+
+`sample.json` is the default: neutral products in the states a design needs
+(sale, sold out, low stock, several photos). `SYNTHETIC_DATASET=<name>`
+picks another file, and an empty value serves the test products. The tests
+themselves always use the test products.
+
+The file holds:
+
+- `currency` (`USD` by default) and `sizes`, the order sizes are listed in.
+- `products`: each a `handle`, `title` and `price` (`"28.00"`), and
+  optionally a `type`, `compareAtPrice` (a sale), `description`, `details`
+  (lines listed under it), `sizes` (a Size option; without, one variant),
+  `stock` (units for every variant, or per size; 20 otherwise), `soldOut`,
+  `new` (published yesterday) and `images`.
+- `collections`: each a `handle`, `title` and `products` (handles), and
+  optionally a `description` and `image`. `/collections/all` lists every
+  product unless the dataset has its own `all`.
+- `menus`: each menu's handle (`main-menu`, `footer`) to its items, each a
+  `title`, a `url` (a path on the site or an outside URL; none for a
+  heading) and `items`, three levels at most, as in Shopify.
+- `recommendations`: a product's handle to its `related` ("You may also
+  like") and `complementary` ("Pairs well with") products.
+- `policies`: the text of `shipping`, `refund`, `privacy` and `terms`, a
+  paragraph per line. Those left out aren't set.
+
+An image is `{ "color": "#d9d4cc", "width": 1200, "height": 1500 }`, a
+placeholder drawn in that colour, or `{ "file": "tee.jpg", "width": 1200,
+"height": 1500 }`, a photo in `support/datasets/<name>/images/`, which git
+ignores. Either can take an `alt`; it's the product's title otherwise.
+`support/images.mjs` serves them on the port after the site's, and dev
+pages' Content Security Policy allows images from `localhost`.
 
 ## Writing tests
 

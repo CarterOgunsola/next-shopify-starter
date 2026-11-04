@@ -1,6 +1,6 @@
 # Setup
 
-To work on the site before there's a store, `pnpm dev:synthetic` runs the dev server on port 4748 against the synthetic store the end-to-end tests use: no Shopify settings or secrets, and `.env.local` is ignored. See [End to end tests](../e2e/README.md).
+To work on the site before there's a store, `pnpm dev:synthetic` runs the dev server on port 4748 against the synthetic store the end-to-end tests use, showing a catalog of neutral sample products with placeholder images: no Shopify settings or secrets, and `.env.local` is ignored. The catalog is a JSON file you can edit or replace with your own; see [Datasets](../e2e/README.md#datasets).
 
 ## 1. Shopify dev store
 
