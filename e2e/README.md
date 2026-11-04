@@ -41,6 +41,10 @@ Chromium, and the accessibility tests again on a phone-sized screen. Install the
   `page.route` and check the URL the site sent the browser to.
 - Sign-in stops at `/account?login=https` here: Shopify's sign-in needs HTTPS
   and this server is plain HTTP.
+- Check accessibility with `accessibilityViolations(page)` from
+  `./support/axe`, so every test runs the same WCAG rules. It holds every
+  control to the 24px target size except inside an element marked
+  `data-tight-targets`, for rows that are smaller by design.
 
 `E2E_SKIP_BUILD=1 pnpm test:e2e` reuses the last build while you work on the
 tests themselves; `E2E_PORT` changes the port (3100).

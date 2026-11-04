@@ -1,7 +1,7 @@
-import AxeBuilder from "@axe-core/playwright";
 import type { Page } from "@playwright/test";
 import { HttpResponse } from "msw";
 import giftCardContent from "../src/lib/commerce/testing/fixtures/ProductContent.gift-card.json";
+import { accessibilityViolations } from "./support/axe";
 import { consentReady, expect, storefront, test } from "./support/test";
 
 // axe against WCAG 2.2 A and AA: the main page types, then states that only
@@ -9,12 +9,7 @@ import { consentReady, expect, storefront, test } from "./support/test";
 // The mobile project runs them all again on a phone-sized screen.
 
 async function noViolations(page: Page) {
-  const { violations } = await new AxeBuilder({ page })
-    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
-    .analyze();
-  expect(
-    violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target).join(" ")}`),
-  ).toEqual([]);
+  expect(await accessibilityViolations(page)).toEqual([]);
 }
 
 const PAGES = [
