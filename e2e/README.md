@@ -7,8 +7,11 @@ Chromium, and the accessibility tests again on a phone-sized screen. Install the
 
 ## Nothing reaches the network
 
-- `support/serve.mjs` blanks every variable in `.env.example` (values set in
-  the process take precedence over `.env.local`) and points the site at a
+- `support/serve.mjs` builds and serves the site in the environment
+  `support/server-env.mjs` makes (tested in
+  `src/lib/e2e-server-env.test.ts`). It blanks every variable in
+  `.env.example` (values set in the process take precedence over
+  `.env.local`), keeps the caller's Node options, and points the site at a
   synthetic store, `synthetic-store.myshopify.com`, with made-up tokens,
   customer account settings and Judge.me and Klaviyo settings so their forms
   render (Judge.me is answered from `src/lib/reviews/fixtures`; Klaviyo is
