@@ -18,8 +18,9 @@ const PairsWellWith = dynamic(
 );
 
 // The cart in a native modal dialog: focus moves in and is trapped, Escape
-// closes it and focus returns to what opened it. Also holds the cart's
-// aria-live region, so changes are announced on every page.
+// closes it and focus returns to what opened it, and the page holds still
+// behind it while it's open (data-lock-scroll, in globals.css). Also holds
+// the cart's aria-live region, so changes are announced on every page.
 export function CartDrawer() {
   const { drawerOpen, closeDrawer, announcement, cart, lastAdded } = useCart();
   const dialog = useRef<HTMLDialogElement>(null);
@@ -63,7 +64,14 @@ export function CartDrawer() {
 
   return (
     <>
-      <dialog ref={dialog} aria-labelledby={titleId} onClose={onClose}>
+      <dialog
+        ref={dialog}
+        aria-labelledby={titleId}
+        // drawerOpen turns false on the dialog's close event, which every
+        // way of closing it fires (Escape included).
+        data-lock-scroll={drawerOpen ? "on" : undefined}
+        onClose={onClose}
+      >
         <h2 id={titleId} ref={title} tabIndex={-1}>
           Your cart
         </h2>

@@ -108,6 +108,7 @@ beforeEach(() => {
   };
   HTMLDialogElement.prototype.close = function () {
     this.open = false;
+    this.dispatchEvent(new Event("close"));
   };
 });
 afterEach(() => {
@@ -732,10 +733,13 @@ describe("cart", () => {
     expect(
       within(dialog).getByRole("link", { name: "View cart" }),
     ).toBeTruthy();
+    // The page holds still behind it while it's open.
+    expect(dialog.getAttribute("data-lock-scroll")).toBe("on");
     await userEvent.click(
       within(dialog).getByRole("button", { name: "Close" }),
     );
     await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+    expect(dialog.hasAttribute("data-lock-scroll")).toBe(false);
   });
 
   it("checks out through a plain link the server redirects", async () => {

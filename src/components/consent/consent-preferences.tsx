@@ -29,6 +29,9 @@ export function ConsentPreferences() {
     <dialog
       ref={dialogRef}
       aria-labelledby="consent-preferences-title"
+      // The page holds still behind it (globals.css) until its close event,
+      // which every way of closing it fires (Escape included).
+      data-lock-scroll={preferencesOpen ? "on" : undefined}
       onClose={() => {
         if (preferencesOpen) closeUI();
       }}

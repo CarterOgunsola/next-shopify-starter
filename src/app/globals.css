@@ -41,7 +41,8 @@
   }
 
   /* An open full-screen overlay marked data-lock-scroll="on" holds the
-     page still behind it. */
+     page still behind it: the cart, quick add and cookie preferences
+     dialogs. */
   html:has([data-lock-scroll="on"]) {
     overflow: hidden;
   }

@@ -151,6 +151,9 @@ function QuickAddDialog({
       <dialog
         ref={dialog}
         aria-labelledby={titleId}
+        // The page holds still behind it (globals.css) until its close
+        // event, which every way of closing it fires (Escape included).
+        data-lock-scroll={open ? "on" : undefined}
         onClose={() => {
           setOpen(false);
           setData(undefined);

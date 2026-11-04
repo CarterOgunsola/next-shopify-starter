@@ -165,6 +165,8 @@ describe("QuickAdd", () => {
     expect(fetch).toHaveBeenCalledTimes(1);
     const dialog = screen.getByRole("dialog", { name: "Synthetic Tee" });
     expect(dialog).toHaveProperty("open", true);
+    // The page holds still behind it while it's open.
+    expect(dialog.getAttribute("data-lock-scroll")).toBe("on");
 
     // Choose and add only: no express checkout, a way to the full page.
     await screen.findByRole("radio", { name: "Dawn" });
@@ -194,6 +196,7 @@ describe("QuickAdd", () => {
       { merchandiseId: "gid://shopify/ProductVariant/Dawn", quantity: 1 },
     ]);
     expect(dialog).toHaveProperty("open", false);
+    expect(dialog.hasAttribute("data-lock-scroll")).toBe(false);
     expect(screen.queryByRole("button", { name: "Add to cart" })).toBeNull();
   });
 
