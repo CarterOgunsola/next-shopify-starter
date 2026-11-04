@@ -1,5 +1,5 @@
 import { BRAND } from "@/lib/brand";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fragment, Suspense } from "react";
 import Script from "next/script";
 import { GoogleTagManager } from "@/components/analytics/google-tag-manager";
@@ -39,6 +39,15 @@ export function generateMetadata(): Metadata {
     ...(isSiteIndexed() ? {} : { robots: { index: false, follow: false } }),
   };
 }
+
+// On Android the keyboard shrinks the layout to the space above it (dvh
+// units and fixed elements too), so a field at the bottom of a full-height
+// panel stays in view. Safari ignores it and scrolls a focused field into
+// view itself. No themeColor: browsers use their own chrome color until a
+// site sets one here, to match its background in globals.css.
+export const viewport: Viewport = {
+  interactiveWidget: "resizes-content",
+};
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const gtmId = publicEnv.NEXT_PUBLIC_GTM_ID;
