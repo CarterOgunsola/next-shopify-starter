@@ -428,7 +428,10 @@ export async function getShopAnalyticsConfig(
 }
 
 // For the root layout: Shopify's analytics config, or null when Shopify
-// can't be reached, so an outage never fails every page.
+// can't be reached, so a page rendered during an outage only skips the
+// analytics scripts. A build is different: an error inside "use cache"
+// fails the prerender, so the deploy fails and the previous deployment
+// stays live.
 export async function loadShopAnalyticsConfig(
   ctx: PublicContext,
 ): Promise<ShopAnalyticsConfig | null> {

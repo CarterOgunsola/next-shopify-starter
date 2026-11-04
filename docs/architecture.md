@@ -15,6 +15,7 @@ ESLint enforces the boundaries, plus two server/client rules: `*.server` modules
 - Nothing buyer-specific is cached: variant price and stock (`pricing.server.ts`), the cart, search, accounts and the `/api/commerce` endpoints read per request. A few endpoints that hold no buyer data are shared-cached for minutes.
 - Shopify operations (`src/lib/commerce/shopify/operations`) never cache. ESLint refuses `"use cache"` and `next/cache` there.
 - Webhooks (`/api/webhooks/shopify`) expire the tags for products, collections, metaobjects and the shop. Menus and policies have no webhook and refresh hourly; `POST /api/revalidate/menus` refreshes menus at once.
+- With the shop on, the build prerenders from Shopify, so a deploy's build fails during a Shopify outage (`Error occurred prerendering page`) while the previous deployment stays live, on either host. Redeploy once Shopify is back.
 
 ## Search engines
 
