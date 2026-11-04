@@ -108,6 +108,8 @@ export const AllProductsQuery = gql(
   [ProductCardFragment, PageInfoFragment],
 );
 
+// prefix: LAST matches the last word as a prefix, so a partial word
+// finds something ("jack" finds Jacket), as it does in predictive search.
 export const SearchQuery = gql(
   `
     query Search(
@@ -125,6 +127,7 @@ export const SearchQuery = gql(
       search(
         query: $query
         types: [PRODUCT]
+        prefix: LAST
         unavailableProducts: LAST
         first: $first
         after: $after
