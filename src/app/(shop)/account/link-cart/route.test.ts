@@ -1,9 +1,15 @@
 import { describe, expect, it, vi } from "vitest";
 
-const linked = vi.hoisted(() => ({ calls: 0 }));
+const linked = vi.hoisted(() => ({ calls: 0, steps: [] as string[] }));
 vi.mock("@/lib/commerce/customer.server", () => ({
   linkCart: async () => {
     linked.calls++;
+    linked.steps.push("linkCart");
+  },
+}));
+vi.mock("next/server", () => ({
+  connection: async () => {
+    linked.steps.push("connection");
   },
 }));
 vi.mock("@/lib/flags", () => ({ isShopEnabled: () => true }));
@@ -23,6 +29,12 @@ describe("/account/link-cart", () => {
     expect(response.status).toBe(302);
     expect(response.headers.get("location")).toBe("/cart/checkout?refreshed=1");
     expect(response.headers.get("cache-control")).toBe("private, no-store");
+  });
+
+  it("waits for a request before linking, so a build never starts the Shopify call", async () => {
+    linked.steps.length = 0;
+    await at("/");
+    expect(linked.steps).toEqual(["connection", "linkCart"]);
   });
 
   it.each([

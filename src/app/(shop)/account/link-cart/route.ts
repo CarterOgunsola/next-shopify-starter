@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { safeRedirectPath } from "@/lib/commerce/discount-code";
 import { linkCart } from "@/lib/commerce/customer.server";
 import { isShopEnabled } from "@/lib/flags";
@@ -6,6 +7,9 @@ import { isShopEnabled } from "@/lib/flags";
 // then continues to return_to (same-origin paths only).
 export async function GET(request: Request) {
   if (!isShopEnabled()) return new Response("Not found", { status: 404 });
+  // Request time only. Otherwise the build prerenders this handler and cuts
+  // off the Shopify call linkCart() starts.
+  await connection();
   await linkCart();
   const target = safeRedirectPath(
     new URL(request.url).searchParams.get("return_to"),
