@@ -63,5 +63,8 @@
     "vitest": "5.0.1",
     "wrangler": "4.149.0"
   },
-  "packageManager": "pnpm@10.28.2"
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": "24.x"
+  }
 }
