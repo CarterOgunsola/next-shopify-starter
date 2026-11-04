@@ -5,7 +5,11 @@
 // own handlers (test.ts) answer that test's requests before this does.
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { createStore, isStorefrontRequest } from "./synthetic-store.mjs";
+import {
+  createStore,
+  isStorefrontRequest,
+  STORE_DOMAIN,
+} from "./synthetic-store.mjs";
 
 // Judge.me answers from the hand-written review fixture.
 const reviews = JSON.parse(
@@ -32,6 +36,11 @@ globalThis.fetch = async function fetch(input, init) {
   const request = new Request(input, init);
   if (isStorefrontRequest(request.url)) {
     return Response.json(store.respond(await request.json()));
+  }
+  // Shopify's UCP business profile, which the proxy serves at
+  // /.well-known/ucp.
+  if (request.url === `https://${STORE_DOMAIN}/.well-known/ucp`) {
+    return Response.json({ name: "Synthetic", services: [] });
   }
   if (new URL(request.url).hostname === "judge.me") return judgeme(request);
   if (LOCAL.has(new URL(request.url).hostname)) {

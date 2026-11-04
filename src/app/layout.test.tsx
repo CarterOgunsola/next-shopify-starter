@@ -1,15 +1,17 @@
 import { HttpResponse } from "msw";
 import { isValidElement, type ReactElement, type ReactNode } from "react";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { server, shopify } from "@/lib/commerce/testing/msw";
 
 vi.mock("next/cache", () => ({ cacheLife: () => {}, cacheTag: () => {} }));
+const flags = vi.hoisted(() => ({ siteIndexed: false }));
 vi.mock("@/lib/flags", () => ({
   isShopEnabled: () => true,
   isShopIndexed: () => false,
+  isSiteIndexed: () => flags.siteIndexed,
 }));
 
-const { default: RootLayout } = await import("./layout");
+const { default: RootLayout, generateMetadata } = await import("./layout");
 const { CommerceScripts } = await import("@/lib/commerce/analytics.client");
 
 // Every element type in a rendered tree (without rendering components).
@@ -58,5 +60,20 @@ describe("the root layout", () => {
     expect(types(tree).has(CommerceScripts)).toBe(false);
     expect(types(tree).has("main")).toBe(true);
     warn.mockRestore();
+  });
+});
+
+describe("the site's metadata", () => {
+  afterEach(() => {
+    flags.siteIndexed = false;
+  });
+
+  it("is noindex, nofollow on every page until launch", () => {
+    expect(generateMetadata().robots).toEqual({ index: false, follow: false });
+  });
+
+  it("is indexable after launch", () => {
+    flags.siteIndexed = true;
+    expect(generateMetadata().robots).toBeUndefined();
   });
 });

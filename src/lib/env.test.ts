@@ -43,6 +43,16 @@ describe("env parsing", () => {
     ).toBeUndefined();
   });
 
+  it("reads SITE_INDEXED as it reads SHOP_INDEXED: unset or malformed is off", () => {
+    for (const value of [undefined, "", "false", "true", " true\n", "x"]) {
+      const env = parseServerEnv({ SITE_INDEXED: value, SHOP_INDEXED: value });
+      expect(env.SITE_INDEXED).toBe(env.SHOP_INDEXED);
+    }
+    expect(parseServerEnv({ SITE_INDEXED: "true" }).SITE_INDEXED).toBe(true);
+    expect(parseServerEnv({ SITE_INDEXED: "x" }).SITE_INDEXED).toBe(false);
+    expect(parseServerEnv({}).SITE_INDEXED).toBe(false);
+  });
+
   it("treats empty values as unset", () => {
     expect(
       parsePublicEnv({ NEXT_PUBLIC_ATTENTIVE_BRAND: "" })

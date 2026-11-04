@@ -21,19 +21,24 @@ import { CartProvider } from "@/lib/commerce/cart.client";
 import { loadShopAnalyticsConfig } from "@/lib/commerce/catalog.server";
 import { ConsentProvider } from "@/lib/consent/client";
 import { publicEnv } from "@/lib/env";
-import { isShopEnabled } from "@/lib/flags";
+import { isShopEnabled, isSiteIndexed } from "@/lib/flags";
 // Scaffold styles (quiet defaults until the design lands). Remove this line
 // and src/styles/scaffold.css to drop them; nothing else uses them.
 import "@/styles/scaffold.css";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(publicEnv.NEXT_PUBLIC_SITE_URL),
-  title: {
-    template: `%s | ${BRAND.name}`,
-    default: BRAND.name,
-  },
-};
+export function generateMetadata(): Metadata {
+  return {
+    metadataBase: new URL(publicEnv.NEXT_PUBLIC_SITE_URL),
+    title: {
+      template: `%s | ${BRAND.name}`,
+      default: BRAND.name,
+    },
+    // Until launch no page may be indexed (SITE_INDEXED). Every response
+    // also says so in a header (next.config.ts).
+    ...(isSiteIndexed() ? {} : { robots: { index: false, follow: false } }),
+  };
+}
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const gtmId = publicEnv.NEXT_PUBLIC_GTM_ID;

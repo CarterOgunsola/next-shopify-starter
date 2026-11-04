@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 import { DEV_TUNNEL_HOSTS } from "./src/lib/dev-tunnel";
 import { e2eMode } from "./src/lib/e2e-mode";
+import { robotsHeaders } from "./src/lib/indexing";
 import { securityHeaders } from "./src/lib/security/headers";
 
 const e2e = e2eMode(process.env);
@@ -32,13 +33,16 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        headers: securityHeaders({
-          dev: process.env.NODE_ENV !== "production",
-          enforce: process.env.CSP_ENFORCE === "1",
-          env: process.env,
-          // The end-to-end server is plain HTTP.
-          upgrade: process.env.NODE_ENV === "production" && !e2e,
-        }),
+        headers: [
+          ...securityHeaders({
+            dev: process.env.NODE_ENV !== "production",
+            enforce: process.env.CSP_ENFORCE === "1",
+            env: process.env,
+            // The end-to-end server is plain HTTP.
+            upgrade: process.env.NODE_ENV === "production" && !e2e,
+          }),
+          ...robotsHeaders(process.env),
+        ],
       },
     ];
   },

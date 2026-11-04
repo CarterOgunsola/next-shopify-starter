@@ -35,7 +35,7 @@ Cloudflare's own Next.js guide now leads with [vinext](https://developers.cloudf
 
 ## Environment and secrets
 
-The build needs the same variables as on Vercel, since `next build` prerenders pages from Shopify and inlines the `NEXT_PUBLIC_*` values and the settings read at build (`SHOP_ENABLED`, `SHOP_INDEXED`, `CSP_ENFORCE`, `SHOPIFY_CHECKOUT_DOMAIN`). The running worker reads its own variables: set the plain ones as `vars` (or in the dashboard) and the secrets with `wrangler secret put <NAME>`:
+The build needs the same variables as on Vercel, since `next build` prerenders pages from Shopify and inlines the `NEXT_PUBLIC_*` values and the settings read at build (`SITE_INDEXED`, `SHOP_ENABLED`, `SHOP_INDEXED`, `CSP_ENFORCE`, `SHOPIFY_CHECKOUT_DOMAIN`). The running worker reads its own variables: set the plain ones as `vars` (or in the dashboard) and the secrets with `wrangler secret put <NAME>`:
 
 - `SHOPIFY_PRIVATE_ACCESS_TOKEN`
 - `SHOPIFY_WEBHOOK_SECRET`
@@ -60,7 +60,8 @@ The adapter also copies the project's `.env` files (`.env`, `.env.production`, `
 ## Known differences from Vercel
 
 - The gaps under [Support status](#support-status-october-2026).
-- Static files skip the worker, so `next.config.ts` `headers()` doesn't reach them. `scripts/cloudflare-assets.mjs` writes `.open-next/assets/_headers` after each build: immutable caching for `_next/static`, plus `nosniff` and HSTS. Pages and API routes get the full set as on Vercel.
+- Static files skip the worker, so `next.config.ts` `headers()` doesn't reach them. `scripts/cloudflare-assets.mjs` writes `.open-next/assets/_headers` after each build: immutable caching for `_next/static`, plus `nosniff`, HSTS and, until launch (`SITE_INDEXED`), `X-Robots-Tag: noindex, nofollow`, copied from the build's routes manifest so it matches the pages. Pages and API routes get the full set as on Vercel.
+- Responses `src/proxy.ts` answers itself skip `next.config.ts` `headers()` too: OpenNext returns them as they are. That's Shopify's routes (the Storefront API proxy, `/.well-known/ucp`, `/api/mcp`, `/api/ucp/mcp`, `/checkout` and cart permalinks) and Shopify redirects for unmatched URLs, so they carry neither the security headers nor, before launch, `X-Robots-Tag`. They're API answers and redirects rather than pages.
 - The rate limits and the Shopify redirect memo are per isolate, as they are per instance on Vercel. Use Cloudflare's rate limiting rules for hard caps (see the [launch checklist](launch-checklist.md)).
 - `after()` runs through the Worker's `waitUntil`. The app doesn't use it today.
 - There is no Vercel WAF, preview protection or skew protection. OpenNext has an experimental skew protection option.

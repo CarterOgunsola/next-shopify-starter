@@ -54,6 +54,13 @@ const publicSchema = z.object({
 
 // Server vars never reach the browser. Read them through serverEnv().
 const serverSchema = z.object({
+  // Launch: search engines may index the site, and robots.txt lists the
+  // sitemaps. Until then every response says noindex. Malformed means not
+  // launched.
+  SITE_INDEXED: z.preprocess(
+    trimmed,
+    z.stringbool().default(false).catch(false),
+  ),
   // A value that isn't a boolean ("yes please") keeps the shop off with a
   // warning instead of failing every request.
   SHOP_ENABLED: z.preprocess(
@@ -69,7 +76,7 @@ const serverSchema = z.object({
       }),
   ),
   // Launch: shop pages become indexable and join the sitemap. Only with
-  // SHOP_ENABLED. Malformed means not launched.
+  // SHOP_ENABLED and SITE_INDEXED. Malformed means not launched.
   SHOP_INDEXED: z.preprocess(
     trimmed,
     z.stringbool().default(false).catch(false),

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { publicEnv } from "@/lib/env";
-import { isShopIndexed } from "@/lib/flags";
+import { isShopIndexed, isSiteIndexed } from "@/lib/flags";
 
 // Shopify's default robots.txt rules for a store's private and duplicate
 // URLs: cart, account, search, discount links, API routes, checkout,
@@ -24,10 +24,14 @@ export const DISALLOWED = [
 const site = (path: string) =>
   new URL(path, publicEnv.NEXT_PUBLIC_SITE_URL).href;
 
-// The shop's sitemap index joins after launch (SHOP_INDEXED).
+// Until launch (SITE_INDEXED) crawling stays allowed, so crawlers see every
+// response's noindex, but no sitemap is listed. The shop's sitemap index
+// joins after the shop's launch (SHOP_INDEXED).
 export default function robots(): MetadataRoute.Robots {
+  const rules = { userAgent: "*", allow: "/", disallow: DISALLOWED };
+  if (!isSiteIndexed()) return { rules };
   return {
-    rules: { userAgent: "*", allow: "/", disallow: DISALLOWED },
+    rules,
     sitemap: isShopIndexed()
       ? [site("/sitemap.xml"), site("/sitemap-shop.xml")]
       : site("/sitemap.xml"),

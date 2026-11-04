@@ -16,6 +16,10 @@ ESLint enforces the boundaries, plus two server/client rules: `*.server` modules
 - Shopify operations (`src/lib/commerce/shopify/operations`) never cache. ESLint refuses `"use cache"` and `next/cache` there.
 - Webhooks (`/api/webhooks/shopify`) expire the tags for products, collections, metaobjects and the shop. Menus and policies have no webhook and refresh hourly; `POST /api/revalidate/menus` refreshes menus at once.
 
+## Search engines
+
+The whole site stays out of search until launch (`SITE_INDEXED`). Until then every response carries `X-Robots-Tag: noindex, nofollow`, set for every path in `next.config.ts` (`src/lib/indexing.ts`), so pages, route handlers, error pages and static files all say it. Every page's robots meta tag says the same. `robots.txt` still allows crawling, so crawlers can see the noindex, but lists no sitemap, and `/sitemap.xml` and the shop sitemaps 404. `SHOP_INDEXED` only takes effect once `SITE_INDEXED` is on. The flag is read at build, so turning it on needs a redeploy. On Cloudflare, static files skip `next.config.ts`, so `scripts/cloudflare-assets.mjs` copies the header into their `_headers` (see [Deploying to Cloudflare](deploy-cloudflare.md)).
+
 ## Regulatory wording
 
 All regulatory wording lives in `src/lib/commerce/compliance.ts` (the marketing opt-in, subscription terms and review incentive disclosure) and ships as placeholders (`approved: false`): pages show it with a visible `[Placeholder, pending legal review]` marker until counsel approves each entry, and `pnpm launch:check` fails until then.
