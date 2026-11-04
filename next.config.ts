@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   // Automatic memoization of components and hooks.
   reactCompiler: true,
+  // next dev otherwise writes an AGENTS.md into the project root.
+  agentRules: false,
   // End-to-end tests only (e2e/): a build of their own, and each test can
   // answer the server's outgoing requests.
   ...(e2e ? { distDir: ".next-e2e" } : {}),
