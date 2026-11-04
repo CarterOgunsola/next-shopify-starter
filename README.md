@@ -52,6 +52,7 @@ See [Setup](docs/setup.md) for the Shopify dev store, the Headless channel token
 | `pnpm smoke <url>`     | Checks a live deploy on either host (noindex, `robots.txt`, sitemaps, 404s). Flags: `--indexed`, `--shop`, `--shop-indexed`, `--redirect-from <origin>`. |
 | `pnpm launch:check`    | Fails while any compliance wording is unapproved.                                                                                                        |
 | `pnpm fixtures:record` | Re-records the Storefront API fixtures from the dev store in `.env.local`.                                                                               |
+| `pnpm seed:dev-store`  | Copies the `pnpm dev:synthetic` catalog into a Shopify dev store (`<store>.myshopify.com [dataset]`), through the Shopify CLI.                           |
 | `pnpm test:live`       | Cart contract tests against the dev store in `.env.local`.                                                                                               |
 
 ## Docs

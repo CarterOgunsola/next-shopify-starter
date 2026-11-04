@@ -43,7 +43,9 @@ be built before a store exists. `support/dataset.mjs` checks it and turns it
 into Shopify-shaped responses at startup, each taking its shape from a
 recorded fixture, so the site reads it exactly as it reads Shopify: sizes and
 stock, filters with counts, search, menus, recommendations and the cart all
-work. Edit the file and restart to see a change.
+work. Edit the file and restart to see a change. `pnpm seed:dev-store`
+copies the same catalog into a real dev store (see
+[Seeding a dev store](../docs/testing.md#seeding-a-dev-store)).
 
 `sample.json` is the default: neutral products in the states a design needs
 (sale, sold out, low stock, several photos). `SYNTHETIC_DATASET=<name>`

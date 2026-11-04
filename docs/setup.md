@@ -4,7 +4,7 @@ To work on the site before there's a store, `pnpm dev:synthetic` runs the dev se
 
 ## 1. Shopify dev store
 
-Create a development store in the Shopify Partner Dashboard, or use a Plus sandbox store. Shopify's generated sample products are enough to browse; see [Seeding a dev store](testing.md#seeding-a-dev-store) for the products the fixtures and tests expect.
+Create a development store in the Shopify Partner Dashboard, or use a Plus sandbox store. Shopify's generated sample products are enough to browse, or `pnpm seed:dev-store` copies in the catalog `pnpm dev:synthetic` shows; see [Seeding a dev store](testing.md#seeding-a-dev-store), which also lists the products the fixtures and tests expect.
 
 ## 2. Headless channel tokens
 
