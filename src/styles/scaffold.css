@@ -6,9 +6,18 @@
  * Nothing else references it.
  *
  * Element and ARIA selectors only, wrapped in :where() (zero specificity),
- * in a layer after Tailwind's preflight and before components/utilities, so
- * real design CSS always wins. Import before globals.css so this layer order
- * is declared first.
+ * in a scaffold layer between Tailwind's base and components layers. Import
+ * before globals.css so this layer order is declared first.
+ *
+ * Layers count before specificity, so a design rule in @layer base loses to
+ * this file whatever its selector. Design CSS that restyles anything here
+ * goes in @layer components, a utility, or outside any layer. The page's
+ * color, background and font aren't set here: they're the base styles in
+ * globals.css, where a design changes them.
+ *
+ * Width: main, the header, the footer and the consent banner are capped at
+ * 64rem and centered here. A full-width design lifts max-width on them in
+ * @layer components, or removes this file.
  */
 @layer theme, base, scaffold, components, utilities;
 
@@ -25,12 +34,8 @@
     --sc-shadow-overlay: 0 0 0 1px oklch(0 0 0 / 0.06), 0 4px 8px -2px oklch(0 0 0 / 0.08), 0 16px 32px -8px oklch(0 0 0 / 0.12);
   }
 
-  /* Page */
-  :where(body) {
-    margin: 0; color: var(--sc-fg); background: #fff;
-    font: 14px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-    -webkit-font-smoothing: antialiased; overflow-wrap: break-word;
-  }
+  /* Page: color, background and font are in globals.css. */
+  :where(body) { margin: 0; overflow-wrap: break-word; }
   :where(body > header, main, body > footer, body > section) { max-width: 64rem; margin-inline: auto; padding-inline: 1rem; box-sizing: border-box; }
   :where(body > header) { border-bottom: 1px solid var(--sc-border); }
   :where(main) { padding-block: 2rem 4rem; }

@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+/*
+ * Base styles for every page. Element defaults beyond these (headings,
+ * links, controls, the 64rem page width) come from the quiet stylesheet
+ * imported before this file in src/app/layout.tsx. It sits in a layer
+ * after base, so restyle those from @layer components or with utilities,
+ * not here.
+ */
+@layer base {
+  /* The page's color, background and font: neutral defaults until a
+     design sets its own here. Nothing the starter ships overrides them. */
+  body {
+    color: #09090b;
+    background: #fff;
+    font:
+      14px/1.6 ui-sans-serif,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
