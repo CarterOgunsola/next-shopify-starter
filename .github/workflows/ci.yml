@@ -1,9 +1,14 @@
 name: CI
 
+# Docs-only changes skip CI. Anything else runs everything: the build and
+# end-to-end suites cover the whole app, so a change in one place can break
+# another.
 on:
   push:
     branches: [main]
+    paths-ignore: ["docs/**", "**/*.md"]
   pull_request:
+    paths-ignore: ["docs/**", "**/*.md"]
 
 permissions:
   contents: read
