@@ -67,6 +67,11 @@ function httpHref(
   if (!hosts.includes(parsed.hostname)) {
     return { url: parsed.href, external: true };
   }
+  // "#" is how a heading is typed in Shopify, which won't save an item
+  // without a link; the Storefront API sends it back as "https://<store>#".
+  if (url.endsWith("#") && parsed.pathname === "/" && !parsed.search) {
+    return null;
+  }
   // A Markets locale prefix (en, en-us), unless it's one of this site's own
   // two-letter routes.
   const locale = /^\/([a-z]{2}(?:-[a-z]{2})?)(?=\/|$)/i.exec(parsed.pathname);

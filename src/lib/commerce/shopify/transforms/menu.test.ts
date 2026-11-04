@@ -96,6 +96,23 @@ describe("toMenu", () => {
     ]);
   });
 
+  it("reads a link typed as '#' as a heading, not the home page", () => {
+    const item = (url: string, items: Parameters<typeof toMenu>[0] = []) => ({
+      title: "Index",
+      type: "HTTP" as const,
+      url,
+      resource: null,
+      items,
+    });
+    const child = item("https://synthetic-store.myshopify.com/pages/about");
+    for (const heading of ["https://synthetic-store.myshopify.com#", "#"]) {
+      expect(toMenu([item(heading, [child])], HOSTS)[0].url).toBeNull();
+    }
+    expect(
+      toMenu([item("https://synthetic-store.myshopify.com/")], HOSTS)[0].url,
+    ).toBe("/");
+  });
+
   it("keeps this site's own routes and never turns a link into another site's", () => {
     const link = (url: string) => ({
       title: "x",
