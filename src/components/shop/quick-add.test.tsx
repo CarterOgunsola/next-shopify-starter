@@ -121,6 +121,28 @@ describe("QuickAdd", () => {
     );
   });
 
+  it("shows a design's label and keeps the product in its name", () => {
+    render(
+      <>
+        <QuickAdd
+          product={tile({
+            quickAddVariantId: "gid://shopify/ProductVariant/9",
+          })}
+          label="Add to bag"
+        />
+        <QuickAdd product={tile()} label="Quick Add" />
+      </>,
+    );
+    const direct = screen.getByRole("button", {
+      name: "Add Synthetic Tee to cart",
+    });
+    expect(direct.textContent).toBe("Add to bag");
+    const dialog = screen.getByRole("button", {
+      name: "Quick add Synthetic Tee",
+    });
+    expect(dialog.textContent).toBe("Quick Add");
+  });
+
   it("offers nothing for a sold-out product", () => {
     const { container } = render(
       <QuickAdd product={tile({ available: false })} />,

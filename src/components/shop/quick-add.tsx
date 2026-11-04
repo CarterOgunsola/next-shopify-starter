@@ -17,21 +17,35 @@ import { ChunkBoundary } from "../chunk-boundary";
 // choices is added straight away. Others open a dialog with the product
 // page's purchase panel, its data fetched when the visitor shows intent
 // (hover or focus; a tap on touch screens), from a shared-cached GET.
-export function QuickAdd({ product }: { product: ProductCard }) {
+// label: the button's text where a design names it; its accessible name
+// stays specific to the product.
+export function QuickAdd({
+  product,
+  label,
+}: {
+  product: ProductCard;
+  label?: string;
+}) {
   if (!product.available) return null;
   return product.quickAddVariantId ? (
-    <DirectAdd product={product} variantId={product.quickAddVariantId} />
+    <DirectAdd
+      product={product}
+      variantId={product.quickAddVariantId}
+      label={label}
+    />
   ) : (
-    <QuickAddDialog product={product} />
+    <QuickAddDialog product={product} label={label} />
   );
 }
 
 function DirectAdd({
   product,
   variantId,
+  label = "Add",
 }: {
   product: ProductCard;
   variantId: string;
+  label?: string;
 }) {
   const cart = useCart();
   const [adding, setAdding] = useState(false);
@@ -55,7 +69,7 @@ function DirectAdd({
           if (!result.ok) setError(result.error);
         }}
       >
-        {adding ? "Adding…" : "Add"}
+        {adding ? "Adding…" : label}
       </button>
       {error && (
         <p id={errorId} role="alert">
@@ -92,7 +106,13 @@ function loadQuickAdd(handle: string): Promise<QuickAddProduct | null> {
   return request;
 }
 
-function QuickAddDialog({ product }: { product: ProductCard }) {
+function QuickAddDialog({
+  product,
+  label = "Quick add",
+}: {
+  product: ProductCard;
+  label?: string;
+}) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState(false);
   const [data, setData] = useState<QuickAddProduct | null | undefined>();
@@ -126,7 +146,7 @@ function QuickAddDialog({ product }: { product: ProductCard }) {
         onFocus={prefetch}
         onClick={show}
       >
-        Quick add
+        {label}
       </button>
       <dialog
         ref={dialog}
