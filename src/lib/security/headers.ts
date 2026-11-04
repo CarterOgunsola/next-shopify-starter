@@ -1,4 +1,5 @@
-// Security headers and Content Security Policy, applied in next.config.ts.
+// Security headers and Content Security Policy, applied in next.config.ts
+// (and by src/proxy.ts to what it answers itself: response-headers.ts).
 //
 // Report-Only by default; CSP_ENFORCE=1 (read at build) enforces the same
 // policy. The end-to-end tests fail on any violation, in either mode.

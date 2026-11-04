@@ -74,6 +74,7 @@ async function get(fetchImpl, url) {
   return {
     status: response.status,
     robots: response.headers.get("x-robots-tag"),
+    frame: response.headers.get("x-frame-options"),
     location: response.headers.get("location"),
     body: await response.text(),
   };
@@ -96,6 +97,7 @@ export async function runSmoke(options, fetchImpl = fetch) {
     get(fetchImpl, new URL(path, base).href).catch((error) => ({
       status: 0,
       robots: null,
+      frame: null,
       location: null,
       body: "",
       error: error instanceof Error ? error.message : String(error),
@@ -202,10 +204,16 @@ export async function runSmoke(options, fetchImpl = fetch) {
     const product = firstLink(shopPage.body, "/products/");
     if (product) expectRobots(`a product (${product})`, await page(product));
     else check("a product answers 200", false, "no product link on /shop");
-    // Answered by src/proxy.ts, which skips next.config.ts headers on
-    // Cloudflare, so only the status is checked.
+    // Answered by src/proxy.ts, which adds the next.config.ts headers
+    // itself, since Cloudflare skips them there. A header sent twice reads
+    // as "DENY, DENY".
     const ucp = await page("/.well-known/ucp");
-    check("/.well-known/ucp answers 200", ucp.status === 200, describe(ucp));
+    expectRobots("/.well-known/ucp", ucp);
+    check(
+      "/.well-known/ucp sends the security headers once",
+      ucp.frame === "DENY",
+      ucp.error ? describe(ucp) : `X-Frame-Options: ${ucp.frame ?? "none"}`,
+    );
   }
 
   if (redirectFrom) {

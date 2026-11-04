@@ -2,7 +2,7 @@
 
 ## Security headers and CSP
 
-Every route gets the headers from `src/lib/security/headers.ts` (applied in `next.config.ts`): HSTS (two years, subdomains), `nosniff`, `X-Frame-Options: DENY`, a `strict-origin-when-cross-origin` referrer policy, a Permissions-Policy that turns off camera, microphone, geolocation and Topics, and `Cross-Origin-Opener-Policy: same-origin`.
+Every route gets the headers from `src/lib/security/headers.ts` (applied in `next.config.ts`, and by `src/proxy.ts` to the responses it answers itself): HSTS (two years, subdomains), `nosniff`, `X-Frame-Options: DENY`, a `strict-origin-when-cross-origin` referrer policy, a Permissions-Policy that turns off camera, microphone, geolocation and Topics, and `Cross-Origin-Opener-Policy: same-origin`.
 
 The Content Security Policy is **report-only** by default; `CSP_ENFORCE=1` (read at build) enforces the same policy. Reports go to `/api/csp-report`, which logs only the directive and the blocked origin. Every end-to-end test fails on a violation, and `pnpm test:e2e:csp` runs the suite with the policy enforced.
 

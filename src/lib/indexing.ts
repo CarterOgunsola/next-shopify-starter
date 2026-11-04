@@ -6,6 +6,8 @@ import { parseServerEnv } from "./env";
 // build and turning the flag on needs a redeploy. Pages say the same in
 // their robots meta tag. On Cloudflare, static files skip next.config.ts:
 // scripts/cloudflare-assets.mjs copies the header into their _headers.
+// What src/proxy.ts answers itself skips it there too, so the proxy adds it
+// (response-headers.ts).
 export function robotsHeaders(
   env: Record<string, string | undefined>,
 ): { key: string; value: string }[] {

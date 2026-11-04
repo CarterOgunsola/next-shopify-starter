@@ -27,6 +27,8 @@ const NOT_SETTINGS = new Set([
   "GIFT_CARD_CODE",
   // Set by Next itself in end-to-end test mode.
   "NEXT_PRIVATE_TEST_PROXY",
+  // Replaced at build by next.config.ts (src/lib/response-headers.ts).
+  "RESPONSE_HEADERS",
 ]);
 
 function sources(dir: string): string[] {

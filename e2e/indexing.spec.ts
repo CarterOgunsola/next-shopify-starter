@@ -63,14 +63,29 @@ test("keeps route handler answers out of search, errors included", async ({
   expect(await variant()).toEqual({ status: 503, robots: NOINDEX });
 });
 
-// next start applies next.config.ts headers to what src/proxy.ts answers
-// itself. On Cloudflare these skip them (docs/deploy-cloudflare.md).
+// src/proxy.ts adds the next.config.ts headers to what it answers itself,
+// since Cloudflare skips them there (docs/deploy-cloudflare.md). next start
+// applies them as well, so each must still go out once.
 test("keeps what src/proxy.ts answers out of search", async ({ page }) => {
   // Shopify's UCP business profile, proxied (no Next route has this path).
   const profile = await page.goto("/.well-known/ucp");
   expect(profile!.status()).toBe(200);
   expect(await profile!.json()).toEqual({ name: "Synthetic", services: [] });
   expect(profile!.headers()["x-robots-tag"]).toBe(NOINDEX);
+  const sent = (await profile!.headersArray()).map(({ name }) =>
+    name.toLowerCase(),
+  );
+  for (const name of [
+    "x-robots-tag",
+    "x-frame-options",
+    "strict-transport-security",
+    "content-security-policy-report-only",
+  ]) {
+    expect(
+      sent.filter((header) => header === name),
+      name,
+    ).toHaveLength(1);
+  }
   // The Storefront API proxy that Shopify's browser scripts call.
   await page.goto("/");
   const api = await page.evaluate(async (path) => {

@@ -9,6 +9,7 @@ const NOINDEX = "noindex, nofollow";
 type Answer = {
   status: number;
   robots?: string;
+  frame?: string;
   body?: string;
   location?: string;
 };
@@ -23,6 +24,7 @@ function site(routes: Record<string, Answer>, missingRobots?: string) {
     const answer = routes[url] ?? { status: 404, robots: missingRobots };
     const headers = new Headers();
     if (answer.robots) headers.set("x-robots-tag", answer.robots);
+    if (answer.frame) headers.set("x-frame-options", answer.frame);
     if (answer.location) headers.set("location", answer.location);
     return new Response(answer.body ?? "", { status: answer.status, headers });
   });
@@ -188,16 +190,23 @@ describe("pnpm smoke", () => {
     ]);
   });
 
+  const shopPages = {
+    [`${BASE}/shop`]: {
+      status: 200,
+      robots: NOINDEX,
+      body: '<a href="/products/tee">Tee</a>',
+    },
+    [`${BASE}/products/tee`]: { status: 200, robots: NOINDEX },
+  };
+
   it("checks the shop with --shop, finding a product on /shop", async () => {
     const { fetch, requests } = beforeLaunch({
-      [`${BASE}/shop`]: {
+      ...shopPages,
+      [`${BASE}/.well-known/ucp`]: {
         status: 200,
         robots: NOINDEX,
-        body: '<a href="/products/tee">Tee</a>',
+        frame: "DENY",
       },
-      [`${BASE}/products/tee`]: { status: 200, robots: NOINDEX },
-      // As Cloudflare answers it: src/proxy.ts skips next.config.ts headers.
-      [`${BASE}/.well-known/ucp`]: { status: 200 },
     });
     const results = await runSmoke(options({ shop: true }), fetch);
     expect(failures(results)).toEqual([]);
@@ -205,12 +214,31 @@ describe("pnpm smoke", () => {
       expect.arrayContaining([
         "/shop answers 200 with noindex",
         "a product (/products/tee) answers 200 with noindex",
-        "/.well-known/ucp answers 200",
+        "/.well-known/ucp answers 200 with noindex",
+        "/.well-known/ucp sends the security headers once",
       ]),
     );
     expect(requests.map((request) => request.url)).toContain(
       `${BASE}/products/tee`,
     );
+  });
+
+  it("catches what src/proxy.ts answers without the headers, or with one twice", async () => {
+    const ucp = async (answer: Answer) =>
+      failures(
+        await runSmoke(
+          options({ shop: true }),
+          beforeLaunch({ ...shopPages, [`${BASE}/.well-known/ucp`]: answer })
+            .fetch,
+        ),
+      );
+    expect(await ucp({ status: 200 })).toEqual([
+      "/.well-known/ucp answers 200 with noindex",
+      "/.well-known/ucp sends the security headers once",
+    ]);
+    expect(
+      await ucp({ status: 200, robots: NOINDEX, frame: "DENY, DENY" }),
+    ).toEqual(["/.well-known/ucp sends the security headers once"]);
   });
 
   it("expects a 308 to the same path and query with --redirect-from", async () => {

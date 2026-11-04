@@ -4,6 +4,10 @@ import { DEV_TUNNEL_HOSTS } from "./src/lib/dev-tunnel";
 import { e2eMode } from "./src/lib/e2e-mode";
 import { robotsHeaders } from "./src/lib/indexing";
 import { hostRedirects } from "./src/lib/redirect-hosts";
+import {
+  RESPONSE_HEADERS_DEFINE,
+  type ResponseHeader,
+} from "./src/lib/response-headers";
 import { securityHeaders } from "./src/lib/security/headers";
 import { requireProductionSiteUrl } from "./src/lib/site-url-guard";
 
@@ -35,23 +39,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          ...securityHeaders({
-            dev: process.env.NODE_ENV !== "production",
-            enforce: process.env.CSP_ENFORCE === "1",
-            env: process.env,
-            // The end-to-end server is plain HTTP.
-            upgrade: process.env.NODE_ENV === "production" && !e2e,
-          }),
-          ...robotsHeaders(process.env),
-        ],
-      },
-    ];
-  },
   // REDIRECT_HOSTS: other hostnames (such as the host's own vercel.app or
   // workers.dev one) send every path to the site with a 308.
   async redirects() {
@@ -67,15 +54,42 @@ const nextConfig: NextConfig = {
   },
 };
 
-// next dev only: a quick tunnel's host may load dev assets and post server
-// actions (pnpm tunnel). Never part of a production build.
+// Every response's headers, decided at build: the security headers and,
+// until launch, noindex.
+function responseHeaders(): ResponseHeader[] {
+  return [
+    ...securityHeaders({
+      dev: process.env.NODE_ENV !== "production",
+      enforce: process.env.CSP_ENFORCE === "1",
+      env: process.env,
+      // The end-to-end server is plain HTTP.
+      upgrade: process.env.NODE_ENV === "production" && !e2e,
+    }),
+    ...robotsHeaders(process.env),
+  ];
+}
+
 export default function config(phase: string): NextConfig {
-  if (phase !== PHASE_DEVELOPMENT_SERVER) return nextConfig;
-  return {
+  const headers = responseHeaders();
+  const built: NextConfig = {
     ...nextConfig,
+    async headers() {
+      return [{ source: "/:path*", headers }];
+    },
+    // The same list for src/proxy.ts, which adds it to the responses it
+    // answers itself (src/lib/response-headers.ts).
+    compiler: {
+      defineServer: { [RESPONSE_HEADERS_DEFINE]: JSON.stringify(headers) },
+    },
+  };
+  if (phase !== PHASE_DEVELOPMENT_SERVER) return built;
+  // next dev only: a quick tunnel's host may load dev assets and post server
+  // actions (pnpm tunnel). Never part of a production build.
+  return {
+    ...built,
     allowedDevOrigins: DEV_TUNNEL_HOSTS,
     experimental: {
-      ...nextConfig.experimental,
+      ...built.experimental,
       serverActions: { allowedOrigins: DEV_TUNNEL_HOSTS },
     },
   };

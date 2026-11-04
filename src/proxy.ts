@@ -4,13 +4,15 @@ import { shopifyRoute } from "@/lib/commerce/storefront-routes.server";
 import { isShopIndexed } from "@/lib/flags";
 import { COUNTRY_COOKIE } from "@/lib/consent/region";
 import { requestCountry } from "@/lib/host/request-geo";
+import { withResponseHeaders } from "@/lib/response-headers";
 
 export async function proxy(request: NextRequest) {
   // Shopify-owned paths (Storefront API proxy for analytics and consent,
   // /checkout, cart permalinks) never reach Next routing, nor do URLs no
-  // route matches that Shopify has a redirect for.
+  // route matches that Shopify has a redirect for. They carry the site's
+  // headers themselves: on Cloudflare they skip next.config.ts headers().
   const shopify = await shopifyRoute(request);
-  if (shopify) return shopify;
+  if (shopify) return withResponseHeaders(shopify);
 
   // Agents asking for Markdown get the page as text (same URL).
   const markdown = markdownPath(request);
