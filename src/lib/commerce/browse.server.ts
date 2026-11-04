@@ -45,7 +45,8 @@ export async function browse(
 // Shopify's full search matches whole words (the last also as a prefix),
 // so a typo like "jaket" finds nothing; its predictive search forgives
 // typos. So a search that finds nothing shows what predictive search makes
-// of the term, up to its limit of 10.
+// of the term, up to its limit of 10, marked as close matches: they aren't
+// results for the term, so they don't count as any.
 const CLOSE_MATCHES = 10;
 
 async function closeMatches(
@@ -57,7 +58,8 @@ async function closeMatches(
   return {
     products: { items: products, nextCursor: null, previousCursor: null },
     facets: [],
-    totalCount: products.length,
+    totalCount: 0,
+    closeMatches: true,
   };
 }
 

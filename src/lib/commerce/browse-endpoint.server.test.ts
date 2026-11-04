@@ -25,9 +25,9 @@ describe("browse endpoint", () => {
     );
     expect(response.status).toBe(200);
     expect(response.headers.get("Cache-Control")).toBe("private, no-store");
-    expect((await response.json()).totalCount).toBe(
-      search.data.search.totalCount,
-    );
+    const body = await response.json();
+    expect(body.totalCount).toBe(search.data.search.totalCount);
+    expect(body.closeMatches).toBeUndefined();
   });
 
   it("shows predictive search's typo-forgiving matches when search finds nothing", async () => {
@@ -52,7 +52,9 @@ describe("browse endpoint", () => {
     expect(
       typo.products.items.map((item: { handle: string }) => item.handle),
     ).toEqual(handles);
-    expect(typo.totalCount).toBe(handles.length);
+    // Marked as close matches, and not counted as results for the term.
+    expect(typo.closeMatches).toBe(true);
+    expect(typo.totalCount).toBe(0);
 
     // Not when filters narrowed a search to nothing: that empty is real.
     const filtered = await (
@@ -62,6 +64,7 @@ describe("browse endpoint", () => {
       )
     ).json();
     expect(filtered.totalCount).toBe(0);
+    expect(filtered.closeMatches).toBeUndefined();
     expect(predicted).toBe(1);
   });
 
@@ -78,7 +81,9 @@ describe("browse endpoint", () => {
       on,
     );
     expect(response.status).toBe(200);
-    expect((await response.json()).totalCount).toBe(0);
+    const body = await response.json();
+    expect(body.totalCount).toBe(0);
+    expect(body.closeMatches).toBeUndefined();
   });
 
   it("404s for a collection that isn't published", async () => {

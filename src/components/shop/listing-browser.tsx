@@ -64,10 +64,6 @@ export function ListingBrowser({
     listed ?? initial?.products.items[0]?.price.min.currencyCode ?? null,
   );
   if (listed && listed !== currency) setCurrency(listed);
-  const count =
-    listing?.totalCount !== undefined
-      ? `${listing.totalCount} results`
-      : `${products.length} products on this page`;
 
   return (
     <ListingView
@@ -78,7 +74,7 @@ export function ListingBrowser({
       sorts={sorts}
       hidden={hidden}
       currency={currency}
-      count={count}
+      count={listing ? countLine(listing, term) : ""}
       results={results}
       navigate={navigate}
       go={go}
@@ -114,16 +110,23 @@ export function ListingFallback({
       sorts={sorts}
       hidden={hidden}
       currency={products[0]?.price.min.currencyCode ?? null}
-      count={
-        initial.totalCount !== undefined
-          ? `${initial.totalCount} results`
-          : `${products.length} products on this page`
-      }
+      count={countLine(initial, null)}
       navigate={() => {}}
       go={() => {}}
       retry={() => {}}
     />
   );
+}
+
+// The line above the products. A search's close matches aren't results for
+// its term, so they get no count.
+function countLine(listing: Listing, term: string | null): string {
+  if (listing.closeMatches && term) {
+    return `No results for “${term}”. Close matches:`;
+  }
+  return listing.totalCount !== undefined
+    ? `${listing.totalCount} results`
+    : `${listing.products.items.length} products on this page`;
 }
 
 function ListingView({

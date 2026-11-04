@@ -221,6 +221,9 @@ export type Listing = {
   facets: Facet[];
   // Search only.
   totalCount?: number;
+  // Search only: nothing matched the term, so the products are predictive
+  // search's close matches (it forgives typos) and totalCount stays 0.
+  closeMatches?: boolean;
 };
 
 export type PredictiveResults = {
