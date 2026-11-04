@@ -125,6 +125,29 @@ describe("pnpm smoke", () => {
     ]);
   });
 
+  it("points an unknown handle's failure at Cloudflare's known adapter bug", async () => {
+    const results = await runSmoke(
+      options(),
+      beforeLaunch({
+        [`${BASE}/products/smoke-check-missing`]: {
+          status: 500,
+          robots: NOINDEX,
+        },
+      }).fetch,
+    );
+    expect(failures(results)).toEqual([
+      "an unknown /products/ handle answers 404",
+    ]);
+    const detail = (name: string) =>
+      results.find((result) => result.name === name)?.detail;
+    expect(detail("an unknown /products/ handle answers 404")).toContain(
+      '"Request-time renders of Cache Components pages hang" in docs/deploy-cloudflare.md',
+    );
+    expect(detail("an unknown /collections/ handle answers 404")).not.toContain(
+      "docs/",
+    );
+  });
+
   it("passes a launched deployment with --indexed", async () => {
     const { fetch } = launched();
     expect(failures(await runSmoke(options({ indexed: true }), fetch))).toEqual(

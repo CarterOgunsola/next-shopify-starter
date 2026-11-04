@@ -189,12 +189,16 @@ export async function runSmoke(options, fetchImpl = fetch) {
   }
 
   expectRobots("a missing page", await page(`/${MISSING}`), 404);
+  // Cloudflare answers these 500 until its adapter is fixed: a real bug, so
+  // the check still fails, but it says where that's written up.
   for (const kind of ["products", "collections"]) {
     const r = await page(`/${kind}/${MISSING}`);
     check(
       `an unknown /${kind}/ handle answers 404`,
       r.status === 404,
-      describe(r),
+      r.status === 404
+        ? describe(r)
+        : `${describe(r)} (on Cloudflare, a known adapter bug: "Request-time renders of Cache Components pages hang" in docs/deploy-cloudflare.md)`,
     );
   }
 
