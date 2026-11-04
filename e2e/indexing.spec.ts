@@ -79,7 +79,10 @@ test("keeps what src/proxy.ts answers out of search", async ({ page }) => {
     "x-robots-tag",
     "x-frame-options",
     "strict-transport-security",
-    "content-security-policy-report-only",
+    // test:e2e:csp builds with the policy enforced, under its own name.
+    process.env.CSP_ENFORCE === "1"
+      ? "content-security-policy"
+      : "content-security-policy-report-only",
   ]) {
     expect(
       sent.filter((header) => header === name),
