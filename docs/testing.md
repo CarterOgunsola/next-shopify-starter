@@ -7,6 +7,7 @@
 - **End to end** (`pnpm test:e2e`, Playwright). A production build served against a synthetic store built from the same fixtures, with axe accessibility checks on desktop and phone sizes. Nothing reaches the network. See [`e2e/README.md`](../e2e/README.md).
 - **Performance** (`pnpm perf`). Core Web Vitals and script size per page against `e2e/perf/budgets.json`, on a throttled phone.
 - **CI** (`.github/workflows/ci.yml`). Every push to `main` and every pull request runs `pnpm gate` and the build, the end-to-end suite with the CSP in report-only and enforced modes, and `pnpm cf:build` (build only, nothing is deployed). None of it needs Shopify secrets. `pnpm perf` stays local, since shared runners make its timings noisy.
+- **Live deploy** (`pnpm smoke <url>`). GET requests against a deployment on either host, checking what `next start` can't show: the noindex header on pages, static files and 404s, `robots.txt`, the sitemaps, canonical URLs and `REDIRECT_HOSTS`. Flags say which launch steps are done (see the [launch checklist](launch-checklist.md)).
 - **Live** (`pnpm test:live`, `pnpm fixtures:record`). Cart contract tests and the fixture recorder run against your dev store with `.env.local`.
 
 ## Seeding a dev store

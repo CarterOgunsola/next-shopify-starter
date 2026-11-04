@@ -35,22 +35,23 @@ See [Setup](docs/setup.md) for the Shopify dev store, the Headless channel token
 
 ## Commands
 
-| Command                | What it does                                                                                                             |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `pnpm dev`             | Dev server on port 4747.                                                                                                 |
-| `pnpm dev:https`       | Dev server on `https://local.tryhydrogen.dev:4747`, for customer sign-in.                                                |
-| `pnpm tunnel`          | Steps and values for a Cloudflare quick tunnel, the other way to test sign-in.                                           |
-| `pnpm gate`            | Everything before a commit: format check, lint, typecheck (with `hydrogen gql check`) and unit tests.                    |
-| `pnpm gate:build`      | `pnpm gate`, then the production build and the client secret scan. For changes to routes, caching, the proxy or layouts. |
-| `pnpm test:e2e`        | Builds against the synthetic store and runs Playwright. Run `pnpm exec playwright install chromium` once first.          |
-| `pnpm test:e2e:csp`    | The end-to-end suite with the CSP enforced.                                                                              |
-| `pnpm perf`            | Core Web Vitals and script budgets per page.                                                                             |
-| `pnpm cf:build`        | The Cloudflare Workers build (OpenNext) into `.open-next/`. See [Deploying to Cloudflare](docs/deploy-cloudflare.md).    |
-| `pnpm cf:preview`      | `pnpm cf:build`, then serves it locally on workerd (`wrangler dev`) at http://localhost:8787.                            |
-| `pnpm cf:deploy`       | `pnpm cf:build`, then deploys to Cloudflare. Needs a Cloudflare account and the resources below.                         |
-| `pnpm launch:check`    | Fails while any compliance wording is unapproved.                                                                        |
-| `pnpm fixtures:record` | Re-records the Storefront API fixtures from the dev store in `.env.local`.                                               |
-| `pnpm test:live`       | Cart contract tests against the dev store in `.env.local`.                                                               |
+| Command                | What it does                                                                                                                                             |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm dev`             | Dev server on port 4747.                                                                                                                                 |
+| `pnpm dev:https`       | Dev server on `https://local.tryhydrogen.dev:4747`, for customer sign-in.                                                                                |
+| `pnpm tunnel`          | Steps and values for a Cloudflare quick tunnel, the other way to test sign-in.                                                                           |
+| `pnpm gate`            | Everything before a commit: format check, lint, typecheck (with `hydrogen gql check`) and unit tests.                                                    |
+| `pnpm gate:build`      | `pnpm gate`, then the production build and the client secret scan. For changes to routes, caching, the proxy or layouts.                                 |
+| `pnpm test:e2e`        | Builds against the synthetic store and runs Playwright. Run `pnpm exec playwright install chromium` once first.                                          |
+| `pnpm test:e2e:csp`    | The end-to-end suite with the CSP enforced.                                                                                                              |
+| `pnpm perf`            | Core Web Vitals and script budgets per page.                                                                                                             |
+| `pnpm cf:build`        | The Cloudflare Workers build (OpenNext) into `.open-next/`. See [Deploying to Cloudflare](docs/deploy-cloudflare.md).                                    |
+| `pnpm cf:preview`      | `pnpm cf:build`, then serves it locally on workerd (`wrangler dev`) at http://localhost:8787.                                                            |
+| `pnpm cf:deploy`       | `pnpm cf:build`, then deploys to Cloudflare. Needs a Cloudflare account and the resources below.                                                         |
+| `pnpm smoke <url>`     | Checks a live deploy on either host (noindex, `robots.txt`, sitemaps, 404s). Flags: `--indexed`, `--shop`, `--shop-indexed`, `--redirect-from <origin>`. |
+| `pnpm launch:check`    | Fails while any compliance wording is unapproved.                                                                                                        |
+| `pnpm fixtures:record` | Re-records the Storefront API fixtures from the dev store in `.env.local`.                                                                               |
+| `pnpm test:live`       | Cart contract tests against the dev store in `.env.local`.                                                                                               |
 
 ## Docs
 
