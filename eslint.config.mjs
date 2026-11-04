@@ -2,6 +2,7 @@ import { dirname, relative, resolve } from "node:path";
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import reactRefresh from "eslint-plugin-react-refresh";
 
 // Module boundaries: Shopify only inside src/lib/commerce/shopify, a CMS SDK only
 // inside src/lib/content, the consent vendor only inside src/lib/consent.
@@ -172,6 +173,19 @@ const eslintConfig = defineConfig([
     files: ["src/lib/commerce/shopify/**/*.{ts,tsx}"],
     plugins: { local },
     rules: { "local/no-use-cache": "error" },
+  },
+  {
+    // A component file that exports anything else makes Fast Refresh reload
+    // the whole page.
+    files: ["src/components/**/*.tsx"],
+    ignores: ["src/components/**/*.test.tsx"],
+    plugins: { "react-refresh": reactRefresh },
+    rules: {
+      "react-refresh/only-export-components": [
+        "error",
+        { allowConstantExport: true },
+      ],
+    },
   },
   {
     files: ["src/**/*.{ts,tsx}"],

@@ -1,9 +1,5 @@
-import { describe, expect, it, vi } from "vitest";
-
-vi.mock("@/lib/commerce/menus.server", () => ({ siteMenu: vi.fn() }));
-vi.mock("@/lib/env", () => ({ serverEnv: () => ({}) }));
-
-const { withoutFooterCopies } = await import("./site-footer");
+import { describe, expect, it } from "vitest";
+import { withoutFooterCopies } from "./footer-menu";
 
 describe("withoutFooterCopies", () => {
   it("leaves out the legal links and policies the footer shows anyway, at every level", () => {

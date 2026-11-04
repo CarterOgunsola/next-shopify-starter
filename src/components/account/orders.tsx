@@ -6,7 +6,7 @@ import {
   type OrderSummary,
   type Page,
 } from "@/lib/commerce";
-import { formatDate, statusLabel } from "./account-panels";
+import { formatDate, statusLabel } from "./format";
 
 // The order history, a page at a time, newest first.
 export function OrdersTable({ page }: { page: Page<OrderSummary> }) {

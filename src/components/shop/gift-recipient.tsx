@@ -6,12 +6,7 @@ import {
   type GiftRecipient,
   localSendWindow,
 } from "@/lib/commerce/gift-card";
-
-export type GiftState = { send: boolean; recipient: GiftRecipient };
-export const NO_GIFT: GiftState = {
-  send: false,
-  recipient: { email: "", name: "", message: "", sendOn: "" },
-};
+import type { GiftState } from "./gift-state";
 
 // "Send as a gift": the recipient's email (required), name, a message and
 // the day Shopify emails the card (today if left empty).

@@ -24,7 +24,8 @@ import {
 } from "@/lib/commerce/variant-selection";
 import { planOffers } from "@/lib/commerce/selling-plans";
 import { giftCardAttributes, recipientErrors } from "@/lib/commerce/gift-card";
-import { GiftRecipientFields, type GiftState, NO_GIFT } from "./gift-recipient";
+import { GiftRecipientFields } from "./gift-recipient";
+import { type GiftState, NO_GIFT } from "./gift-state";
 import { NotifyMe } from "./notify-me";
 import { ShopPayBuyNow } from "./shop-pay-buy-now";
 import { PurchaseOptions } from "./purchase-options";

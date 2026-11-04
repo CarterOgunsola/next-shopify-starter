@@ -69,7 +69,7 @@ function DirectAdd({
 // Per page load: one request per product, however often it's opened.
 const loaded = new Map<string, Promise<QuickAddProduct | null>>();
 
-export function loadQuickAdd(handle: string): Promise<QuickAddProduct | null> {
+function loadQuickAdd(handle: string): Promise<QuickAddProduct | null> {
   let request = loaded.get(handle);
   if (!request) {
     request = fetch(
