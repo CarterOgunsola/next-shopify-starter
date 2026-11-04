@@ -24,8 +24,10 @@
   }
 
   /* Phones: no double-tap wait on controls, and a held button doesn't
-     select its label. Tailwind's preflight already turns off the grey tap
-     highlight. */
+     select its label. Tailwind's preflight turns off the grey tap
+     highlight, so a pressed link dims instead. No link style here or in
+     the quiet stylesheet transitions opacity, so the dim shows at once
+     and clears on release. */
   a,
   button,
   input,
@@ -38,6 +40,11 @@
   button {
     -webkit-user-select: none;
     user-select: none;
+  }
+  @media (pointer: coarse) {
+    a:active {
+      opacity: 0.6;
+    }
   }
 
   /* An open full-screen overlay marked data-lock-scroll="on" holds the
