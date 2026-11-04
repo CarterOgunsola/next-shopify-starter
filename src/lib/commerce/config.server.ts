@@ -5,7 +5,7 @@ import { z } from "zod";
 // first Shopify call, not at startup, so the site runs without it while the
 // shop is off.
 
-export const API_VERSION = "2026-10";
+export { API_VERSION } from "./api-version";
 
 export const STORE_LOCALE = { country: "US", language: "EN" } as const;
 
