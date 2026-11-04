@@ -16,6 +16,8 @@ const NOT_SETTINGS = new Set([
   "VERCEL",
   "VERCEL_ENV",
   "WORKERS_CI",
+  // Set by pnpm cf:deploy for its build (src/lib/site-url-guard.ts).
+  "CF_DEPLOY",
   "E2E",
   "E2E_PORT",
   "E2E_SKIP_BUILD",

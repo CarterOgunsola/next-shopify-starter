@@ -5,8 +5,11 @@ import { e2eMode } from "./src/lib/e2e-mode";
 import { robotsHeaders } from "./src/lib/indexing";
 import { hostRedirects } from "./src/lib/redirect-hosts";
 import { securityHeaders } from "./src/lib/security/headers";
+import { requireProductionSiteUrl } from "./src/lib/site-url-guard";
 
 const e2e = e2eMode(process.env);
+// A production deploy build stops here without the site's real URL.
+requireProductionSiteUrl(process.env);
 
 const nextConfig: NextConfig = {
   cacheComponents: true,

@@ -35,7 +35,7 @@ Cloudflare's own Next.js guide now leads with [vinext](https://developers.cloudf
 
 ## Environment and secrets
 
-The build needs the same variables as on Vercel, since `next build` prerenders pages from Shopify and inlines the `NEXT_PUBLIC_*` values and the settings read at build (`SITE_INDEXED`, `SHOP_ENABLED`, `SHOP_INDEXED`, `CSP_ENFORCE`, `SHOPIFY_CHECKOUT_DOMAIN`). The running worker reads its own variables: set the plain ones as `vars` (or in the dashboard) and the secrets with `wrangler secret put <NAME>`:
+The build needs the same variables as on Vercel, since `next build` prerenders pages from Shopify and inlines the `NEXT_PUBLIC_*` values and the settings read at build (`SITE_INDEXED`, `SHOP_ENABLED`, `SHOP_INDEXED`, `CSP_ENFORCE`, `SHOPIFY_CHECKOUT_DOMAIN`). A Workers Builds build and `pnpm cf:deploy` fail without an https `NEXT_PUBLIC_SITE_URL` that isn't localhost (`src/lib/site-url-guard.ts`); `pnpm cf:build` and `pnpm cf:preview` on their own don't check it. The running worker reads its own variables: set the plain ones as `vars` (or in the dashboard) and the secrets with `wrangler secret put <NAME>`:
 
 - `SHOPIFY_PRIVATE_ACCESS_TOKEN`
 - `SHOPIFY_WEBHOOK_SECRET`

@@ -26,7 +26,7 @@
     "dev:https": "next dev --experimental-https --hostname local.tryhydrogen.dev -p 4747",
     "cf:build": "HOSTING=cloudflare opennextjs-cloudflare build && node scripts/cloudflare-assets.mjs",
     "cf:preview": "pnpm cf:build && opennextjs-cloudflare preview",
-    "cf:deploy": "pnpm cf:build && opennextjs-cloudflare deploy"
+    "cf:deploy": "CF_DEPLOY=1 pnpm cf:build && opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "@c15t/nextjs": "2.2.1",
