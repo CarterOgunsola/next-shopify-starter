@@ -29,7 +29,7 @@ cp .env.example .env.local
 pnpm dev
 ```
 
-The dev server runs on http://localhost:4747. With `SHOP_ENABLED=false` (the default) the site runs without any Shopify settings and the shop pages 404.
+The dev server runs on http://localhost:4747. With `SHOP_ENABLED=false` (the default) the site runs without any Shopify settings and the shop pages 404. To work on the shop before there's a store, `pnpm dev:synthetic` runs the dev server against the synthetic store the end-to-end tests use, with no Shopify settings or secrets.
 
 See [Setup](docs/setup.md) for the Shopify dev store, the Headless channel tokens and customer accounts.
 
@@ -39,6 +39,7 @@ See [Setup](docs/setup.md) for the Shopify dev store, the Headless channel token
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pnpm dev`             | Dev server on port 4747.                                                                                                                                 |
 | `pnpm dev:https`       | Dev server on `https://local.tryhydrogen.dev:4747`, for customer sign-in.                                                                                |
+| `pnpm dev:synthetic`   | Dev server on port 4748 against the synthetic store, for working on the site without a Shopify store.                                                    |
 | `pnpm tunnel`          | Steps and values for a Cloudflare quick tunnel, the other way to test sign-in.                                                                           |
 | `pnpm gate`            | Everything before a commit: format check, lint, typecheck (with `hydrogen gql check`) and unit tests.                                                    |
 | `pnpm gate:build`      | `pnpm gate`, then the production build and the client secret scan. For changes to routes, caching, the proxy or layouts.                                 |

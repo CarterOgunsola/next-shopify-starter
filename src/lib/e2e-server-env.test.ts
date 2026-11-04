@@ -68,4 +68,23 @@ describe("the end-to-end server's environment", () => {
   it("keeps the rest of the caller's environment", () => {
     expect(serverEnv({ PATH: "/usr/bin" }).PATH).toBe("/usr/bin");
   });
+
+  it("serves the tests on 127.0.0.1 and pnpm dev:synthetic on localhost", () => {
+    expect(serverEnv({}).NEXT_PUBLIC_SITE_URL).toBe("http://127.0.0.1:3100");
+    const dev = e2eServerEnv({
+      env: { SHOPIFY_STORE_DOMAIN: "real-store.myshopify.com" },
+      envExample,
+      port: "4748",
+      preload,
+      dev: true,
+    });
+    // next dev only serves its scripts to localhost.
+    expect(dev.NEXT_PUBLIC_SITE_URL).toBe("http://localhost:4748");
+    // Otherwise the same synthetic store as the tests.
+    expect({ ...dev, NEXT_PUBLIC_SITE_URL: "" }).toEqual({
+      ...e2eServerEnv({ env: {}, envExample, port: "4748", preload }),
+      NEXT_PUBLIC_SITE_URL: "",
+    });
+    expect(e2eMode(dev)).toBe(true);
+  });
 });

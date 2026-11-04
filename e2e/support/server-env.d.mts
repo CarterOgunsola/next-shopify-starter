@@ -6,4 +6,6 @@ export function e2eServerEnv(options: {
   port: string;
   // Path of the module every server process imports first.
   preload: string;
+  // next dev (pnpm dev:synthetic) rather than the tests' next start.
+  dev?: boolean;
 }): Record<string, string | undefined>;

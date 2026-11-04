@@ -1,5 +1,7 @@
 # Setup
 
+To work on the site before there's a store, `pnpm dev:synthetic` runs the dev server on port 4748 against the synthetic store the end-to-end tests use: no Shopify settings or secrets, and `.env.local` is ignored. See [End to end tests](../e2e/README.md).
+
 ## 1. Shopify dev store
 
 Create a development store in the Shopify Partner Dashboard, or use a Plus sandbox store. Shopify's generated sample products are enough to browse; see [Seeding a dev store](testing.md#seeding-a-dev-store) for the products the fixtures and tests expect.

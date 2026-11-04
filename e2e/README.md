@@ -5,6 +5,11 @@ it with `next start`, then runs the Playwright tests here against it in
 Chromium, and the accessibility tests again on a phone-sized screen. Install the browser once with
 `pnpm exec playwright install chromium`.
 
+`pnpm dev:synthetic` runs `next dev` against the same synthetic store, on
+port 4748 (`E2E_PORT` changes it), for working on the site without a
+Shopify store: the same environment as the tests' server (below), with the
+site on `localhost`, since `next dev` serves its scripts only there.
+
 ## Nothing reaches the network
 
 - `support/serve.mjs` builds and serves the site in the environment

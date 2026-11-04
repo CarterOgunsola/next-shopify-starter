@@ -25,6 +25,7 @@
     "launch:check": "LAUNCH_CHECK=1 vitest run src/lib/commerce/compliance.test.ts",
     "test:live": "VITEST_LIVE=1 vitest run --config vitest.record.config.mts",
     "dev:https": "next dev --experimental-https --hostname local.tryhydrogen.dev -p 4747",
+    "dev:synthetic": "node e2e/support/serve.mjs --dev",
     "cf:build": "HOSTING=cloudflare opennextjs-cloudflare build && node scripts/cloudflare-assets.mjs",
     "cf:preview": "pnpm cf:build && opennextjs-cloudflare preview",
     "cf:deploy": "CF_DEPLOY=1 pnpm cf:build && opennextjs-cloudflare deploy"
