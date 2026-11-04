@@ -1,14 +1,14 @@
 name: CI
 
-# Docs-only changes skip CI. Anything else runs everything: the build and
-# end-to-end suites cover the whole app, so a change in one place can break
-# another.
+# Docs-only changes skip the jobs. Anything else runs everything: the build
+# and end-to-end suites cover the whole app, so a change in one place can
+# break another. The workflow itself always runs, so checks that branch
+# protection requires always report: a skipped job counts as passed, while
+# a workflow that never starts leaves the pull request waiting.
 on:
   push:
     branches: [main]
-    paths-ignore: ["docs/**", "**/*.md"]
   pull_request:
-    paths-ignore: ["docs/**", "**/*.md"]
 
 permissions:
   contents: read
@@ -26,9 +26,42 @@ env:
 # Every suite here is hermetic: no Shopify store, tokens or vendor keys. The
 # build runs with the shop off (SHOP_ENABLED unset), and the end-to-end
 # server (e2e/support/serve.mjs) sets its own synthetic store.
+#
+# The other jobs run unless changes found docs only. If changes fails, they
+# run anyway rather than skip and pass.
 jobs:
+  changes:
+    name: Changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      code: ${{ steps.diff.outputs.code }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # All of history, so the base commit is there to compare with.
+          fetch-depth: 0
+      - name: Anything outside docs/ and Markdown?
+        id: diff
+        env:
+          # The pull request's base, or the branch before this push.
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          # A new branch's first push has no before (all zeros), and a force
+          # push can leave it out of history: run everything.
+          if [ "$BASE" = "0000000000000000000000000000000000000000" ] ||
+            ! git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            echo "code=true" >> "$GITHUB_OUTPUT"
+          elif [ -n "$(git diff --name-only "$BASE" HEAD -- . ':!docs/' ':!*.md')" ]; then
+            echo "code=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "code=false" >> "$GITHUB_OUTPUT"
+          fi
+
   check:
     name: Gate and build
+    needs: changes
+    if: ${{ !cancelled() && needs.changes.outputs.code != 'false' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -48,6 +81,8 @@ jobs:
 
   cloudflare:
     name: Cloudflare build
+    needs: changes
+    if: ${{ !cancelled() && needs.changes.outputs.code != 'false' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -64,15 +99,17 @@ jobs:
         env:
           WRANGLER_SEND_METRICS: "false"
 
+  # One job per script rather than a matrix: a matrix job that's skipped
+  # never expands, so its per-script checks would never report.
   e2e:
-    name: End to end (${{ matrix.script }})
+    name: End to end (test:e2e)
+    needs: changes
+    if: ${{ !cancelled() && needs.changes.outputs.code != 'false' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    strategy:
-      fail-fast: false
-      matrix:
-        script: ["test:e2e", "test:e2e:csp"]
-    steps:
+    env:
+      SCRIPT: test:e2e
+    steps: &e2e-steps
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v7
@@ -95,13 +132,23 @@ jobs:
       - name: Install Chromium system dependencies
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: pnpm exec playwright install-deps chromium
-      - run: pnpm ${{ matrix.script }}
+      - run: pnpm "$SCRIPT"
       - name: Upload Playwright report
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: playwright-report-${{ strategy.job-index }}
+          name: playwright-report-${{ github.job }}
           path: |
             playwright-report/
             test-results/
           retention-days: 7
+
+  e2e-csp:
+    name: End to end (test:e2e:csp)
+    needs: changes
+    if: ${{ !cancelled() && needs.changes.outputs.code != 'false' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SCRIPT: test:e2e:csp
+    steps: *e2e-steps
