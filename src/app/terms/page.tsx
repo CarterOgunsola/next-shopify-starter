@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
+  alternates: { canonical: "/terms" },
 };
 
 // PLACEHOLDER: replace with your terms of use, written or approved by the store's

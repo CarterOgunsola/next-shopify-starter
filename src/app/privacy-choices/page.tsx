@@ -3,6 +3,7 @@ import { PrivacyChoices } from "@/components/consent/privacy-choices";
 
 export const metadata: Metadata = {
   title: "Your Privacy Choices",
+  alternates: { canonical: "/privacy-choices" },
 };
 
 // PLACEHOLDER copy: the store's counsel provides the final wording before

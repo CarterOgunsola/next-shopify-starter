@@ -1,9 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { BRAND } from "@/lib/brand";
 import { publicEnv } from "@/lib/env";
 import { isShopEnabled } from "@/lib/flags";
 import { siteJsonLd } from "@/lib/seo/site-json-ld";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 // A minimal home page. Replace it with your own, or render it from a CMS
 // (src/lib/content).

@@ -9,7 +9,9 @@ import type { Content } from "./types";
 // To add a CMS: install its SDK, implement `content` here (cache reads with
 // "use cache" and a tag your CMS webhook expires), extend `Content` in
 // types.ts with what your pages need, and add routes in src/app that call
-// it. Remember to list new routes in src/lib/commerce/app-routes.ts.
+// it. Give each page its own canonical URL in its metadata
+// (alternates.canonical, never in a layout; see src/app/canonical.test.ts),
+// and list new routes in src/lib/commerce/app-routes.ts.
 
 export type * from "./types";
 

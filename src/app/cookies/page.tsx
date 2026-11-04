@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
+  alternates: { canonical: "/cookies" },
 };
 
 // PLACEHOLDER: replace with your cookie policy (list the cookies in src/lib/cookie-names.ts and those your vendors set), written or approved by the store's

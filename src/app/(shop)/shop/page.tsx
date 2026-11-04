@@ -7,6 +7,7 @@ import { requireShop } from "@/lib/flags";
 
 export const metadata: Metadata = {
   title: "Shop",
+  alternates: { canonical: "/shop" },
 };
 
 export default async function ShopPage() {
